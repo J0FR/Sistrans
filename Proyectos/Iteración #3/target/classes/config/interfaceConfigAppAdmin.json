@@ -1,0 +1,167 @@
+{
+	"title": "Aplicación transaccional de Alohandes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Registrar operador",
+		  "options":
+			[
+				{
+					"label": "Crear operador usuario",
+					"event": "adicionarOperadorUsuario"
+				},
+				{
+					"label": "Crear hotel",
+					"event": "adicionarHotel"
+				},
+				{
+					"label": "Crear hostal",
+					"event": "adicionarHostal"
+				},
+				{
+					"label": "Crear vivienda universitaria",
+					"event": "adicionarViviendaUniversitaria"
+				}
+			]
+		},
+		{ "menuTitle": "Registrar cliente",
+		  "options": 
+		   [
+				{
+					"label": "Registrar un nuevo cliente",
+					"event": "adicionarCliente"
+				}
+
+		   ]
+		},
+		{ "menuTitle": "Gestionar alojamientos",
+		  "options": 
+		  [
+				{
+					"label": "RFC1 - MOSTRAR EL DINERO RECIBIDO POR CADA PROVEEDOR DE ALOJAMIENTO DURANTE EL AÑO ACTUAL Y EL AÑO CORRIDO",
+					"event": "listarDineroRecibido"
+				},
+				{
+					"label": "RFC2 - MOSTRAR LAS 20 OFERTAS MÁS POPULARES",
+					"event": "listarTop20"
+				},
+				{
+					"label": "RFC3 - MOSTRAR EL ÍNDICE DE OCUPACIÓN DE CADA UNA DE LAS OFERTAS DE ALOJAMIENTO REGISTRADAS",
+					"event": "mostrarIndiceOcupacion"
+				},
+				{
+					"label": "RFC4 - BUSQUEDA DE ALOJAMIENTOS CON FILTROS",
+					"event": "mostrarAlojamientoConCondicion"
+				},
+				{
+					"label": "Adicionar un servicio a un alojamiento",
+					"event": "adicionarAlojamientoServicio"
+				}
+		  ]
+		},
+		{ "menuTitle": "Crear un tipo de alojamiento",
+		  "options":
+		  [
+				{
+					"label": "Registrar habitación huesped",
+					"event": "adicionarHabitacionHuesped"
+				},
+				{
+					"label": "Registrar Apartamento en alquiler",
+					"event": "adicionarApartamentoAlquiler" 
+				},
+				{
+					"label": "Registrar vivienda temporal",
+					"event": "adicionarViviendaTemporal" 
+				},
+				{
+					"label": "Registrar habitación de hotel",
+					"event": "adicionarHabitacionHotel" 
+				},
+				{
+					"label": "Registrar habitación de vivienda universitaria",
+					"event": "adicionarHabitacionViviendaUniversitaria" 
+				},
+				{
+					"label": "Registrar habitación de hostal",
+					"event": "adicionarHabitacionHostal" 
+				}
+		  ]	
+		},
+		{ "menuTitle": "Eliminar un tipo de alojamiento",
+		  "options":
+		  [
+				{
+					"label": "Eliminar habitación huesped",
+					"event": "eliminarHabitacionHuesped"
+				},
+				{
+					"label": "Eliminar Apartamento en alquiler",
+					"event": "eliminarApartamentoAlquiler" 
+				},
+				{
+					"label": "Eliminar vivienda temporal",
+					"event": "eliminarViviendaTemporal" 
+				},
+				{
+					"label": "Eliminar habitación de hotel",
+					"event": "eliminarHabitacionHotel" 
+				},
+				{
+					"label": "Eliminar habitación de vivienda universitaria",
+					"event": "eliminarHabitacionViviendaUniversitaria" 
+				},
+				{
+					"label": "Eliminar habitación de hostal",
+					"event": "eliminarHabitacionHostal" 
+				}
+		  ]	
+		},
+		{ "menuTitle": "Getionar Reservas",
+		  "options":
+		  [
+				{
+					"label": "Registrar una nueva reserva",
+					"event": "adicionarReserva"
+				},
+				{
+					"label": "Cancelar una reserva",
+					"event": "eliminarReservaPorId" 
+				}
+		  ]	
+		},
+		{ "menuTitle": "Mantenimiento",
+		  "options":
+			[
+				{
+					"label": "Mostrar log Alohandes",
+					"event": "mostrarLogAlohandes"
+				},
+				{
+					"label": "Mostrar log datanucleus",
+					"event": "mostrarLogDatanuecleus"
+				},
+				{
+					"label": "Limpiar log de Alohandes",
+					"event": "limpiarLogAlohandes"
+				},
+				{
+					"label": "Limpiar log de datanucleus",
+					"event": "limpiarLogDatanucleus"
+				}
+			]
+		},
+		{ "menuTitle": "Operacion Cuenta",
+		  "options":
+			[
+				{
+					"label": "Cerrar Sesion",
+					"event": "cerrarSesion"
+				}
+			]
+		}
+
+	]
+}

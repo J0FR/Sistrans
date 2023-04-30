@@ -1,0 +1,53 @@
+{
+	"title": "Aplicación transaccional de Alohandes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Empresa",
+		  "options":
+			[
+				{
+					"label": "Ingresar como Administrador Hotel",
+					"event": "ingresarInterfazHotel"
+				},
+				{
+					"label": "Ingresar como Administrador Vivienda Universitaria",
+					"event": "ingresarInterfazViviendaUniversitaria"
+				},
+				{
+					"label": "Ingresar como Administrador Hostal",
+					"event": "ingresarInterfazHostal"
+				}
+			]
+		},
+        { "menuTitle": "Persona_Natural",
+		  "options":
+			[
+                {
+                    "label": "Ingresar como Cliente",
+                    "event": "ingresarInterfazCliente"
+                },
+				{
+                    "label": "Crear cuenta Cliente",
+                    "event": "adicionarCliente"
+                },
+				{
+					"label": "Ingresar como Operador Usuario",
+					"event": "ingresarInterfazOperadorUsuario"
+				}
+			]
+		},
+        { "menuTitle": "Operador_Alhandes",
+		  "options":
+			[
+				{
+					"label": "Ingresar como Administrador",
+					"event": "ingresarInterfazAdmin"
+				}
+			]
+		}
+	]
+}
+	

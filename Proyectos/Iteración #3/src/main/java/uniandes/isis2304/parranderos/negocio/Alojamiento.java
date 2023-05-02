@@ -24,6 +24,11 @@ public class Alojamiento implements VOAlojamiento {
 	 */
 	private int costo;
 
+	/**
+	 * El estado de un alojamiento si esta activo o no ( 'Y' || 'N' )
+	 */
+	private String estatus;
+
 
 	/* ****************************************************************
 	 * 			Métodos 
@@ -37,6 +42,7 @@ public class Alojamiento implements VOAlojamiento {
 		this.ubicacion = "";
 		this.duracionMin = 0;
 		this.costo = 0;
+		this.estatus = "";
 	}
 
 	/**
@@ -45,12 +51,13 @@ public class Alojamiento implements VOAlojamiento {
 	 * @param tipo - El ubicacion de un alojamiento
 	 * @param costo - El duracionMin de un alojamiento
 	 */
-    public Alojamiento(long id, String ubicacion, int duracionMin, int costo) 
+    public Alojamiento(long id, String ubicacion, int duracionMin, int costo, String estatus) 
     {
     	this.id = id;
 		this.ubicacion = ubicacion;
 		this.duracionMin = duracionMin;
 		this.costo = costo;
+		this.estatus = estatus;
 	}
 
     /**
@@ -108,6 +115,14 @@ public class Alojamiento implements VOAlojamiento {
 	{
 		return costo;
 	}
+
+	/**
+	 * @return El estatus del alojamiento
+	 */
+	public String getEstatus() 
+	{
+		return estatus;
+	}
 	
 	/**
 	 * @param costo - El nuevo costo del alojamiento
@@ -116,6 +131,14 @@ public class Alojamiento implements VOAlojamiento {
 	{
 		this.costo = costo;
 	}
+
+	/**
+	 * @param estatus - El nuevo estatus del alojamiento
+	 */
+	public void setEstatus(String estatus)
+	{
+		this.estatus = estatus;
+	}
 	
 	@Override
 	/**
@@ -123,6 +146,6 @@ public class Alojamiento implements VOAlojamiento {
 	 */
 	public String toString() 
 	{
-		return "Alojamiento [id=" + id + ", ubicacion=" + ubicacion + ", duracionMin=" + duracionMin  + ", costo=" + costo  + "]";
+		return "Alojamiento [id=" + id + ", ubicacion=" + ubicacion + ", duracionMin=" + duracionMin  + ", costo=" + costo  + ", estatus=" + estatus + "]";
 	}
 }

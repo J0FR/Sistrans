@@ -23,6 +23,11 @@ public interface VOAlojamiento {
 	 * @return El costoBase
 	 */
 	public int getCosto();
+
+	/**
+	 * @return El estatus
+	 */
+	public String getEstatus();
 	
 
 	/** 

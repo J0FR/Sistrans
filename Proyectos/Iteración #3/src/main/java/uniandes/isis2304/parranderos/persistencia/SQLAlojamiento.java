@@ -49,10 +49,10 @@ public class SQLAlojamiento {
 	 * @param costo - El costo de un alojamiento
      * @return El número de tuplas insertadas
      */
-    public long adicionarAlojamiento(PersistenceManager pm, long id, String ubicacion, int duracionMin, int costo) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo) values (?, ?, ?, ?)");
+    public long adicionarAlojamiento(PersistenceManager pm, long id, String ubicacion, int duracionMin, int costo, String estatus) {
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, estatus) values (?, ?, ?, ?, ?)");
             
-        q.setParameters(id, ubicacion, duracionMin, costo);
+        q.setParameters(id, ubicacion, duracionMin, costo, estatus);
         return (long) q.executeUnique();
     }
 

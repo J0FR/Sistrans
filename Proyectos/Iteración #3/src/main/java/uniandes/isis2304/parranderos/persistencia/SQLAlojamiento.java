@@ -103,7 +103,7 @@ public class SQLAlojamiento {
 		sql+= "	FROM A_RESERVA ";
 		sql+= " WHERE ? BETWEEN FECHAINI AND FECHAFIN ";
 		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) ";
-
+		sql+= "	AND A_ALOJAMIENTO.ESTATUS = 'Y' ";
 		if (!tiposServicio.isEmpty()) {
 			String tiposServicioParam = String.join(",", Collections.nCopies(tiposServicio.size(), "?"));
 			sql += " AND A_SERVICIO.TIPO IN (" + tiposServicioParam + ")";

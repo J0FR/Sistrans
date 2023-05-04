@@ -119,6 +119,35 @@
 				}
 		  ]	
 		},
+		{ "menuTitle": "Deshabilitar un alojamiento",
+		  "options":
+		  [
+				{
+					"label": "Deshabilitar habitación huesped",
+					"event": "deshabilitarHabitacionHuesped"
+				},
+				{
+					"label": "Deshabilitar apartamento en alquiler",
+					"event": "deshabilitarApartamentoAlquiler" 
+				},
+				{
+					"label": "Deshabilitar vivienda temporal",
+					"event": "deshabilitarViviendaTemporal" 
+				},
+				{
+					"label": "Deshabilitar habitación de hotel",
+					"event": "deshabilitarHabitacionHotel" 
+				},
+				{
+					"label": "Deshabilitar habitación de vivienda universitaria",
+					"event": "deshabilitarHabitacionViviendaUniversitaria" 
+				},
+				{
+					"label": "Deshabilitar habitación de hostal",
+					"event": "deshabilitarHabitacionHostal" 
+				}
+		  ]	
+		},
 		{ "menuTitle": "Getionar Reservas",
 		  "options":
 		  [

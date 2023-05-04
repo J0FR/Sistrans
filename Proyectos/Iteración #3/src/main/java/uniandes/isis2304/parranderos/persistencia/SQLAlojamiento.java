@@ -139,13 +139,21 @@ public class SQLAlojamiento {
 
 	public List<Object[]> darAlojamientosDisponiblesSegunTipo(PersistenceManager pm, Timestamp fechaIni, Timestamp fechaFin, String tipo)
 	{
+
+		String tipoId = "ID";
+		
+		if(tipo.equals("A_HABITACIONHUESPED") || tipo.equals("A_VIVIENDATEMPORAL") || tipo.equals("A_APARTAMENTOALQUILER"))
+		{
+			tipoId = "IDALOJAMIENTO";
+		}
+
 		String sql = "SELECT DISTINCT A_ALOJAMIENTO.ID ID_0, A_ALOJAMIENTO.UBICACION UBICACION, A_ALOJAMIENTO.COSTO COSTO ";
-		sql+= " FROM ((A_ALOJAMIENTO LEFT JOIN A_RESERVA ON A_ALOJAMIENTO.ID = A_RESERVA.IDALOJAMIENTO) ";
+		sql+= " FROM (A_ALOJAMIENTO LEFT JOIN A_RESERVA ON A_ALOJAMIENTO.ID = A_RESERVA.IDALOJAMIENTO) ";
 		sql+= " WHERE A_ALOJAMIENTO.ID NOT IN (Select A_RESERVA.IDALOJAMIENTO ";
 		sql+= "	FROM A_RESERVA ";
 		sql+= " WHERE ? BETWEEN FECHAINI AND FECHAFIN ";
 		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) ";
-		sql+= " AND A_ALOJAMIENTO.ID IN ( SELECT " + tipo + ".IDALOJAMIENTO ";
+		sql+= " AND A_ALOJAMIENTO.ID IN ( SELECT " + tipo + "." + tipoId + " ";
 		sql+= " FROM " + tipo + " ) ";
 		sql+= "	AND A_ALOJAMIENTO.ESTATUS = 'Y' ";
 		sql+= " GROUP BY A_ALOJAMIENTO.ID,UBICACION, A_ALOJAMIENTO.COSTO, FECHAINI, FECHAFIN ";

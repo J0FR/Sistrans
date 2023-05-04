@@ -2460,7 +2460,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 
 			if(idAlojamiento != null)
 			{
-				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHUESPED");
+				String resp = alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHUESPED");
+				panelDatos.actualizarInterfaz(resp);
 			}
 			else
     		{
@@ -2484,7 +2485,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 
 			if(idAlojamiento != null)
 			{
-				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_APARTAMENTOALQUILER");
+				String resp = alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_APARTAMENTOALQUILER");
+				panelDatos.actualizarInterfaz(resp);
 			}
 			else
     		{
@@ -2508,7 +2510,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 
 			if(idAlojamiento != null)
 			{
-				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_VIVIENDATEMPORAL");
+				String resp = alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_VIVIENDATEMPORAL");
+				panelDatos.actualizarInterfaz(resp);
 			}
 			else
     		{
@@ -2532,7 +2535,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 
 			if(idAlojamiento != null)
 			{
-				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHOTEL");
+				String resp = alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHOTEL");
+				panelDatos.actualizarInterfaz(resp);
 			}
 			else
     		{
@@ -2556,7 +2560,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 
 			if(idAlojamiento != null)
 			{
-				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONVIVIENDAUNIVERSITARIA");
+				String resp = alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONVIVIENDAUNIVERSITARIA");
+				panelDatos.actualizarInterfaz(resp);
 			}
 			else
     		{
@@ -2580,7 +2585,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 
 			if(idAlojamiento != null)
 			{
-				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHOSTAL");
+				String resp = alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHOSTAL");
+				panelDatos.actualizarInterfaz(resp);
 			}
 			else
     		{

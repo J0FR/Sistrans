@@ -1584,26 +1584,27 @@ public class PersistenciaAlohandes {
 	 * 			Métodos para manejar RF9
 	 *****************************************************************/
 
-	public long RelocalizarReserva(Reserva reserva, long idAlojamiento, String tipo)
+	public String RelocalizarReserva(Reserva reserva, long idAlojamiento, String tipo)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 
 		List<Object[]> alojamientos = sqlAlojamiento.darAlojamientosDisponiblesSegunTipo(pm, reserva.getFechaIni(), reserva.getFechaFin(), tipo);
+
 		Transaction tx=pm.currentTransaction();
 		try
 		{
 			tx.begin();
-			long resp = sqlReserva.actualizarReservaPorIdAlojamiento(pm, reserva.getId(), Long.parseLong(alojamientos.get(0)[0].toString()));
+			long reservasActualizadas = sqlReserva.actualizarReservaPorIdAlojamiento(pm, reserva.getId(), Long.parseLong(alojamientos.get(0)[0].toString()));
 			tx.commit();
+			String resp = "Se relocalizo " + reservasActualizadas + " " + reserva  + " con id " +  reserva.getId() + " al alojamiento con id " + alojamientos.get(0)[0].toString() + "\n";
 			return resp;
 		}
 		catch (Exception e)
 		{
 //        	e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-			//TODO: Agregar mensaje de cual reserva no pudo ser relocalizada 
-			//dado que no se encontro un alojamineto disponible del mismo tipo
-			return -1;
+			String resp = "No fue posible relocalizar la reserva " + reserva.getId()  + " dado que no se encontraron alojamientos disponibles" + "\n";
+			return resp;
 		}
 		finally
 		{
@@ -1614,8 +1615,6 @@ public class PersistenciaAlohandes {
 			pm.close();
 		}
 }
-
-
 	/**
 	 * Método que actualiza, de manera transaccional, el estatus de una oferta de alojamiento
 	 * a inactivo (N)

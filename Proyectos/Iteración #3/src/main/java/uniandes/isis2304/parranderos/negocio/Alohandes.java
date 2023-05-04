@@ -796,4 +796,33 @@ public class Alohandes {
 	}
 
 
+	/*
+	 * ****************************************************************
+	 * Métodos para manejar los RF9
+	 *****************************************************************/
+
+	public void deshabilitarAlojamiento(long idAlojamiento, String tipo){
+		log.info("Inicia proceso de deshabilitar alojamiento por id: " + idAlojamiento);
+
+		long numAlojamientosDeshablitados = pa.deshabilitarAlojamiento(idAlojamiento);
+
+		log.info("Se deshabilitaron : " + numAlojamientosDeshablitados + " alojamientos");
+
+		log.info("Inicia proceso de relocalizar las reservas del alojamiento: " + idAlojamiento);
+
+		List<Reserva> reservas = pa.darReservasPorIdAlojamiento(idAlojamiento);
+
+		for(Reserva reserva : reservas){
+			log.info("Inicia proceso para la reserva con id: " + reserva.getId() + " que pertenecia al alojamiento con id: "+ idAlojamiento);
+
+			pa.RelocalizarReserva(reserva, idAlojamiento, tipo);
+
+			log.info("Termino proceso para la reserva con id: " + reserva.getId() + " que pertenecia al alojamiento con id: "+ idAlojamiento);
+		}
+
+		log.info("Termina proceso de deshabilitar alojamiento por id: " + idAlojamiento);
+
+	}
+
+
 }

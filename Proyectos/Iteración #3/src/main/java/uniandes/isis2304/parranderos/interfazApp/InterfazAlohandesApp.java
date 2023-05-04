@@ -2448,6 +2448,157 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
  
 	}	
 
+	/**
+	 * RF9
+	 **/
+
+	public void deshabilitarHabitacionHuesped(){
+		
+		try{
+
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamiento a deshabilitar", "Deshabilitar alojamiento", JOptionPane.QUESTION_MESSAGE);
+
+			if(idAlojamiento != null)
+			{
+				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHUESPED");
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void deshabilitarApartamentoAlquiler(){
+
+		try{
+
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamiento a deshabilitar", "Deshabilitar alojamiento", JOptionPane.QUESTION_MESSAGE);
+
+			if(idAlojamiento != null)
+			{
+				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_APARTAMENTOALQUILER");
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void deshabilitarViviendaTemporal(){
+
+		try{
+
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamiento a deshabilitar", "Deshabilitar alojamiento", JOptionPane.QUESTION_MESSAGE);
+
+			if(idAlojamiento != null)
+			{
+				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_VIVIENDATEMPORAL");
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void deshabilitarHabitacionHotel(){
+		
+		try{
+
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamiento a deshabilitar", "Deshabilitar alojamiento", JOptionPane.QUESTION_MESSAGE);
+
+			if(idAlojamiento != null)
+			{
+				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHOTEL");
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void deshabilitarHabitacionViviendaUniversitaria(){
+
+		try{
+
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamiento a deshabilitar", "Deshabilitar alojamiento", JOptionPane.QUESTION_MESSAGE);
+
+			if(idAlojamiento != null)
+			{
+				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONVIVIENDAUNIVERSITARIA");
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void deshabilitarHabitacionHostal(){
+		
+		try{
+
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamiento a deshabilitar", "Deshabilitar alojamiento", JOptionPane.QUESTION_MESSAGE);
+
+			if(idAlojamiento != null)
+			{
+				alohandes.deshabilitarAlojamiento(Long.parseLong(idAlojamiento), "A_HABITACIONHOSTAL");
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	 
+
+
 	/* ****************************************************************
 	 * 			Métodos administrativos
 	 *****************************************************************/

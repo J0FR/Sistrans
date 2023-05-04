@@ -97,4 +97,11 @@ class SQLReserva {
         q.setParameters(idAlojamiento);
         return (Timestamp) q.executeUnique();
     }
+
+    public long actualizarReservaPorIdAlojamiento(PersistenceManager pm, long idReserva, long idAlojamiento)
+    {
+        Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaReserva() + " SET IDALOJAMIENTO = ? WHERE ID = ?");
+        q.setParameters(idAlojamiento, idReserva);
+        return (long) q.executeUnique();
+    }
 }

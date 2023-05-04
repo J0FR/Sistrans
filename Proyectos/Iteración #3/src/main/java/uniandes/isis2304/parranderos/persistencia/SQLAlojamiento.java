@@ -137,6 +137,42 @@ public class SQLAlojamiento {
 		return q.executeList();
 	}
 
+	public List<Object[]> darAlojamientosDisponiblesSegunTipo(PersistenceManager pm, Timestamp fechaIni, Timestamp fechaFin, String tipo)
+	{
+		String sql = "SELECT DISTINCT A_ALOJAMIENTO.ID ID_0, A_ALOJAMIENTO.UBICACION UBICACION, A_ALOJAMIENTO.COSTO COSTO ";
+		sql+= " FROM ((A_ALOJAMIENTO LEFT JOIN A_RESERVA ON A_ALOJAMIENTO.ID = A_RESERVA.IDALOJAMIENTO) ";
+		sql+= " WHERE A_ALOJAMIENTO.ID NOT IN (Select A_RESERVA.IDALOJAMIENTO ";
+		sql+= "	FROM A_RESERVA ";
+		sql+= " WHERE ? BETWEEN FECHAINI AND FECHAFIN ";
+		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) ";
+		sql+= " AND A_ALOJAMIENTO.ID IN ( SELECT " + tipo + ".IDALOJAMIENTO ";
+		sql+= " FROM " + tipo + " ) ";
+		sql+= "	AND A_ALOJAMIENTO.ESTATUS = 'Y' ";
+		sql+= " GROUP BY A_ALOJAMIENTO.ID,UBICACION, A_ALOJAMIENTO.COSTO, FECHAINI, FECHAFIN ";
+		sql+= " HAVING ( ? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
+		sql+= " AND ? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) ";
+		sql+= " OR ";
+		sql+= " ( ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
+		sql+= " AND ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) ";
+
+		Query q = pm.newQuery(SQL, sql);
+		List<Object> parameters = new ArrayList<>();
+		
+		
+		parameters.add(fechaIni);
+		parameters.add(fechaFin);
+
+		parameters.add(fechaIni);
+		parameters.add(fechaFin);
+
+		parameters.add(fechaIni);
+		parameters.add(fechaFin);
+		
+		q.setParameters(parameters.toArray());
+		return q.executeList();
+
+	}
+
 	/**
 	 * RFC3 - Crea y ejecuta la sentencia SQL para encontrar el indice de ocupación de los alojamientos
 	 * 
@@ -161,6 +197,20 @@ public class SQLAlojamiento {
 		Query q = pm.newQuery(SQL, sql);
 		return q.executeList();
 	}
+
+	/**
+	 * RF9 - Deshabilitar un alojamiento, cambiar su estado a inactivo(N)
+	 * @param pm
+	 * @param id
+	 */
+	public long deshabilitarAlojamiento(PersistenceManager pm, long id)
+	{
+		Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaAlojamiento() + " SET ESTATUS = 'N' WHERE ID = ?");
+		q.setParameters(id);
+		return (long) q.executeUnique();
+	}
+
+
 
 	/**
 	 * Crea y ejecuta la sentencia SQL para encontrar la información de UNA RESERVA de la base de datos de Alohandes, por su id

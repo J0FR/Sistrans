@@ -1580,6 +1580,77 @@ public class PersistenciaAlohandes {
 		return sqlHabitacionViviendaUniversitaria.darHabitacionViviendaUniversitariaPorId(pmf.getPersistenceManager(), idHabitacionViviendaUniversitaria);
 	}
 
+	/* ****************************************************************
+	 * 			Métodos para manejar RF9
+	 *****************************************************************/
+
+	public long RelocalizarReserva(Reserva reserva, long idAlojamiento, String tipo)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+
+		List<Object[]> alojamientos = sqlAlojamiento.darAlojamientosDisponiblesSegunTipo(pm, reserva.getFechaIni(), reserva.getFechaFin(), tipo);
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long resp = sqlReserva.actualizarReservaPorIdAlojamiento(pm, reserva.getId(), Long.parseLong(alojamientos.get(0)[0].toString()));
+			tx.commit();
+			return resp;
+		}
+		catch (Exception e)
+		{
+//        	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			//TODO: Agregar mensaje de cual reserva no pudo ser relocalizada 
+			//dado que no se encontro un alojamineto disponible del mismo tipo
+			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+}
+
+
+	/**
+	 * Método que actualiza, de manera transaccional, el estatus de una oferta de alojamiento
+	 * a inactivo (N)
+	 * @param idAlojamiento - El identificador del alojamiento
+	 * @return El número de tuplas modificadas. -1 si ocurre alguna Excepción
+	 */
+	public long deshabilitarAlojamiento(long idAlojamiento)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+        {
+            tx.begin();
+            long resp = sqlAlojamiento.deshabilitarAlojamiento(pm, idAlojamiento);
+            tx.commit();
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+
+
+	}
+
 
 
 

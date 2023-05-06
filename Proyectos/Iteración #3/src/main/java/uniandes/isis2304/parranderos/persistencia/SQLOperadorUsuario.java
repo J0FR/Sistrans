@@ -50,7 +50,7 @@ public class SQLOperadorUsuario {
 	 */
 	public long adicionarOperadorUsuario (PersistenceManager pm, String identificacion, String nombre, String tipoVinculo, String correoElectronico, String telefono) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOperadorUsuario() + "(identificacion, nombre, tipoVinculo, correoElectronico, telefono) values (?, ?, ?, ?, ?) COMMIT");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaOperadorUsuario() + "(identificacion, nombre, tipoVinculo, correoElectronico, telefono) values (?, ?, ?, ?, ?) ");
             
         q.setParameters(identificacion, nombre, tipoVinculo, correoElectronico, telefono);
         return (long) q.executeUnique();

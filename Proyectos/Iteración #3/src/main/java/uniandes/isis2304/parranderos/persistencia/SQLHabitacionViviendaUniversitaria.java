@@ -47,7 +47,7 @@ class SQLHabitacionViviendaUniversitaria {
      * @return El número de tuplas insertadas
      */
     public long adicionarHabitacionViviendaUniversitaria(PersistenceManager pm, long idHabVivUni, String tipoHabitacion, int capacidad, String idViviendaUniversitaria ) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHabitacionViviendaUniversitaria() + "(id, tipoHabitacion, capacidad, idViviendaUniversitaria) values (?, ?, ?, ?) COMMIT");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHabitacionViviendaUniversitaria() + "(id, tipoHabitacion, capacidad, idViviendaUniversitaria) values (?, ?, ?, ?) ");
             
         q.setParameters(idHabVivUni, tipoHabitacion, capacidad, idViviendaUniversitaria);
         return (long) q.executeUnique();
@@ -60,7 +60,7 @@ class SQLHabitacionViviendaUniversitaria {
      * @return El número de tuplas eliminadas
      */
     public long eliminarHabitacionViviendaUniversitariaPorId(PersistenceManager pm, long idHabVivUni) {
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHabitacionViviendaUniversitaria() + " WHERE id = ? COMMIT");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHabitacionViviendaUniversitaria() + " WHERE id = ? ");
         q.setParameters(idHabVivUni);
         return (long) q.executeUnique();
     }

@@ -52,7 +52,7 @@ public class SQLAlojamiento {
      * @return El número de tuplas insertadas
      */
     public long adicionarAlojamiento(PersistenceManager pm, long id, String ubicacion, int duracionMin, int costo, long idGrupo, String estatus) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, idGrupo, estatus) values (?, ?, ?, ?, ?, ?) COMMIT");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, idGrupo, estatus) values (?, ?, ?, ?, ?, ?) ");
             
         q.setParameters(id, ubicacion, duracionMin, costo, idGrupo, estatus);
         return (long) q.executeUnique();
@@ -66,7 +66,7 @@ public class SQLAlojamiento {
 	 */
 	public long eliminarAlojamiento (PersistenceManager pm, long id)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaAlojamiento () + " WHERE id = ? COMMIT");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaAlojamiento () + " WHERE id = ? ");
         q.setParameters(id);
         return (long) q.executeUnique();
 	}
@@ -104,19 +104,19 @@ public class SQLAlojamiento {
 		sql+= " WHERE A_ALOJAMIENTO.ID NOT IN (Select A_RESERVA.IDALOJAMIENTO ";
 		sql+= "	FROM A_RESERVA ";
 		sql+= " WHERE ? BETWEEN FECHAINI AND FECHAFIN ";
-		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) ";
+		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) AND ESTADO = 'Y' ";
 		sql+= "	AND A_ALOJAMIENTO.ESTATUS = 'Y' ";
 		if (!tiposServicio.isEmpty()) {
 			String tiposServicioParam = String.join(",", Collections.nCopies(tiposServicio.size(), "?"));
 			sql += " AND A_SERVICIO.TIPO IN (" + tiposServicioParam + ")";
 		}
 			
-		sql+= " GROUP BY A_ALOJAMIENTO.ID,UBICACION, A_ALOJAMIENTO.COSTO, FECHAINI, FECHAFIN ";
+		sql+= " GROUP BY A_ALOJAMIENTO.ID,UBICACION, A_ALOJAMIENTO.COSTO, FECHAINI, FECHAFIN, ESTADO ";
 		sql+= " HAVING ( ? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
 		sql+= " AND ? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) ";
 		sql+= " OR ";
 		sql+= " ( ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
-		sql+= " AND ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) ";
+		sql+= " AND ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) OR ESTADO = 'N'";
 
 		Query q = pm.newQuery(SQL, sql);
 		List<Object> parameters = new ArrayList<>();
@@ -215,7 +215,7 @@ public class SQLAlojamiento {
 	 */
 	public long deshabilitarAlojamiento(PersistenceManager pm, long id)
 	{
-		Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaAlojamiento() + " SET ESTATUS = 'N' WHERE ID = ? COMMIT");
+		Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaAlojamiento() + " SET ESTATUS = 'N' WHERE ID = ? ");
 		q.setParameters(id);
 		return (long) q.executeUnique();
 	}

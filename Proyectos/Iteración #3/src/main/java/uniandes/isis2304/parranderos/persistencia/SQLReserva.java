@@ -52,7 +52,7 @@ class SQLReserva {
      */
     public long adicionarReserva (PersistenceManager pm, long idReserva, Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado)
     {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaReserva () + "(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado) values (?, ?, ?, ?, ?, ?) COMMIT");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaReserva () + "(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado) values (?, ?, ?, ?, ?, ?) ");
         q.setParameters(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, estado);
         return (long) q.executeUnique();
     }
@@ -65,7 +65,7 @@ class SQLReserva {
      */
     public long eliminarReservaPorId (PersistenceManager pm, long idReserva)
     {
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaReserva () + " WHERE id = ? COMMIT");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaReserva () + " WHERE id = ? ");
         q.setParameters(idReserva);
         return (long) q.executeUnique();
     }
@@ -101,14 +101,14 @@ class SQLReserva {
 
     public long actualizarReservaPorIdAlojamiento(PersistenceManager pm, long idReserva, long idAlojamiento)
     {
-        Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaReserva() + " SET IDALOJAMIENTO = ? WHERE ID = ? COMMIT");
+        Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaReserva() + " SET IDALOJAMIENTO = ? WHERE ID = ? ");
         q.setParameters(idAlojamiento, idReserva);
         return (long) q.executeUnique();
     }
 
     public long actualizarEstadoReservaPorIdReserva(PersistenceManager pm, String estado, long idReserva)
     {
-        Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaReserva() + " SET ESTADO = ? WHERE ID = ? COMMIT");
+        Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaReserva() + " SET ESTADO = ? WHERE ID = ?");
         q.setParameters(estado, idReserva);
         return (long) q.executeUnique();
     }

@@ -50,7 +50,7 @@ public class SQLHotel {
 	 */
 	public long adicionarHotel(PersistenceManager pm, String regComercio, String nit, String nombre, String restaurante, String parqueadero, String piscina) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHotel() + "(regComercio, nit, nombre, restaurante, parqueadero, piscina) values (?, ?, ?, ?, ?, ?) COMMIT");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHotel() + "(regComercio, nit, nombre, restaurante, parqueadero, piscina) values (?, ?, ?, ?, ?, ?) ");
             
         q.setParameters(regComercio, nit, nombre, restaurante, parqueadero, piscina);
         return (long) q.executeUnique();

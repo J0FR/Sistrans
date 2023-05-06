@@ -47,7 +47,7 @@ class SQLHabitacionHotel {
      * @return El número de tuplas insertadas
      */
     public long adicionarHabitacionHotel(PersistenceManager pm, long idHabHotel, String tipoHabitacion, String tamanio, String idHotel ) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHabitacionHotel() + "(id, tipoHabitacion, tamanio, idHotel) values (?, ?, ?, ?) COMMIT");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHabitacionHotel() + "(id, tipoHabitacion, tamanio, idHotel) values (?, ?, ?, ?) ");
             
         q.setParameters(idHabHotel, tipoHabitacion, tamanio, idHotel );
         return (long) q.executeUnique();
@@ -61,7 +61,7 @@ class SQLHabitacionHotel {
      * @return EL número de tuplas eliminadas
      */
     public long eliminarHabitacionHotelPorId(PersistenceManager pm, long idHabHotel) {
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHabitacionHotel() + " WHERE id = ? COMMIT");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHabitacionHotel() + " WHERE id = ? ");
         q.setParameters(idHabHotel);
         return (long) q.executeUnique();
     }

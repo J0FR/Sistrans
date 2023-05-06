@@ -1,0 +1,22 @@
+14:15:36,239 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:15:36,240 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:15:36,260 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:16:19,645 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:16:19,645 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:16:38,587 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: asd
+14:16:40,158 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: Alojamiento [id=281, ubicacion=asd, duracionMin=1, costo=324, estatus=Y]
+14:16:40,158 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHuesped: 281
+14:16:40,193 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohandes] - Exception : Error executing SQL query "INSERT INTO A_HABITACIONHUESPED(idAlojamiento, comidas, tipoBanio, tipoHabitacion, dtoMesExtra, identificacionOperadorUsuario) values (?, ?, ?, ?, ?, ?)".
+ORA-02291: integrity constraint (ISIS2304C11202310.FK_HABITACIONHUESPED_OPERADORUSUARIO) violated - parent key not found
+
+14:16:40,218 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHuesped: null
+14:16:40,218 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Eliminando alojamiento por id: 281
+14:16:40,269 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Eliminando alojamiento: 1
+14:17:11,578 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando Tipo de operador usuario: a
+14:17:11,646 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando Tipo de operador usuario: OperadorUsuario [identificacion=1001, nombre=a, tipoVinculo=profesor, correoElectronico=jd, telefono=123]
+14:17:27,665 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: ads
+14:17:27,823 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: Alojamiento [id=283, ubicacion=ads, duracionMin=1, costo=12, estatus=Y]
+14:17:27,823 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHuesped: 283
+14:17:27,863 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHuesped: Alojamiento [idAlojamiento=283, comidas=2, tipoBanio=privado, tipoHabitacion=individual, dtoMesExtra=10, identificacionOperadorUsuario=1001]
+14:18:58,767 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:18:58,767 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración

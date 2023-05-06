@@ -837,7 +837,7 @@ public class PersistenciaAlohandes {
 	 * @param estatus - El estatus de un alojamiento (activo(Y) o inactivo(N))
 	 * @return El objeto adicionarAlojamiento adicionado. null si ocurre alguna Excepción
 	 */
-	public Alojamiento adicionarAlojamiento(String ubicacion, int duracionMin, int costo, String estatus)
+	public Alojamiento adicionarAlojamiento(String ubicacion, int duracionMin, int costo)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -845,12 +845,13 @@ public class PersistenciaAlohandes {
         {
             tx.begin();
 			long idAlojamiento = nextval();
-            long tuplasInsertadas = sqlAlojamiento.adicionarAlojamiento(pm, idAlojamiento, ubicacion, duracionMin, costo, estatus);
+			long idGrupo = nextval();
+            long tuplasInsertadas = sqlAlojamiento.adicionarAlojamiento(pm, idAlojamiento, ubicacion, duracionMin, costo, idGrupo, "Y");
             tx.commit();
             
             log.trace ("Inserción de Alojamiento con id: " + idAlojamiento + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Alojamiento(idAlojamiento, ubicacion, duracionMin, costo, estatus);
+            return new Alojamiento(idAlojamiento, ubicacion, duracionMin, costo, idGrupo, "Y");
         }
         catch (Exception e)
         {

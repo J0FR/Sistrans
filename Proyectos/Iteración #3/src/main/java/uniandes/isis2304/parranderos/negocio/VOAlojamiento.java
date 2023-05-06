@@ -25,6 +25,11 @@ public interface VOAlojamiento {
 	public int getCosto();
 
 	/**
+	 * @return El costoBase
+	 */
+	public long getIdGrupo();
+
+	/**
 	 * @return El estatus
 	 */
 	public String getEstatus();

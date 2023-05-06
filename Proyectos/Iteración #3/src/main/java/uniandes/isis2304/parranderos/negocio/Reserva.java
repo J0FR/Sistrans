@@ -32,6 +32,11 @@ public class Reserva implements VOReserva {
 	 */
 	private long idAlojamiento;
 
+	/**
+	 * La estado de una reserva 
+	 */
+	private String estado;
+
 	/* ****************************************************************
 	 * 			Métodos 
 	 *****************************************************************/
@@ -45,6 +50,7 @@ public class Reserva implements VOReserva {
     	this.fechaFin = null;
 		this.identificacionCliente = "";
 		this.idAlojamiento = 0;
+		this.estado = "";
 	}
 
 	/**
@@ -54,14 +60,16 @@ public class Reserva implements VOReserva {
 	 * @param fechaFin - La fechaFin de una reserva
 	 * @param identificacionCliente - La identificacionCliente de una reserva
 	 * @param idAlojamiento - La idAlojamiento de una reserva
+	 * @param estado - La estado de una reserva (Y si esta activa o N si esta cancelada)
 	 */
-    public Reserva(long id, Timestamp fechaIni, Timestamp fechaFin, String identificacionCliente, long idAlojamiento) 
+    public Reserva(long id, Timestamp fechaIni, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado) 
     {
     	this.id = id;
 		this.fechaIni = fechaIni;
 		this.fechaFin = fechaFin;
 		this.identificacionCliente = identificacionCliente;
 		this.idAlojamiento = idAlojamiento;
+		this.estado = estado;
 	}
 
     /**
@@ -142,6 +150,22 @@ public class Reserva implements VOReserva {
 	public void setIdAlojamiento(long idAlojamiento) 
 	{
 		this.idAlojamiento = idAlojamiento;
+	}
+
+	/**
+	 * @return El estado de la reserva
+	 */
+	public String getEstado() 
+	{
+		return estado;
+	}
+	
+	/**
+	 * @param id - El nuevo estado de la reserva
+	 */
+	public void setEstado(String estado) 
+	{
+		this.estado = estado;
 	}
 	
 	@Override

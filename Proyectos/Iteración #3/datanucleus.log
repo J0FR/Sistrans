@@ -275,3 +275,248 @@
 14:17:27,851 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@5abd3f21 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@5113ef30, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
 14:17:27,862 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction committed in 24 ms
 14:17:27,863 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext CLOSED "org.datanucleus.ExecutionContextImpl@6b884dc6"
+14:28:24,554 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+14:28:24,575 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.1.7 at URL file:/C:/Local%20Working/Working/Git%20Repositories/C-09/Proyectos/Iteración%20%233/lib/datanucleus-api-jdo-5.1.7.jar.
+14:28:24,590 (main) DEBUG [DataNucleus.General] - Loading extension points and extensions from plug-in file jar:file:/C:/Local%20Working/Working/Git%20Repositories/C-09/Proyectos/Iteraci%c3%b3n%20%233/lib/datanucleus-api-jdo-5.1.7.jar!/plugin.xml.
+14:28:24,597 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.1.10 at URL file:/C:/Local%20Working/Working/Git%20Repositories/C-09/Proyectos/Iteración%20%233/lib/datanucleus-core-5.1.10.jar.
+14:28:24,598 (main) DEBUG [DataNucleus.General] - Loading extension points and extensions from plug-in file jar:file:/C:/Local%20Working/Working/Git%20Repositories/C-09/Proyectos/Iteraci%c3%b3n%20%233/lib/datanucleus-core-5.1.10.jar!/plugin.xml.
+14:28:24,606 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.1.10 at URL file:/C:/Local%20Working/Working/Git%20Repositories/C-09/Proyectos/Iteración%20%233/lib/datanucleus-rdbms-5.1.10.jar.
+14:28:24,609 (main) DEBUG [DataNucleus.General] - Loading extension points and extensions from plug-in file jar:file:/C:/Local%20Working/Working/Git%20Repositories/C-09/Proyectos/Iteraci%c3%b3n%20%233/lib/datanucleus-rdbms-5.1.10.jar!/plugin.xml.
+14:28:24,633 (main) DEBUG [DataNucleus.MetaData] - Parsing MetaData file "file:/C:/Local%20Working/Working/Git%20Repositories/C-09/Proyectos/Iteraci%c3%b3n%20%233/target/classes/META-INF/persistence.xml" using handler "persistence" (validation="false")
+14:28:24,647 (main) DEBUG [DataNucleus.Persistence] - Java types support initialising ...
+14:28:24,690 (main) DEBUG [DataNucleus.Persistence] - Java types support loaded : supported java types=[B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+14:28:24,690 (main) DEBUG [DataNucleus.Persistence] - Type converter support initialising ...
+14:28:24,710 (main) DEBUG [DataNucleus.Persistence] - Type converter support loaded
+14:28:24,710 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+14:28:24,710 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+14:28:24,710 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+14:28:24,710 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : int[],java.lang.String
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : byte[],java.nio.ByteBuffer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : byte[],java.nio.ByteBuffer,java.lang.String
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Character,java.lang.Integer
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+14:28:24,711 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.String,java.lang.Double
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.Long,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.Long,java.util.Date,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.Long,java.util.Date,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.Long,java.util.Date,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.Long,java.lang.String,java.lang.Double
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.lang.Long,java.util.Date,java.sql.Timestamp,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.sql.Date,java.util.Date,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.util.Date,java.sql.Timestamp,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.lang.Long,java.util.Date,java.lang.String,java.sql.Time
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : int[],java.sql.Date,java.util.Date,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.util.Date,java.sql.Timestamp,java.lang.String
+14:28:24,712 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.lang.Long,java.lang.String,java.sql.Time
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : int[],java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.Integer,java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : int[],java.sql.Date,java.util.Date,java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.sql.Timestamp,java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : [Ljava.lang.Object;,java.util.Date,java.sql.Timestamp,java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.Long,java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+14:28:24,713 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+14:28:24,714 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery) mapping-name=oracle, JDO-listener=false
+14:28:24,714 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Loading Metadata for persistence-unit "Alohandes" ...
+14:28:24,714 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Load of Metadata complete
+14:28:24,716 (main) DEBUG [DataNucleus.Datastore] - Creating StoreManager for datastore
+14:28:24,869 (main) DEBUG [DataNucleus.Connection] - Created ConnectionPool "tx" as data source using pooling type of dbcp2-builtin
+14:28:24,869 (main) DEBUG [DataNucleus.Connection] - Registered transactional connection factory under name "rdbms/tx"
+14:28:24,870 (main) DEBUG [DataNucleus.Connection] - Registered nontransactional connection factory under name "rdbms/nontx"
+14:28:24,876 (main) DEBUG [DataNucleus.Connection] - Created ConnectionPool "nontx" as data source using pooling type of dbcp2-builtin
+14:28:25,359 (main) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@5cdd09b1 [conn=null, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" on resource "nontx"
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - Removing RDBMS support for Java type java.lang.Boolean, jdbc-type=BOOLEAN
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "[B" using jdbc-types=[BLOB, VARBINARY, LONGVARBINARY], sql-types=[BLOB, VARBINARY, LONGVARBINARY] with default (jdbc-type=BLOB, sql-type=BLOB)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.io.File" using jdbc-types=[LONGVARBINARY], sql-types=[LONGVARBINARY] with default (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.io.Serializable" using jdbc-types=[BLOB, VARBINARY, LONGVARBINARY], sql-types=[BLOB, VARBINARY, LONGVARBINARY] with default (jdbc-type=BLOB, sql-type=BLOB)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.Boolean" using jdbc-types=[NUMERIC, SMALLINT, CHAR, BIT, TINYINT], sql-types=[NUMERIC, SMALLINT, CHAR, BIT, TINYINT] with default (jdbc-type=NUMERIC, sql-type=NUMERIC)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.Byte" using jdbc-types=[NUMERIC, SMALLINT, TINYINT], sql-types=[NUMERIC, SMALLINT, TINYINT] with default (jdbc-type=NUMERIC, sql-type=NUMERIC)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.Character" using jdbc-types=[NUMERIC, CHAR, INTEGER], sql-types=[NUMERIC, CHAR, INTEGER] with default (jdbc-type=CHAR, sql-type=CHAR)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.Double" using jdbc-types=[FLOAT, NUMERIC, DECIMAL, DOUBLE], sql-types=[FLOAT, NUMBER, DECIMAL, DOUBLE] with default (jdbc-type=FLOAT, sql-type=FLOAT)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.Float" using jdbc-types=[FLOAT, NUMERIC, REAL, DECIMAL, DOUBLE], sql-types=[FLOAT, NUMBER, REAL, DECIMAL, DOUBLE] with default (jdbc-type=FLOAT, sql-type=FLOAT)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.Integer" using jdbc-types=[NUMERIC, SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, BIGINT, TINYINT, INTEGER] with default (jdbc-type=NUMERIC, sql-type=NUMERIC)
+14:28:25,648 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.Long" using jdbc-types=[NUMERIC, SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, BIGINT, INT, TINYINT] with default (jdbc-type=NUMERIC, sql-type=NUMERIC)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.Short" using jdbc-types=[NUMERIC, SMALLINT, TINYINT, INTEGER], sql-types=[NUMERIC, NUMBER, SMALLINT, TINYINT, INTEGER] with default (jdbc-type=NUMERIC, sql-type=NUMERIC)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.lang.String" using jdbc-types=[XMLTYPE, BLOB, LONGVARCHAR, CLOB, VARCHAR, CHAR, BIGINT, NVARCHAR, NCHAR], sql-types=[NVARCHAR2, XMLTYPE, BLOB, LONGVARCHAR, CLOB, VARCHAR, CHAR, BIGINT, NVARCHAR, NCHAR] with default (jdbc-type=VARCHAR, sql-type=VARCHAR)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.math.BigDecimal" using jdbc-types=[NUMERIC, DECIMAL], sql-types=[NUMERIC, NUMBER, DECIMAL] with default (jdbc-type=NUMERIC, sql-type=NUMERIC)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.math.BigInteger" using jdbc-types=[NUMERIC], sql-types=[NUMERIC, NUMBER] with default (jdbc-type=NUMERIC, sql-type=NUMERIC)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.sql.Date" using jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT] with default (jdbc-type=DATE, sql-type=DATE)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.sql.Time" using jdbc-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] with default (jdbc-type=TIME, sql-type=TIME)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.sql.Timestamp" using jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME] with default (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "java.util.Date" using jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] with default (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+14:28:25,649 (main) DEBUG [DataNucleus.Datastore] - RDBMS support configured for "org.datanucleus.identity.DatastoreId" using jdbc-types=[NUMERIC, VARCHAR, CHAR, BIGINT, INTEGER], sql-types=[NUMERIC, VARCHAR, CHAR, BIGINT, INTEGER] with default (jdbc-type=NUMERIC, sql-type=NUMERIC)
+14:28:25,667 (main) DEBUG [DataNucleus.Datastore] - ======================= Datastore =========================
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - StoreManager : "rdbms" (org.datanucleus.store.rdbms.RDBMSStoreManager)
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Datastore : read-write
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Schema Control : AutoCreate(None), Validate(None)
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Schema : NamingFactory=datanucleus2 identifierCase=null
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Query Languages : JDOQL, JPQL, STOREDPROC, SQL
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Queries : Timeout=0
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - ===========================================================
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Datastore Adapter : org.datanucleus.store.rdbms.adapter.OracleAdapter
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Datastore : name="Oracle" version="Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production"
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Datastore Driver : name="Oracle JDBC driver" version="12.2.0.1.0"
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Primary Connection Factory : URL[jdbc:oracle:thin:@fn4.oracle.virtual.uniandes.edu.co:1521/prod]
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Secondary Connection Factory : URL[jdbc:oracle:thin:@fn4.oracle.virtual.uniandes.edu.co:1521/prod]
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Datastore Identifiers : factory="datanucleus2" case=UPPERCASE schema=ISIS2304C11202310
+14:28:25,668 (main) DEBUG [DataNucleus.Datastore] - Supported Identifier Cases : "MixedCase" UPPERCASE "MixedCase-Sensitive" 
+14:28:25,669 (main) DEBUG [DataNucleus.Datastore] - Supported Identifier Lengths (max) : Table=128 Column=128 Constraint=128 Index=128 Delimiter="
+14:28:25,669 (main) DEBUG [DataNucleus.Datastore] - Support for Identifiers in DDL : catalog=false schema=true
+14:28:25,669 (main) DEBUG [DataNucleus.Datastore] - Datastore : checkTableViewExistence, rdbmsConstraintCreateMode=DataNucleus, initialiseColumnInfo=ALL
+14:28:25,669 (main) DEBUG [DataNucleus.Datastore] - Support Statement Batching : yes (max-batch-size=50)
+14:28:25,669 (main) DEBUG [DataNucleus.Datastore] - Queries : Results direction=forward, type=forward-only, concurrency=read-only
+14:28:25,669 (main) DEBUG [DataNucleus.Datastore] - Java-Types : string-default-length=255
+14:28:25,669 (main) DEBUG [DataNucleus.Datastore] - JDBC-Types : NCLOB, NCHAR, [id=2007], REF, CLOB, BLOB, ARRAY, STRUCT, DATE, TIME, TIMESTAMP, VARCHAR, LONGVARCHAR, VARBINARY, LONGVARBINARY, BIGINT, TINYINT, BIT, NVARCHAR, [id=-101], CHAR, [id=-103], NUMERIC, [id=-102], DECIMAL, INTEGER, SMALLINT, FLOAT, REAL, DOUBLE, [id=-104]
+14:28:25,669 (main) DEBUG [DataNucleus.Datastore] - ===========================================================
+14:28:25,669 (main) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@5cdd09b1 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@3b366632, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:28:25,670 (main) DEBUG [DataNucleus.Datastore] - StoreManager now created
+14:28:25,671 (main) DEBUG [DataNucleus.Persistence] - Started pool of ExecutionContext (maxPool=20, reaperThread=false)
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - ================= NucleusContext ===============
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - DataNucleus Context : Version "5.1.10" with JRE "17.0.5" on "Windows 11"
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - Persistence API : JDO
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - Persistence-Unit : Alohandes
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - Plugin Registry : org.datanucleus.plugin.NonManagedPluginRegistry
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - ClassLoading : default
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - Persistence : pm-singlethreaded, nontransactional-read, nontransactional-write, reachability-at-commit, copy-on-attach, managed-relations(checked), deletion-policy=JDO2, serverTimeZone=America/Bogota
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - Transactions : type=RESOURCE_LOCAL, mode=datastore, isolation=read-committed
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - ValueGeneration : txn-isolation=read-committed connection=New
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - Cache : Level1 (soft), Level2 (soft, mode=UNSPECIFIED), QueryResults (soft), Collections/Maps 
+14:28:25,676 (main) DEBUG [DataNucleus.Persistence] - ================================================
+14:28:46,341 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext OPENED "org.datanucleus.ExecutionContextImpl@22ec10f2" for datastore "org.datanucleus.store.rdbms.RDBMSStoreManager@8bd2edf" with txn="org.datanucleus.TransactionImpl@241abce9"
+14:28:46,347 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction created [DataNucleus Transaction, ID=973540233-1, enlisted resources=[]]
+14:28:46,347 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction begun for ExecutionContext org.datanucleus.ExecutionContextImpl@22ec10f2 (optimistic=false)
+14:28:46,354 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - SQL Query : "INSERT INTO A_CLIENTE(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva) values (?, ?, ?, ?, ?, ?)"
+14:28:46,552 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7458b427 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@29dabcff, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]" on resource "tx" with isolation level "read-committed" and auto-commit=false
+14:28:46,553 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Running enlist operation on resource: org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@29064b6f, error code TMNOFLAGS and transaction [DataNucleus Transaction, ID=973540233-1, enlisted resources=[]]
+14:28:46,557 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Using PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@67bf9cd4" for connection "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@29dabcff"
+14:28:46,558 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - INSERT INTO A_CLIENTE(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva) values (<'1'>, <'jose'>, <'profesor'>, <'jd'>, <'31'>, <1969-12-31 19:00:00.0>)
+14:28:46,582 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Execution Time = 25 ms (number of rows = 1) on PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@67bf9cd4"
+14:28:46,582 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Closing PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@67bf9cd4"
+14:28:46,582 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction committing for ExecutionContext org.datanucleus.ExecutionContextImpl@22ec10f2
+14:28:46,583 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext.internalFlush() START : using ordered flush - 0 enlisted objects
+14:28:46,585 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext.internalFlush() END
+14:28:46,585 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - Persistence-By-Reachability (commit) : START
+14:28:46,585 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - Persistence-By-Reachability (commit) : END
+14:28:46,586 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Committing [DataNucleus Transaction, ID=973540233-1, enlisted resources=[org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@29064b6f]]
+14:28:46,586 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection COMMITTING : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7458b427 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@29dabcff, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
+14:28:46,598 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7458b427 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@29dabcff, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
+14:28:46,612 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction committed in 30 ms
+14:28:46,613 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext CLOSED "org.datanucleus.ExecutionContextImpl@22ec10f2"
+14:28:49,898 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext OPENED "org.datanucleus.ExecutionContextImpl@22ec10f2" for datastore "org.datanucleus.store.rdbms.RDBMSStoreManager@8bd2edf" with txn="org.datanucleus.TransactionImpl@1bd59322"
+14:28:49,898 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - SQL Query : "SELECT * FROM A_CLIENTE WHERE identificacion = ?"
+14:28:49,908 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7bb4c50d [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@437c9f45, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" on resource "nontx" with isolation level "read-committed" and auto-commit=false
+14:28:49,908 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Using PreparedStatement "oracle.jdbc.driver.OraclePreparedStatementWrapper@a1558da" for connection "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@437c9f45"
+14:28:49,908 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - SELECT * FROM A_CLIENTE WHERE identificacion = <'1'>
+14:28:49,935 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Retrieve] - SQL Execution Time = 27 ms
+14:28:49,942 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection COMMITTING : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7bb4c50d [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@437c9f45, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:28:49,961 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Reading in results for query "org.datanucleus.store.rdbms.query.SQLQuery@324352fe" since the connection used is closing/committing
+14:28:49,963 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.parranderos.negocio.Cliente created with following constructor arguments: [1, jose, profesor, jd, 31, 1969-12-31 19:00:00.0]
+14:28:49,964 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7bb4c50d [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@437c9f45, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,595 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext OPENED "org.datanucleus.ExecutionContextImpl@73c82e10" for datastore "org.datanucleus.store.rdbms.RDBMSStoreManager@8bd2edf" with txn="org.datanucleus.TransactionImpl@2617a50"
+14:30:03,595 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - SQL Query : "SELECT * FROM A_CLIENTE WHERE identificacion = ?"
+14:30:03,596 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@26f14f71 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@14fb5d11, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" on resource "nontx" with isolation level "read-committed" and auto-commit=false
+14:30:03,596 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Using PreparedStatement "oracle.jdbc.driver.OraclePreparedStatementWrapper@1dc10624" for connection "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@14fb5d11"
+14:30:03,596 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - SELECT * FROM A_CLIENTE WHERE identificacion = <'1'>
+14:30:03,631 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Retrieve] - SQL Execution Time = 35 ms
+14:30:03,631 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection COMMITTING : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@26f14f71 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@14fb5d11, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,656 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Reading in results for query "org.datanucleus.store.rdbms.query.SQLQuery@324352fe" since the connection used is closing/committing
+14:30:03,656 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject of type uniandes.isis2304.parranderos.negocio.Cliente created with following constructor arguments: [1, jose, profesor, jd, 31, 1969-12-31 19:00:00.0]
+14:30:03,657 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@26f14f71 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@14fb5d11, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,671 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext OPENED "org.datanucleus.ExecutionContextImpl@1f71e230" for datastore "org.datanucleus.store.rdbms.RDBMSStoreManager@8bd2edf" with txn="org.datanucleus.TransactionImpl@2b942580"
+14:30:03,671 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - SQL Query : "SELECT * FROM A_ALOJAMIENTO WHERE id = ?"
+14:30:03,671 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@105af034 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@aaf06d, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" on resource "nontx" with isolation level "read-committed" and auto-commit=false
+14:30:03,671 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Using PreparedStatement "oracle.jdbc.driver.OraclePreparedStatementWrapper@a987ddd" for connection "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@aaf06d"
+14:30:03,671 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - SELECT * FROM A_ALOJAMIENTO WHERE id = <283>
+14:30:03,686 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Retrieve] - SQL Execution Time = 15 ms
+14:30:03,686 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection COMMITTING : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@105af034 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@aaf06d, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,704 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Reading in results for query "org.datanucleus.store.rdbms.query.SQLQuery@396e8e23" since the connection used is closing/committing
+14:30:03,704 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Result Class "uniandes.isis2304.parranderos.negocio.Alojamiento" doesnt have a public constructor with args of types [class java.math.BigDecimal, class java.lang.String, class java.math.BigDecimal, class java.math.BigDecimal, class java.math.BigDecimal, class java.lang.String]
+14:30:03,704 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Result Class "uniandes.isis2304.parranderos.negocio.Alojamiento" doesnt have a public field "id"
+14:30:03,705 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject set field=ID using setId() method after converting value
+14:30:03,705 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Result Class "uniandes.isis2304.parranderos.negocio.Alojamiento" doesnt have a public field "ubicacion"
+14:30:03,705 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject set field=UBICACION using public setUbicacion() method
+14:30:03,705 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Result Class "uniandes.isis2304.parranderos.negocio.Alojamiento" doesnt have a public field "duracionMin"
+14:30:03,705 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject set field=DURACIONMIN using setDuracionMin() method after converting value
+14:30:03,705 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Result Class "uniandes.isis2304.parranderos.negocio.Alojamiento" doesnt have a public field "costo"
+14:30:03,706 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject set field=COSTO using setCosto() method after converting value
+14:30:03,706 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Result Class "uniandes.isis2304.parranderos.negocio.Alojamiento" doesnt have a public field "idGrupo"
+14:30:03,706 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject set field=IDGRUPO using setIdGrupo() method after converting value
+14:30:03,706 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Result Class "uniandes.isis2304.parranderos.negocio.Alojamiento" doesnt have a public field "estatus"
+14:30:03,706 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - ResultObject set field=ESTATUS using public setEstatus() method
+14:30:03,706 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@105af034 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@aaf06d, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,721 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext OPENED "org.datanucleus.ExecutionContextImpl@540b0a29" for datastore "org.datanucleus.store.rdbms.RDBMSStoreManager@8bd2edf" with txn="org.datanucleus.TransactionImpl@587f24ea"
+14:30:03,722 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - SQL Query : "SELECT * FROM A_HABITACIONVIVIENDAUNIVERSITARIA WHERE id = ?"
+14:30:03,722 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@5b93e7ee [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@5745e4f7, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" on resource "nontx" with isolation level "read-committed" and auto-commit=false
+14:30:03,722 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Using PreparedStatement "oracle.jdbc.driver.OraclePreparedStatementWrapper@763cc281" for connection "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@5745e4f7"
+14:30:03,722 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - SELECT * FROM A_HABITACIONVIVIENDAUNIVERSITARIA WHERE id = <283>
+14:30:03,742 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Retrieve] - SQL Execution Time = 20 ms
+14:30:03,742 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection COMMITTING : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@5b93e7ee [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@5745e4f7, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,755 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@5b93e7ee [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@5745e4f7, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,767 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext OPENED "org.datanucleus.ExecutionContextImpl@7cd743d7" for datastore "org.datanucleus.store.rdbms.RDBMSStoreManager@8bd2edf" with txn="org.datanucleus.TransactionImpl@73a86b19"
+14:30:03,767 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction created [DataNucleus Transaction, ID=973540233-2, enlisted resources=[]]
+14:30:03,767 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction begun for ExecutionContext org.datanucleus.ExecutionContextImpl@7cd743d7 (optimistic=false)
+14:30:03,767 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext OPENED "org.datanucleus.ExecutionContextImpl@eb494d9" for datastore "org.datanucleus.store.rdbms.RDBMSStoreManager@8bd2edf" with txn="org.datanucleus.TransactionImpl@48bbb723"
+14:30:03,767 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - SQL Query : "SELECT alohandes_sequence.nextval FROM DUAL"
+14:30:03,767 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@4af994aa [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@60c1c370, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" on resource "nontx" with isolation level "read-committed" and auto-commit=false
+14:30:03,767 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Using PreparedStatement "oracle.jdbc.driver.OraclePreparedStatementWrapper@755672e4" for connection "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@60c1c370"
+14:30:03,767 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - SELECT alohandes_sequence.nextval FROM DUAL
+14:30:03,783 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Retrieve] - SQL Execution Time = 16 ms
+14:30:03,783 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection COMMITTING : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@4af994aa [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@60c1c370, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,801 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - Reading in results for query "org.datanucleus.store.rdbms.query.SQLQuery@eaa9a954" since the connection used is closing/committing
+14:30:03,801 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@4af994aa [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@60c1c370, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]"
+14:30:03,815 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - SQL Query : "INSERT INTO A_RESERVA(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado) values (?, ?, ?, ?, ?, ?)"
+14:30:03,815 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@3a8877cb [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8ff32c, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]" on resource "tx" with isolation level "read-committed" and auto-commit=false
+14:30:03,815 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Running enlist operation on resource: org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@1dba367e, error code TMNOFLAGS and transaction [DataNucleus Transaction, ID=973540233-2, enlisted resources=[]]
+14:30:03,816 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Using PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@57593a0c" for connection "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8ff32c"
+14:30:03,816 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - INSERT INTO A_RESERVA(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado) values (<285>, <2023-06-05 00:00:00.0>, <2023-06-07 00:00:00.0>, <'1'>, <283>, <'Y'>)
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Execution Time = 25 ms (number of rows = 1) on PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@57593a0c"
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Closing PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@57593a0c"
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction committing for ExecutionContext org.datanucleus.ExecutionContextImpl@7cd743d7
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext.internalFlush() START : using ordered flush - 0 enlisted objects
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext.internalFlush() END
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - Persistence-By-Reachability (commit) : START
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - Persistence-By-Reachability (commit) : END
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Committing [DataNucleus Transaction, ID=973540233-2, enlisted resources=[org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@1dba367e]]
+14:30:03,842 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection COMMITTING : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@3a8877cb [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8ff32c, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
+14:30:03,857 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@3a8877cb [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7c8ff32c, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
+14:30:03,871 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction committed in 29 ms
+14:30:03,872 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext CLOSED "org.datanucleus.ExecutionContextImpl@7cd743d7"
+14:30:03,872 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext OPENED "org.datanucleus.ExecutionContextImpl@7cd743d7" for datastore "org.datanucleus.store.rdbms.RDBMSStoreManager@8bd2edf" with txn="org.datanucleus.TransactionImpl@7b1a2a4"
+14:30:03,872 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction created [DataNucleus Transaction, ID=973540233-3, enlisted resources=[]]
+14:30:03,873 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction begun for ExecutionContext org.datanucleus.ExecutionContextImpl@7cd743d7 (optimistic=false)
+14:30:03,873 (AWT-EventQueue-0) DEBUG [DataNucleus.Query] - SQL Query : "UPDATE A_CLIENTE SET ultimaFechaReserva = ? WHERE identificacion = ?"
+14:30:03,873 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection OPENED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7ba8c642 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7106ff11, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]" on resource "tx" with isolation level "read-committed" and auto-commit=false
+14:30:03,873 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Running enlist operation on resource: org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@5b820e74, error code TMNOFLAGS and transaction [DataNucleus Transaction, ID=973540233-3, enlisted resources=[]]
+14:30:03,873 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Using PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@41fbb60f" for connection "org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7106ff11"
+14:30:03,873 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Native] - UPDATE A_CLIENTE SET ultimaFechaReserva = <2023-05-06 14:30:03.767> WHERE identificacion = <'1'>
+14:30:03,887 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore.Persist] - SQL Execution Time = 14 ms (number of rows = 1) on PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@41fbb60f"
+14:30:03,887 (AWT-EventQueue-0) DEBUG [DataNucleus.Datastore] - Closing PreparedStatement "org.datanucleus.store.rdbms.ParamLoggingPreparedStatement@41fbb60f"
+14:30:03,888 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction committing for ExecutionContext org.datanucleus.ExecutionContextImpl@7cd743d7
+14:30:03,888 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext.internalFlush() START : using ordered flush - 0 enlisted objects
+14:30:03,888 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext.internalFlush() END
+14:30:03,888 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - Persistence-By-Reachability (commit) : START
+14:30:03,888 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - Persistence-By-Reachability (commit) : END
+14:30:03,888 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Committing [DataNucleus Transaction, ID=973540233-3, enlisted resources=[org.datanucleus.store.rdbms.ConnectionFactoryImpl$EmulatedXAResource@5b820e74]]
+14:30:03,888 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection COMMITTING : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7ba8c642 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7106ff11, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
+14:30:03,901 (AWT-EventQueue-0) DEBUG [DataNucleus.Connection] - ManagedConnection CLOSED : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@7ba8c642 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@7106ff11, commitOnRelease=false, closeOnRelease=false, closeOnTxnEnd=true]"
+14:30:03,915 (AWT-EventQueue-0) DEBUG [DataNucleus.Transaction] - Transaction committed in 27 ms
+14:30:03,916 (AWT-EventQueue-0) DEBUG [DataNucleus.Persistence] - ExecutionContext CLOSED "org.datanucleus.ExecutionContextImpl@7cd743d7"

@@ -20,3 +20,21 @@ ORA-02291: integrity constraint (ISIS2304C11202310.FK_HABITACIONHUESPED_OPERADOR
 14:17:27,863 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHuesped: Alojamiento [idAlojamiento=283, comidas=2, tipoBanio=privado, tipoHabitacion=individual, dtoMesExtra=10, identificacionOperadorUsuario=1001]
 14:18:58,767 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
 14:18:58,767 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:28:24,447 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:28:24,447 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:28:24,466 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:28:46,326 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando Cliente: jose
+14:28:46,613 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando Cliente: Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=jd, telefono=31]
+14:28:49,897 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+14:28:49,977 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=jd, telefono=31]
+14:28:49,977 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:28:49,977 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:30:03,595 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+14:30:03,669 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=jd, telefono=31]
+14:30:03,670 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando alojamiento por identificador: 283
+14:30:03,720 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Alojamiento [id=283, ubicacion=ads, duracionMin=1, costo=12, estatus=Y]
+14:30:03,721 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Dar HabitacionViviendaUniversitaria por id: 283
+14:30:03,767 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Dar HabitacionViviendaUniversitaria: null
+14:30:03,767 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando reserva del cliente 1 al alojamiento 283
+14:30:03,872 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando reserva del cliente 1 al alojamiento 283
+14:30:03,872 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cambiando ultimaFechaReserva de cliente: 1

@@ -571,12 +571,12 @@ public class PersistenciaAlohandes {
         {
             tx.begin();
             long idReserva = nextval ();
-            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento);
+            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y");
             tx.commit();
             
             log.trace ("Inserción de la Reserva con id " + idReserva + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Reserva(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento);
+            return new Reserva(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y");
         }
         catch (Exception e)
         {

@@ -47,12 +47,13 @@ class SQLReserva {
      * @param fechaFin - La fecha de fin de la reserva
      * @param identificacionCliente - La identificacion del cliente
      * @param idAlojamiento - El identificador del alojamiento
+     * @param estado - El estado de la reserva
      * @return El número de tuplas insertadas
      */
-    public long adicionarReserva (PersistenceManager pm, long idReserva, Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento)
+    public long adicionarReserva (PersistenceManager pm, long idReserva, Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado)
     {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaReserva () + "(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento) values (?, ?, ?, ?, ?)");
-        q.setParameters(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaReserva () + "(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado) values (?, ?, ?, ?, ?, ?)");
+        q.setParameters(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, estado);
         return (long) q.executeUnique();
     }
 

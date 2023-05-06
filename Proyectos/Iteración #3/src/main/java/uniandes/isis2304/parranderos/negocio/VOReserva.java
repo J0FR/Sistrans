@@ -31,7 +31,11 @@ public interface VOReserva {
 	 * @return El idAlojamiento
 	 */
 	public long getIdAlojamiento();
-	
+
+	/**
+	 * @return El estado
+	 */
+	public String getEstado();
 
 	/** 
 	 * @return Una cadena con la información básica

@@ -52,7 +52,7 @@ public class SQLAlojamiento {
      * @return El número de tuplas insertadas
      */
     public long adicionarAlojamiento(PersistenceManager pm, long id, String ubicacion, int duracionMin, int costo, long idGrupo, String estatus) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, idGrupo, estatus) values (?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, idGrupo, estatus) values (?, ?, ?, ?, ?, ?) COMMIT");
             
         q.setParameters(id, ubicacion, duracionMin, costo, idGrupo, estatus);
         return (long) q.executeUnique();
@@ -66,7 +66,7 @@ public class SQLAlojamiento {
 	 */
 	public long eliminarAlojamiento (PersistenceManager pm, long id)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaAlojamiento () + " WHERE id = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaAlojamiento () + " WHERE id = ? COMMIT");
         q.setParameters(id);
         return (long) q.executeUnique();
 	}
@@ -215,7 +215,7 @@ public class SQLAlojamiento {
 	 */
 	public long deshabilitarAlojamiento(PersistenceManager pm, long id)
 	{
-		Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaAlojamiento() + " SET ESTATUS = 'N' WHERE ID = ?");
+		Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaAlojamiento() + " SET ESTATUS = 'N' WHERE ID = ? COMMIT");
 		q.setParameters(id);
 		return (long) q.executeUnique();
 	}

@@ -50,7 +50,7 @@ class SQLCliente {
      * @return El número de tuplas insertadas
      */
     public long adicionarCliente(PersistenceManager pm, String identificacion, String nombre, String tipoVinculo, String correoElectronico, String telefono, Timestamp ultimaFechaReserva) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaCliente() + "(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva) values (?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaCliente() + "(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva) values (?, ?, ?, ?, ?, ?) COMMIT");
             
         q.setParameters(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva);
         return (long) q.executeUnique();
@@ -81,7 +81,7 @@ class SQLCliente {
 	 */
 	public long cambiarUltimaFechaReservaBebedor (PersistenceManager pm, String identificacion, Timestamp ultimaFechaReserva) 
 	{
-		 Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaCliente() + " SET ultimaFechaReserva = ? WHERE identificacion = ?");
+		 Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaCliente() + " SET ultimaFechaReserva = ? WHERE identificacion = ? COMMIT");
 	     q.setParameters(ultimaFechaReserva, identificacion);
 	     return (long) q.executeUnique();            
 	}

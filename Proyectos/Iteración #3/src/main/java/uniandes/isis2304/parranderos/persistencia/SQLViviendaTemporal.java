@@ -48,7 +48,7 @@ public class SQLViviendaTemporal {
      * @return El número de tuplas insertadas
      */
     public long adicionarViviendaTemporal(PersistenceManager pm, long idAlojamiento, int numeroHabitaciones, int precioSeguroArrendamiento, String caractSeguro, int diasAlquilado, String identificacionOperadorUsuario) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaViviendaTemporal() + "(idAlojamiento, numeroHabitaciones, precioSeguroArrendamiento, caractSeguro, diasAlquilado, identificacionOperadorUsuario) values (?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaViviendaTemporal() + "(idAlojamiento, numeroHabitaciones, precioSeguroArrendamiento, caractSeguro, diasAlquilado, identificacionOperadorUsuario) values (?, ?, ?, ?, ?, ?) COMMIT");
             
         q.setParameters(idAlojamiento, numeroHabitaciones, precioSeguroArrendamiento, caractSeguro, diasAlquilado, identificacionOperadorUsuario);
         return (long) q.executeUnique();
@@ -62,7 +62,7 @@ public class SQLViviendaTemporal {
 	 */
 	public long eliminarViviendaTemporal(PersistenceManager pm, long idAlojamiento)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaViviendaTemporal() + " WHERE idalojamiento = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaViviendaTemporal() + " WHERE idalojamiento = ? COMMIT");
         q.setParameters(idAlojamiento);
         return (long) q.executeUnique();
 	}

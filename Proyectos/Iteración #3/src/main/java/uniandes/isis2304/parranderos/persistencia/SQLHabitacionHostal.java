@@ -46,7 +46,7 @@ class SQLHabitacionHostal {
      * @return El número de tuplas insertadas
      */
     public long adicionarHabitacionHostal(PersistenceManager pm, long idHabHostal, int aforo, String idHostal ) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHabitacionHostal() + "(id, aforo, idHostal) values (?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHabitacionHostal() + "(id, aforo, idHostal) values (?, ?, ?) COMMIT");
             
         q.setParameters(idHabHostal, aforo, idHostal);
         return (long) q.executeUnique();
@@ -60,7 +60,7 @@ class SQLHabitacionHostal {
      */
 
     public long eliminarHabitacionHostalPorId(PersistenceManager pm, long idHabHostal) {
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHabitacionHostal() + " WHERE id = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaHabitacionHostal() + " WHERE id = ? COMMIT");
         q.setParameters(idHabHostal);
         return (long) q.executeUnique();
     }

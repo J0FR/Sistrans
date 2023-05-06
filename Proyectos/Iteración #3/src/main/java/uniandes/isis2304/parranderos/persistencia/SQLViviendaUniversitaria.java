@@ -51,7 +51,7 @@ public class SQLViviendaUniversitaria {
 	 */
 	public long adicionarViviendaUniversitaria(PersistenceManager pm, String regComercio, String nit, String nombre, int precioSalaEstudio, int precioSalaEsparcimiento, int precioGimnasio, String restaurante) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaViviendaUniversitaria() + "(regComercio, nit, nombre, precioSalaEstudio, precioSalaEsparcimiento, precioGimnasio, restaurante) values (?, ?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaViviendaUniversitaria() + "(regComercio, nit, nombre, precioSalaEstudio, precioSalaEsparcimiento, precioGimnasio, restaurante) values (?, ?, ?, ?, ?, ?, ?) COMMIT");
             
         q.setParameters(regComercio, nit, nombre, precioSalaEstudio, precioSalaEsparcimiento, precioGimnasio, restaurante);
         return (long) q.executeUnique();

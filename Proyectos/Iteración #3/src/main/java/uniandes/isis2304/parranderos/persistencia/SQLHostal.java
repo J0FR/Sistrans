@@ -48,7 +48,7 @@ public class SQLHostal {
 	 */
 	public long adicionarHostal(PersistenceManager pm, String regComercio, String nit, String nombre, String horaAperturaRecepcion, String horaCierreRecepcion) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHostal() + "(regComercio, nit, nombre, horaAperturaRecepcion, horaCierreRecepcion) values (?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaHostal() + "(regComercio, nit, nombre, horaAperturaRecepcion, horaCierreRecepcion) values (?, ?, ?, ?, ?) COMMIT");
             
         q.setParameters(regComercio, nit, nombre, horaAperturaRecepcion, horaCierreRecepcion);
         return (long) q.executeUnique();

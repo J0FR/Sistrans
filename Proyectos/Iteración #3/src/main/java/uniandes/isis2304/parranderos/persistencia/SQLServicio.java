@@ -43,7 +43,7 @@ public class SQLServicio {
      */
     public long adicionarServicio (PersistenceManager pm, long id, String tipo)
     {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaServicio() + "(id, tipo) values (?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaServicio() + "(id, tipo) values (?, ?) COMMIT");
         q.setParameters(id, tipo);
         return (long) q.executeUnique();
     }

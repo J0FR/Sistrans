@@ -43,7 +43,7 @@ public class SQLAlojamientoServicio {
      * @return El número de tuplas insertadas
      */
     public long adicionarAlojamientoServicio(PersistenceManager pm, long idAlojamiento, long idServicio, int costo) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamientoServicio() + "(idAlojamiento, idServicio, costo) values (?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamientoServicio() + "(idAlojamiento, idServicio, costo) values (?, ?, ?) COMMIT");
             
         q.setParameters(idAlojamiento, idServicio, costo);
         return (long) q.executeUnique();
@@ -57,7 +57,7 @@ public class SQLAlojamientoServicio {
 	 */
 	public long eliminarAlojamientoServicioPorIdAlojamiento(PersistenceManager pm, long idAlojamiento)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaAlojamientoServicio() + " WHERE idalojamiento = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pa.darTablaAlojamientoServicio() + " WHERE idalojamiento = ? COMMIT");
         q.setParameters(idAlojamiento);
         return (long) q.executeUnique();
 	}

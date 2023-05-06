@@ -1532,6 +1532,38 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 	}
 
 	/**
+	 * Actualiza de la base de datos la reserva con el identificador dado por el usuario a estado cancelado
+	 */
+	public void cancelarReservaPorId( )
+	{
+		try 
+    	{
+    		String idReservaStr = JOptionPane.showInputDialog (this, "Id de la reserva", "Cancelar reserva por Id", JOptionPane.QUESTION_MESSAGE);
+			long idReserva = Long.valueOf (idReservaStr);
+			VOReserva val = buscarReservaPorId(idReserva);
+    		if (idReservaStr != null && val.getIdentificacionCliente().equals(this.identificadorLogin))
+    		{
+    			long tbEliminados = alohandes.actualizarEstadoReservaPorIdReserva("N", idReserva);
+
+    			String resultado = "En cancelar Reserva\n\n";
+    			resultado += tbEliminados + " Reserva cancelada\n";
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("ERROR: No se pudo cancelar la reserva con id " + idReserva + " porque no existe o no es de su propiedad");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	/**
 	 * Borra de la base de datos la reserva con el identificador dado por el usuario
 	 * Cuando dicho reserva no existe, se indica que se borraron 0 registros de la base de datos
 	 */

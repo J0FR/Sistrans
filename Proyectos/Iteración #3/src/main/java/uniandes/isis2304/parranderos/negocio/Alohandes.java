@@ -178,6 +178,21 @@ public class Alohandes {
 	}
 
 	/**
+	 * Actualizar estado de una reserva por su identificador
+	 * Adiciona entradas al log de la aplicación
+	 * 
+	 * @param estado - El estado de la reserva
+	 * @param idReserva - El identificador de la reserva
+	 * @return El id de confirmacion de la actualizacion 
+	 */
+	public long actualizarEstadoReservaPorIdReserva(String estado, long idReserva) {
+		log.info("Actualizando reserva por id: " + idReserva);
+		long resp = pa.actualizarEstadoReservaPorIdReserva(estado, idReserva);
+		log.info("Actualizando reserva por id: " + resp + " tuplas eliminadas");
+		return resp;
+	}
+
+	/**
 	 * Encuentra el Reserva en Alohandes con el id solicitado
 	 * Adiciona entradas al log de la aplicación
 	 * @param id - El id del Reserva

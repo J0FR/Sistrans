@@ -597,11 +597,22 @@ public class PersistenciaAlohandes {
 	/**
 	 * Método que consulta la resrva en la tabla RESERVA que tienen el identificador dado
 	 * @param id - El id de la reserva
-	 * @return El objeto Reserva
+	 * @return El id de confirmacion
 	 */
 	public Reserva darReservaPorId(long id)
 	{
 		return sqlReserva.darReservaPorId(pmf.getPersistenceManager(), id);
+	}
+	
+	/**
+	 * Método que actualizar la reserva en la tabla RESERVA que tienen el identificador dado
+	 * @param estado - El estado de la reserva
+	 * @param idReserva - El id de la reserva
+	 * @return El objeto Reserva
+	 */
+	public long actualizarEstadoReservaPorIdReserva(String estado, long idReserva)
+	{
+		return sqlReserva.actualizarEstadoReservaPorIdReserva(pmf.getPersistenceManager(), estado, idReserva);
 	}
 
 	/**

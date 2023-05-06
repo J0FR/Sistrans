@@ -14,7 +14,7 @@
 				},
 				{
 					"label": "Cancelar una reserva",
-					"event": "eliminarReservaPorId" 
+					"event": "cancelarReservaPorId" 
 				}
 			]
 		},

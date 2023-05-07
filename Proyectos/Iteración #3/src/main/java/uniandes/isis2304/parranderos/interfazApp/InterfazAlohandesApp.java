@@ -16,6 +16,8 @@ import java.lang.reflect.Method;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.Month;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -623,6 +625,85 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     }
 
 	/**
+	* RFC7 - ANALIZAR LA OPERACIÓN DE ALOHANDES
+	*/
+	public void analizarOperacionesDeAlohandes()
+	{	
+
+		JPanel myPanel = new JPanel(new GridBagLayout());
+			
+		JSpinner cantidad;
+		SpinnerNumberModel m_numberSpinnerModel = new SpinnerNumberModel(1, 1, 1000, 1);
+		cantidad = new JSpinner(m_numberSpinnerModel);
+		String[] choicesTiempo = {"Meses", "Semanas", "Dias"};
+		final JComboBox<String> tiempo = new JComboBox<String>(choicesTiempo);
+		String[] choicesTipoAlojamiento = {"HabitacionHuesped", "ApartamentoAlquiler", "ViviendaTemporal", "HabitacionHotel", "HabitacionViviendaUniversitaria", "HabitacionHostal"};
+		final JComboBox<String> tipoAlojamiento = new JComboBox<String>(choicesTipoAlojamiento);
+
+		GridBagConstraints gbc = new GridBagConstraints();
+
+		//Izquierda
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.gridx = 0;
+
+		gbc.gridy = 1;
+		myPanel.add(new JLabel("Unidades"), gbc);
+
+		gbc.gridy = 2;
+		myPanel.add(cantidad,gbc);
+
+		gbc.gridy = 3;
+		myPanel.add(new JLabel("Escoja el tipo de habitacion"), gbc);
+
+		gbc.gridy = 4;
+		myPanel.add(tipoAlojamiento,gbc);
+
+
+		//Centro
+		gbc.anchor = GridBagConstraints.CENTER;
+		gbc.gridx = 1;
+		
+
+		gbc.gridy = 1;
+		myPanel.add(new JLabel("Unidad del tiempo"), gbc);
+
+		gbc.gridy = 2;
+		myPanel.add(tiempo,gbc);
+
+		
+		JOptionPane.showMessageDialog(this, myPanel, "Analisis Alohandes", JOptionPane.DEFAULT_OPTION);
+
+
+		int cantidadE = (Integer) cantidad.getValue();
+
+		
+
+		try{
+			int cantidadDeDias;
+			if (String.valueOf(tiempo.getSelectedItem()).equals("Meses")) {
+				cantidadDeDias = 30 * cantidadE;
+			} else if (String.valueOf(tiempo.getSelectedItem()).equals("Semanas")) {
+				cantidadDeDias = 7 * cantidadE;
+			} else {
+				cantidadDeDias = cantidadE;
+			}
+			Object[] Analisis = alohandes.analizarOperacionesDeAlohandes(cantidadDeDias, String.valueOf(tipoAlojamiento.getSelectedItem()));
+
+			String resultado = "Analisis AlohAndes: " + "\n\n";
+			resultado += "Fecha de mayor demanda | Año: " + Analisis[0] + " - Mes: " + Analisis[1] + "\n";
+			resultado += "Fecha de mayores ingresos | Año: " + Analisis[2] + " - Mes: " + Analisis[3] + "\n";
+			resultado += "Fecha de menor ocupacion | Año: " + Analisis[4] + " - Mes: " + Analisis[5] + "\n";
+			
+			panelDatos.actualizarInterfaz(resultado);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	/**
 	* RFC8 - ENCONTRAR LOS CLIENTES FRECUENTES
 	*/
 	public void encontrarClientesFrecuentesPorIdAlojamiento( )
@@ -647,7 +728,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
-	}	
+	}
 
 	/**
 	* RFC9 - ENCONTRAR LAS OFERTAS DE ALOJAMIENTO QUE NO TIENEN MUCHA DEMANDA

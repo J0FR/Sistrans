@@ -593,13 +593,21 @@ public class PersistenciaAlohandes {
 	}
 
 	/**
-	 * Metodo de consulta RF8
+	 * Metodo de consulta RFC8
 	 * @param idAlojamiento - El idAlojamiento 
 	 * @return List<Cliente>
 	 */
 	public List<Object> encontrarClientesFrecuentesPorIdAlojamiento(long idAlojamiento)
 	{
 		return sqlCliente.encontrarClientesFrecuentesPorIdAlojamiento(pmf.getPersistenceManager(), idAlojamiento);
+	}
+	
+	/**
+	 * Metodo de consulta RFC7
+	 */
+	public Object[] analizarOperacionesDeAlohandes(int cantidadDeDias, String tipoHabitacion)
+	{
+		return sqlUtil.analizarOperacionesDeAlohandes(pmf.getPersistenceManager(), cantidadDeDias, tipoHabitacion);
 	}
 	
 	/* ****************************************************************

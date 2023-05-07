@@ -172,6 +172,10 @@
 					"event": "usoParaUnUsuario"
 				},
 				{
+					"label": "RFC7 - ANALIZAR LA OPERACIÓN DE ALOHANDES",
+					"event": "analizarOperacionesDeAlohandes"
+				},
+				{
                     "label": "RFC8 - ENCONTRAR LOS CLIENTES FRECUENTES",
                     "event": "encontrarClientesFrecuentesPorIdAlojamiento"
                 },

@@ -254,6 +254,17 @@ public class Alohandes {
 	}
 
 	/**
+	 * Consulta RFC7
+	 */
+	public Object[] analizarOperacionesDeAlohandes(int cantidadDeDias, String tipoHabitacion)
+	{
+		log.info ("Realizando analisis alohandes");
+		Object[] tb = pa.analizarOperacionesDeAlohandes(cantidadDeDias, tipoHabitacion);
+		log.info ("Finaliza analisis alohandes" + tb != null ? tb : "NO EXISTE");
+		return tb;
+	}
+
+	/**
 	 * Consulta RFC9
 	 */
 	public List<Alojamiento> encontrarAlojamientosPocaDemanda()

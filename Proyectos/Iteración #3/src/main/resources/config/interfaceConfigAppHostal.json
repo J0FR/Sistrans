@@ -41,6 +41,16 @@
 				}
 			]
 		},
+		{
+			"menuTitle": "Habilitar un alojamiento",
+	    	"options":
+			[
+				{
+					"label": "Habilitar un alojamiento Hostal",
+					"event": "habilitarAlojamiento"	
+				}
+			]
+		},
 		{ "menuTitle": "Operacion Cuenta",
 		  "options":
 			[

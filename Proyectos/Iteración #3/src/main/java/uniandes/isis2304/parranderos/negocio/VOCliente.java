@@ -37,6 +37,11 @@ public interface VOCliente {
 	public Timestamp getUltimaFechaReserva();
 
 	/**
+	 * @return El saldo
+	 */
+	public Integer getSaldo();
+
+	/**
 	 * @return Una cadena con la información básica
 	 */
 	@Override

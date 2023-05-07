@@ -500,19 +500,19 @@ public class PersistenciaAlohandes {
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto Cliente adicionado. null si ocurre alguna Excepción
 	 */
-	public Cliente adicionarCliente(String identificacion, String nombre, String tipoVinculo, String correoElectronico, String telefono, Timestamp ultimaFechaReserva)
+	public Cliente adicionarCliente(String identificacion, String nombre, String tipoVinculo, String correoElectronico, String telefono, Timestamp ultimaFechaReserva, Integer saldo)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {		
             tx.begin();
-            long tuplasInsertadas = sqlCliente.adicionarCliente(pm, identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva);
+            long tuplasInsertadas = sqlCliente.adicionarCliente(pm, identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva, saldo);
             tx.commit();
             
             log.trace ("Inserción de cliente " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Cliente(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva);
+            return new Cliente(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva, saldo);
         }
         catch (Exception e)
         {
@@ -1853,10 +1853,39 @@ public class PersistenciaAlohandes {
 
 	}
 
-
-
-
-
+	
+	/**
+	 * Método que actualiza, de manera transaccional, el estatus de una oferta de alojamiento
+	 * a activo (Y)
+	 * @param idAlojamiento
+	 * @return
+	 */
+	public long habilitarAlojamiento(long idAlojamiento)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long resp = sqlAlojamiento.habilitarAlojamiento(pm, idAlojamiento);
+			tx.commit();
+			return resp;
+		}
+		catch (Exception e)
+		{
+//        	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 
 }
 

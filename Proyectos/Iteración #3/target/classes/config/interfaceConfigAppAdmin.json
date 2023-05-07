@@ -148,6 +148,16 @@
 				}
 		  ]	
 		},
+		{
+			"menuTitle": "Habilitar un alojamiento",
+	    	"options":
+			[
+				{
+					"label": "Habilitar un alojamiento",
+					"event": "habilitarAlojamiento"	
+				}
+			]
+		},
 		{ "menuTitle": "Getionar Reservas",
 		  "options":
 		  [

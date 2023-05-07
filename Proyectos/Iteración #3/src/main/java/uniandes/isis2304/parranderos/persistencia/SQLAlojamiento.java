@@ -274,6 +274,20 @@ public class SQLAlojamiento {
 		return (long) q.executeUnique();
 	}
 
+	/**
+	 * RF9 - Habilitar un alojamiento, cambiar su estado a activo(Y)
+	 * @param pm
+	 * @param id
+	 * @return
+	 */
+	public long habilitarAlojamiento(PersistenceManager pm, long id)
+	{
+		Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaAlojamiento() + " SET ESTATUS = 'Y' WHERE ID = ? ");
+		q.setParameters(id);
+		return (long) q.executeUnique();
+
+	}
+
 
 
 	/**

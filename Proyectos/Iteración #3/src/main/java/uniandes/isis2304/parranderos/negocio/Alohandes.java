@@ -116,9 +116,9 @@ public class Alohandes {
 	 * @return El objeto Cliente adicionado. null si ocurre alguna Excepción
 	 */
 	public Cliente adicionarCliente(String identificacion, String nombre, String tipoVinculo, String correoElectronico,
-			String telefono, Timestamp ultimaFechaReserva) {
+			String telefono, Timestamp ultimaFechaReserva, Integer saldo) {
 		log.info("Adicionando Cliente: " + nombre);
-		Cliente cliente = pa.adicionarCliente(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva);
+		Cliente cliente = pa.adicionarCliente(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva, saldo);
 		log.info("Adicionando Cliente: " + cliente);
 		return cliente;
 	}
@@ -856,5 +856,16 @@ public class Alohandes {
 		return resp;
 	}
 
+
+	public String habilitarAlojamiento(long idAlojamiento){
+		log.info("Inicia proceso de habilitar alojamiento por id: " + idAlojamiento);
+
+		long numAlojamientosHabilitados = pa.habilitarAlojamiento(idAlojamiento);
+		
+		log.info("Se habilitaron : " + numAlojamientosHabilitados + " alojamientos");
+		String resp = "Se ha habilitado " + numAlojamientosHabilitados + " alojamiento \n";
+
+		return resp;
+	}
 
 }

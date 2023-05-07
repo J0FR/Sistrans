@@ -36,6 +36,12 @@ public class Cliente implements VOCliente {
 	 */
 	private Timestamp ultimaFechaReserva;
 
+
+	/**
+	 * El saldo de un cliente
+	 */
+	private Integer saldo;
+
 	/* ****************************************************************
 	 * 			Métodos 
 	 *****************************************************************/
@@ -50,6 +56,7 @@ public class Cliente implements VOCliente {
 		this.correoElectronico = "";
 		this.telefono = "";
 		this.ultimaFechaReserva = new Timestamp(0);
+		this.saldo = 0;
 	}
 
 	/**
@@ -60,7 +67,7 @@ public class Cliente implements VOCliente {
 	 * @param correoElectronico - El correo electronico de un cliente
 	 * @param telefono - El telefono de un cliente
 	 */
-    public Cliente(String identificacion, String nombre, String tipoVinculo, String correoElectronico, String telefono, Timestamp ultimaFechaReserva) 
+    public Cliente(String identificacion, String nombre, String tipoVinculo, String correoElectronico, String telefono, Timestamp ultimaFechaReserva, Integer saldo) 
     {
     	this.identificacion = identificacion;
 		this.nombre = nombre;
@@ -68,6 +75,7 @@ public class Cliente implements VOCliente {
 		this.correoElectronico = correoElectronico;
 		this.telefono = telefono;
 		this.ultimaFechaReserva = ultimaFechaReserva;
+		this.saldo = 0;
 	}
 
     /**
@@ -164,6 +172,23 @@ public class Cliente implements VOCliente {
 	public void setUltimaFechaReserva(Timestamp ultimaFechaReserva) 
 	{
 		this.ultimaFechaReserva = ultimaFechaReserva;
+	}
+
+	/**
+	 * @return El saldo del cliente
+	 */
+	public Integer getSaldo()
+	{
+		return saldo;
+	}
+
+	/**
+	 * @param saldo - El nuevo saldo del cliente
+	 */
+
+	public void setSaldo(Integer saldo)
+	{
+		this.saldo = saldo;
 	}
 	
 	@Override

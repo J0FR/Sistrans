@@ -579,7 +579,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			
 			if (nombre!= null && identificacion != null && !identificacion.equals("Admin") && tipoVinculo != null && correoElectronico != null && telefono != null)
     		{
-        		VOCliente tb = alohandes.adicionarCliente(identificacion, nombre, tipoVinculo, correoElectronico, telefono, new Timestamp(0));
+        		VOCliente tb = alohandes.adicionarCliente(identificacion, nombre, tipoVinculo, correoElectronico, telefono, new Timestamp(0), 0);
         		if (tb == null)
         		{
         			throw new Exception ("No se pudo registrar al cliente con identifiación " + identificacion);
@@ -2865,6 +2865,32 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
+	}
+
+	public void habilitarAlojamiento()
+	{
+		try{
+
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamiento a deshabilitar", "Deshabilitar alojamiento", JOptionPane.QUESTION_MESSAGE);
+
+			if(idAlojamiento != null)
+			{
+				String resp = alohandes.habilitarAlojamiento(Long.parseLong(idAlojamiento));
+				panelDatos.actualizarInterfaz(resp);
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+
 	}
 
 	 

@@ -911,4 +911,15 @@ public class Alohandes {
         return tuplas;
 	}
 
+	/**
+	 * RFC6
+	 */
+	public List<Object[]> usoParaUnUsuario(String identificacion)
+	{
+		log.info ("Listando USO DE ALOHANDES PARA UN USUARIO DADO:");
+		List<Object []> tuplas = pa.usoParaUnUsuario(identificacion);
+		log.info ("Listando USO DE ALOHANDES PARA UN USUARIO DADO: Listo!");
+		return tuplas;
+	}
+
 }

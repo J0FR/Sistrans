@@ -2527,6 +2527,48 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 	 *****************************************************************/
 
 	/**
+	 * RFC6
+	 */
+	 
+	public void usoParaUnUsuario()
+	{
+		try{
+
+			
+
+			String Identificacion = JOptionPane.showInputDialog (this, "Ingrese la identificación del usuario a consultar", "Uso para de un usuario", JOptionPane.QUESTION_MESSAGE);
+
+			if(Identificacion != null)
+			{
+				List<Object[]> tuplas = alohandes.usoParaUnUsuario(Identificacion);
+				String resultado = "En USO DE ALOHANDES PARA UN USUARIO DADO\n\n";
+				resultado += "El cliente con identificación: " + tuplas.get(0)[0] + "\n";
+				resultado += "Ha realizado : " + tuplas.size() + " reservas"  + "\n";
+				for (Object[] tupla : tuplas) {
+					resultado += "Número de noches: " + tupla[1] + " || " 
+								+ "Id del alojamiento: " + tupla[2] + " || " 
+								+ "Dinero pagado: " + tupla[3] + " || "
+								+ "Tipo de alojamiento: " + tupla[4] + " || "
+								+ "Servicios del alojamiento: " + tupla[5] + "\n";
+				}
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+
+
+	/**
 	 * RFC5
 	 */
 

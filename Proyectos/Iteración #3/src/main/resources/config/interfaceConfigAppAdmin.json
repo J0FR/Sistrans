@@ -164,8 +164,12 @@
 					"event": "mostrarAlojamientoConCondicion"
 				},
 				{
-					"label": "RFC5 - USO PARA CADA USUARIO",
+					"label": "RFC5 - USO PARA CADA TIPO DE USUARIO",
 					"event": "usoParaCadaUsuario"
+				},
+				{
+					"label": "RFC6 - USO PARA UN USUARIO",
+					"event": "usoParaUnUsuario"
 				},
 				{
                     "label": "RFC8 - ENCONTRAR LOS CLIENTES FRECUENTES",

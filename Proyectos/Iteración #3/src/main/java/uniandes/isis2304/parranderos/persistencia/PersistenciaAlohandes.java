@@ -13,6 +13,8 @@ import org.apache.log4j.Logger;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import oracle.net.aso.i;
 import uniandes.isis2304.parranderos.negocio.Alojamiento;
 import uniandes.isis2304.parranderos.negocio.AlojamientoServicio;
 import uniandes.isis2304.parranderos.negocio.ApartamentoAlquiler;
@@ -1953,6 +1955,15 @@ public class PersistenciaAlohandes {
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		return sqlCliente.usoParaCadaUsuario(pm);
+	}
+
+	/**
+	 * RFC6
+	 */
+	public List<Object[]> usoParaUnUsuario(String identificacion)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		return sqlCliente.usoParaUnUsuario(pm, identificacion);
 	}
 }
 

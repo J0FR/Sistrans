@@ -600,7 +600,7 @@ public class PersistenciaAlohandes {
 	//  * @return El id de confirmacion
 	//  */
 
-	// 	public String RelocalizarReservaA(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, long idAlojamiento, String identificacionCliente, long idGrupo)
+	// 	public String RelocalizarReservaA(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, long idAlojamiento, String identificacionCliente, long idGrupo, int cantidadAlojamientos)
 	// 	{
 	// 		PersistenceManager pm = pmf.getPersistenceManager();
 

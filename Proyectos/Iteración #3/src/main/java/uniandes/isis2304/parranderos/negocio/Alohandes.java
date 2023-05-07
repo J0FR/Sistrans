@@ -245,10 +245,10 @@ public class Alohandes {
 	/**
 	 * Consulta RFC8
 	 */
-	public List<Cliente> encontrarClientesFrecuentesPorIdAlojamiento(long idAlojamiento)
+	public List<Object> encontrarClientesFrecuentesPorIdAlojamiento(long idAlojamiento)
 	{
 		log.info ("Buscando clientes frecuentes por id alojamiento: " + idAlojamiento);
-		List<Cliente> tb = pa.encontrarClientesFrecuentesPorIdAlojamiento(idAlojamiento);
+		List<Object> tb = pa.encontrarClientesFrecuentesPorIdAlojamiento(idAlojamiento);
 		log.info ("Finaliza busqueda clientes frecuentes por id alojamiento: " + tb != null ? tb : "NO EXISTE");
 		return tb;
 	}

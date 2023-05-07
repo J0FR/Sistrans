@@ -597,7 +597,7 @@ public class PersistenciaAlohandes {
 	 * @param idAlojamiento - El idAlojamiento 
 	 * @return List<Cliente>
 	 */
-	public List<Cliente> encontrarClientesFrecuentesPorIdAlojamiento(long idAlojamiento)
+	public List<Object> encontrarClientesFrecuentesPorIdAlojamiento(long idAlojamiento)
 	{
 		return sqlCliente.encontrarClientesFrecuentesPorIdAlojamiento(pmf.getPersistenceManager(), idAlojamiento);
 	}

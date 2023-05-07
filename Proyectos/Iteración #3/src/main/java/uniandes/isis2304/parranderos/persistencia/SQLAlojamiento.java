@@ -307,17 +307,17 @@ public class SQLAlojamiento {
 	// RFC9
 	public List<Alojamiento> encontrarAlojamientosPocaDemanda(PersistenceManager pm)
     {
-        Query q = pm.newQuery(SQL, "SELECT *" +
-		"FROM A_ALOJAMIENTO" +
-		"LEFT JOIN A_RESERVA ON A_ALOJAMIENTO.ID = A_RESERVA.IDALOJAMIENTO"+
-		"WHERE (("+
-					"(A_RESERVA.FECHAINI NOT BETWEEN ADD_MONTHS(SYSDATE, -1) AND SYSDATE)   "+
-					"AND "+
-					"(A_RESERVA.FECHAFIN NOT BETWEEN ADD_MONTHS(SYSDATE, -1) AND SYSDATE)"+
-				")"+
-				"OR (A_RESERVA.FECHAINI IS NULL)"+
-				"OR (A_RESERVA.ESTADO = 'N'))"+
-				"AND (A_ALOJAMIENTO.ESTATUS = 'Y')");
+        Query q = pm.newQuery(SQL, " SELECT A_ALOJAMIENTO.ID, A_ALOJAMIENTO.UBICACION, A_ALOJAMIENTO.DURACIONMIN, A_ALOJAMIENTO.COSTO, A_ALOJAMIENTO.TIPOALOJAMIENTO " +
+		" FROM A_ALOJAMIENTO " +
+		" LEFT JOIN A_RESERVA ON A_ALOJAMIENTO.ID = A_RESERVA.IDALOJAMIENTO "+
+		" WHERE (( "+
+					" (A_RESERVA.FECHAINI NOT BETWEEN ADD_MONTHS(SYSDATE, -1) AND SYSDATE)   "+
+					" AND "+
+					" (A_RESERVA.FECHAFIN NOT BETWEEN ADD_MONTHS(SYSDATE, -1) AND SYSDATE)"+
+				" ) "+
+				" OR (A_RESERVA.FECHAINI IS NULL) "+
+				" OR (A_RESERVA.ESTADO = 'N')) "+
+				" AND (A_ALOJAMIENTO.ESTATUS = 'Y') ");
         q.setResultClass(Alojamiento.class); 
         return q.executeList();
     }

@@ -39,22 +39,7 @@
 		{ "menuTitle": "Gestionar alojamientos",
 		  "options": 
 		  [
-				{
-					"label": "RFC1 - MOSTRAR EL DINERO RECIBIDO POR CADA PROVEEDOR DE ALOJAMIENTO DURANTE EL AÑO ACTUAL Y EL AÑO CORRIDO",
-					"event": "listarDineroRecibido"
-				},
-				{
-					"label": "RFC2 - MOSTRAR LAS 20 OFERTAS MÁS POPULARES",
-					"event": "listarTop20"
-				},
-				{
-					"label": "RFC3 - MOSTRAR EL ÍNDICE DE OCUPACIÓN DE CADA UNA DE LAS OFERTAS DE ALOJAMIENTO REGISTRADAS",
-					"event": "mostrarIndiceOcupacion"
-				},
-				{
-					"label": "RFC4 - BUSQUEDA DE ALOJAMIENTOS CON FILTROS",
-					"event": "mostrarAlojamientoConCondicion"
-				},
+				
 				{
 					"label": "Adicionar un servicio a un alojamiento",
 					"event": "adicionarAlojamientoServicio"
@@ -156,6 +141,40 @@
 					"label": "Habilitar un alojamiento",
 					"event": "habilitarAlojamiento"	
 				}
+			]
+		},
+		{
+			"menuTitle": "Consultas",
+	    	"options":
+			[
+				{
+					"label": "RFC1 - MOSTRAR EL DINERO RECIBIDO POR CADA PROVEEDOR DE ALOJAMIENTO DURANTE EL AÑO ACTUAL Y EL AÑO CORRIDO",
+					"event": "listarDineroRecibido"
+				},
+				{
+					"label": "RFC2 - MOSTRAR LAS 20 OFERTAS MÁS POPULARES",
+					"event": "listarTop20"
+				},
+				{
+					"label": "RFC3 - MOSTRAR EL ÍNDICE DE OCUPACIÓN DE CADA UNA DE LAS OFERTAS DE ALOJAMIENTO REGISTRADAS",
+					"event": "mostrarIndiceOcupacion"
+				},
+				{
+					"label": "RFC4 - BUSQUEDA DE ALOJAMIENTOS CON FILTROS",
+					"event": "mostrarAlojamientoConCondicion"
+				},
+				{
+					"label": "RFC5 - USO PARA CADA USUARIO",
+					"event": "usoParaCadaUsuario"
+				},
+				{
+                    "label": "RFC8 - ENCONTRAR LOS CLIENTES FRECUENTES",
+                    "event": "encontrarClientesFrecuentesPorIdAlojamiento"
+                },
+                {
+                    "label": "RFC9 - ENCONTRAR LAS OFERTAS DE ALOJAMIENTO QUE NO TIENEN MUCHA DEMANDA",
+                    "event": "encontrarAlojamientosPocaDemanda"
+                }
 			]
 		},
 		{ "menuTitle": "Getionar Reservas",

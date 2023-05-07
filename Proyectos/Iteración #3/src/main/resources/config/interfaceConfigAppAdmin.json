@@ -166,7 +166,15 @@
 				{
 					"label": "RFC5 - USO PARA CADA USUARIO",
 					"event": "usoParaCadaUsuario"
-				}
+				},
+				{
+                    "label": "RFC8 - ENCONTRAR LOS CLIENTES FRECUENTES",
+                    "event": "encontrarClientesFrecuentesPorIdAlojamiento"
+                },
+                {
+                    "label": "RFC9 - ENCONTRAR LAS OFERTAS DE ALOJAMIENTO QUE NO TIENEN MUCHA DEMANDA",
+                    "event": "encontrarAlojamientosPocaDemanda"
+                }
 			]
 		},
 		{ "menuTitle": "Getionar Reservas",

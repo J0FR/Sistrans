@@ -243,6 +243,29 @@ public class Alohandes {
 	}
 
 	/**
+	 * Consulta RFC8
+	 */
+	public List<Cliente> encontrarClientesFrecuentesPorIdAlojamiento(long idAlojamiento)
+	{
+		log.info ("Buscando clientes frecuentes por id alojamiento: " + idAlojamiento);
+		List<Cliente> tb = pa.encontrarClientesFrecuentesPorIdAlojamiento(idAlojamiento);
+		log.info ("Finaliza busqueda clientes frecuentes por id alojamiento: " + tb != null ? tb : "NO EXISTE");
+		return tb;
+	}
+
+	/**
+	 * Consulta RFC9
+	 */
+	public List<Alojamiento> encontrarAlojamientosPocaDemanda()
+	{
+		log.info ("Buscando alojamientos poca demanda" );
+		List<Alojamiento> tb = pa.encontrarAlojamientosPocaDemanda();
+		log.info ("Finaliza busqueda alojamientos poca demanda" + tb != null ? tb : "NO EXISTE");
+		return tb;
+	}
+	
+
+	/**
 	 * Encuentra todas las reservas que tengan es idAlojamiento
 	 * @param idAlojamiento - El id del alojamiento al que corresponde la reserva
 	 * @return Una lista de objetos Reserva con todos las reservas que tienen ese idAlojamiento

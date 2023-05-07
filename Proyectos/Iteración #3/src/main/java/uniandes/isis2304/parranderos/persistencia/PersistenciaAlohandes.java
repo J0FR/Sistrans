@@ -589,6 +589,16 @@ public class PersistenciaAlohandes {
 			pm.close();
 		}
 	}
+
+	/**
+	 * Metodo de consulta RF8
+	 * @param idAlojamiento - El idAlojamiento 
+	 * @return List<Cliente>
+	 */
+	public List<Cliente> encontrarClientesFrecuentesPorIdAlojamiento(long idAlojamiento)
+	{
+		return sqlCliente.encontrarClientesFrecuentesPorIdAlojamiento(pmf.getPersistenceManager(), idAlojamiento);
+	}
 	
 	/* ****************************************************************
 	 * 			Métodos para manejar las RESERVAS
@@ -859,6 +869,8 @@ public class PersistenciaAlohandes {
 	{
 		return sqlReserva.darUltimaFechaPorIdAlojamiento(pmf.getPersistenceManager(), idAlojamiento);
 	}
+
+	
 
 	/**
 	 * 
@@ -1187,6 +1199,15 @@ public class PersistenciaAlohandes {
 	public List<Object[]> darIndiceOcupacion()
 	{
 		return sqlAlojamiento.darIndiceOcupacion(pmf.getPersistenceManager());
+	}
+
+	/**
+	 * Metodo de consulta RFC9
+	 * @return List<Alojamiento>
+	 */
+	public List<Alojamiento> encontrarAlojamientosPocaDemanda()
+	{
+		return sqlAlojamiento.encontrarAlojamientosPocaDemanda(pmf.getPersistenceManager());
 	}
 
 	/* ****************************************************************

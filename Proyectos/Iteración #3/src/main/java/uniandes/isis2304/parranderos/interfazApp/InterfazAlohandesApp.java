@@ -44,6 +44,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 import java.math.BigDecimal;
 import uniandes.isis2304.parranderos.negocio.Alohandes;
+import uniandes.isis2304.parranderos.negocio.Alojamiento;
 import uniandes.isis2304.parranderos.negocio.Cliente;
 import uniandes.isis2304.parranderos.negocio.Reserva;
 import uniandes.isis2304.parranderos.negocio.VOAlojamiento;
@@ -620,6 +621,54 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			return null;
 		}
     }
+
+	/**
+	* RFC8 - ENCONTRAR LOS CLIENTES FRECUENTES
+	*/
+	public void encontrarClientesFrecuentesPorIdAlojamiento( )
+	{	
+		String idAlojamiento = JOptionPane.showInputDialog (this, "Id del alojamiento?", "Encontrar cliente frecuente por id alojamiento", JOptionPane.QUESTION_MESSAGE);
+		long idAlojamientoLong = Long.parseLong(idAlojamiento);
+		try{
+			List<Cliente> clientesFrecuentes= alohandes.encontrarClientesFrecuentesPorIdAlojamiento(idAlojamientoLong);
+
+			String resultado = "Los clientes frecuentes del alojamiento: " + idAlojamiento + " son: " + "\n\n";
+
+			for (Cliente cliente : clientesFrecuentes) {
+				resultado += "Identificacion cliente: " + cliente.getIdentificacion() + " | Nombre: " + cliente.getNombre()
+									+ " | Vinculo: " + cliente.getTipoVinculo() + "\n";
+			}
+			panelDatos.actualizarInterfaz(resultado);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}	
+
+	/**
+	* RFC9 - ENCONTRAR LAS OFERTAS DE ALOJAMIENTO QUE NO TIENEN MUCHA DEMANDA
+	*/
+	public void encontrarAlojamientosPocaDemanda( )
+	{	
+		try{
+			List<Alojamiento> alojamientos= alohandes.encontrarAlojamientosPocaDemanda();
+
+			String resultado = "Los Alojamientos con poca demanda son: " + "\n\n";
+
+			for (Alojamiento alojamiento : alojamientos) {
+				resultado += "Id alojamiento: " + alojamiento.getId() + " | Tipo de alojamiento: " + alojamiento.getTipoAlojamiento()
+									+ " | Ubicacion: " + alojamiento.getUbicacion() + "\n";
+			}
+			panelDatos.actualizarInterfaz(resultado);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}	
 
 
 	/* ****************************************************************
@@ -2702,15 +2751,12 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			}
 			
 			panelDatos.actualizarInterfaz(resultado);
-
-
 		}
 		catch(Exception e){
 			e.printStackTrace();
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
- 
 	}	
 
 	/**

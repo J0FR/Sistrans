@@ -34,6 +34,11 @@ public class Alojamiento implements VOAlojamiento {
 	 */
 	private String estatus;
 
+	/**
+	 * El tipo de un alojamiento 
+	 */
+	private String tipoAlojamiento;
+
 
 	/* ****************************************************************
 	 * 			Métodos 
@@ -49,6 +54,7 @@ public class Alojamiento implements VOAlojamiento {
 		this.costo = 0;
 		this.idGrupo = 0;
 		this.estatus = "";
+		this.tipoAlojamiento = "";
 	}
 
 	/**
@@ -58,8 +64,9 @@ public class Alojamiento implements VOAlojamiento {
 	 * @param costo - El duracionMin de un alojamiento
 	 * @param idGrupo - El idGrupo de un alojamiento
 	 * @param estatus - El estado de un alojamiento
+	 * @param tipoAlojamiento - El tipoAlojamiento de un alojamiento
 	 */
-    public Alojamiento(long id, String ubicacion, int duracionMin, int costo, long idGrupo, String estatus) 
+    public Alojamiento(long id, String ubicacion, int duracionMin, int costo, long idGrupo, String estatus, String tipoAlojamiento) 
     {
     	this.id = id;
 		this.ubicacion = ubicacion;
@@ -67,6 +74,7 @@ public class Alojamiento implements VOAlojamiento {
 		this.costo = costo;
 		this.idGrupo = idGrupo;
 		this.estatus = estatus;
+		this.tipoAlojamiento = tipoAlojamiento;
 	}
 
     /**
@@ -163,6 +171,22 @@ public class Alojamiento implements VOAlojamiento {
 	public void setEstatus(String estatus)
 	{
 		this.estatus = estatus;
+	}
+
+	/**
+	 * @return El tipoAlojamiento del alojamiento
+	 */
+	public String getTipoAlojamiento() 
+	{
+		return tipoAlojamiento;
+	}
+
+	/**
+	 * @param estatus - El nuevo tipoAlojamiento del alojamiento
+	 */
+	public void setTipoAlojamiento(String tipoAlojamiento)
+	{
+		this.tipoAlojamiento = tipoAlojamiento;
 	}
 	
 	@Override

@@ -33,6 +33,11 @@ public interface VOAlojamiento {
 	 * @return El estatus
 	 */
 	public String getEstatus();
+
+	/**
+	 * @return El tipo del alojamiento
+	 */
+	public String getTipoAlojamiento();
 	
 
 	/** 

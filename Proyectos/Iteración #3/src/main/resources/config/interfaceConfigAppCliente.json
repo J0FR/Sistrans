@@ -13,6 +13,10 @@
 					"event": "adicionarReservaUsuario"
 				},
 				{
+					"label": "Registrar reserva colectiva",
+					"event": "registrarUnaReservaColectiva"
+				},
+				{
 					"label": "Cancelar una reserva",
 					"event": "cancelarReservaPorId" 
 				}

@@ -594,6 +594,45 @@ public class PersistenciaAlohandes {
         }
 	}
 
+	// /**
+	//  * Método que consulta RF7
+	//  * @param id - El id de la reserva
+	//  * @return El id de confirmacion
+	//  */
+
+	// 	public String RelocalizarReservaA(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, long idAlojamiento, String identificacionCliente, long idGrupo)
+	// 	{
+	// 		PersistenceManager pm = pmf.getPersistenceManager();
+
+	// 		List<Object[]> alojamientos = sqlAlojamiento.darAlojamientosConCondicionRF7(pm, fechaIni, fechaFin, tipoServicio, tipoAlojamiento);
+
+	// 		Transaction tx=pm.currentTransaction();
+	// 		try
+	// 		{
+	// 			tx.begin();
+	// 			long reservasActualizadas = sqlReserva.actualizarReservaPorIdAlojamiento(pm, reserva.getId(), Long.parseLong(alojamientos.get(0)[0].toString()));
+	// 			tx.commit();
+	// 			String resp = "Se relocalizo " + reservasActualizadas + " " + reserva  + " con id " +  reserva.getId() + " al alojamiento con id " + alojamientos.get(0)[0].toString() + "\n";
+	// 			return resp;
+	// 		//  adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento)
+	// 		}
+	// 		catch (Exception e)
+	// 		{
+	// //        	e.printStackTrace();
+	// 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+	// 			String resp = "No fue posible realizar la reserva colectiva " + reserva.getId()  + " dado que no se encontraron alojamientos disponibles" + "\n";
+	// 			return resp;
+	// 		}
+	// 		finally
+	// 		{
+	// 			if (tx.isActive())
+	// 			{
+	// 				tx.rollback();
+	// 			}
+	// 			pm.close();
+	// 		}
+	// }
+
 	/**
 	 * Método que consulta la resrva en la tabla RESERVA que tienen el identificador dado
 	 * @param id - El id de la reserva
@@ -846,9 +885,10 @@ public class PersistenciaAlohandes {
 	 * @param ubicacion - El ubicacion de un alojamiento
 	 * @param costo - El costo de un alojamiento\
 	 * @param estatus - El estatus de un alojamiento (activo(Y) o inactivo(N))
+	 * @param tipoAlojamiento - El tipoAlojamiento de un alojamiento
 	 * @return El objeto adicionarAlojamiento adicionado. null si ocurre alguna Excepción
 	 */
-	public Alojamiento adicionarAlojamiento(String ubicacion, int duracionMin, int costo)
+	public Alojamiento adicionarAlojamiento(String ubicacion, int duracionMin, int costo, String tipoAlojamiento)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -857,12 +897,12 @@ public class PersistenciaAlohandes {
             tx.begin();
 			long idAlojamiento = nextval();
 			long idGrupo = nextval();
-            long tuplasInsertadas = sqlAlojamiento.adicionarAlojamiento(pm, idAlojamiento, ubicacion, duracionMin, costo, idGrupo, "Y");
+            long tuplasInsertadas = sqlAlojamiento.adicionarAlojamiento(pm, idAlojamiento, ubicacion, duracionMin, costo, idGrupo, "Y", tipoAlojamiento);
             tx.commit();
             
             log.trace ("Inserción de Alojamiento con id: " + idAlojamiento + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Alojamiento(idAlojamiento, ubicacion, duracionMin, costo, idGrupo, "Y");
+            return new Alojamiento(idAlojamiento, ubicacion, duracionMin, costo, idGrupo, "Y", tipoAlojamiento);
         }
         catch (Exception e)
         {

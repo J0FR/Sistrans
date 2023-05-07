@@ -594,44 +594,55 @@ public class PersistenciaAlohandes {
         }
 	}
 
-	// /**
-	//  * Método que consulta RF7
-	//  * @param id - El id de la reserva
-	//  * @return El id de confirmacion
-	//  */
+	/**
+	 * Método que consulta RF7
+	 * @param id - El id de la reserva
+	 * @return El id de confirmacion
+	 */
+	public String RelocalizarReservaA(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, String identificacionCliente, long idGrupo, int cantidadAlojamientos)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
 
-	// 	public String RelocalizarReservaA(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, long idAlojamiento, String identificacionCliente, long idGrupo, int cantidadAlojamientos)
-	// 	{
-	// 		PersistenceManager pm = pmf.getPersistenceManager();
+		List<Object[]> alojamientos = sqlAlojamiento.darAlojamientosConCondicionRF7(pm, fechaIni, fechaFin, tipoServicio, tipoAlojamiento);
+		long idReservaGrupal = nextval ();
 
-	// 		List<Object[]> alojamientos = sqlAlojamiento.darAlojamientosConCondicionRF7(pm, fechaIni, fechaFin, tipoServicio, tipoAlojamiento);
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			if (alojamientos.size() < cantidadAlojamientos) {
+				throw new Exception ("Cantidad de alojamientos no posible de abastecer con cantidad: " + alojamientos.size());
+			}
 
-	// 		Transaction tx=pm.currentTransaction();
-	// 		try
-	// 		{
-	// 			tx.begin();
-	// 			long reservasActualizadas = sqlReserva.actualizarReservaPorIdAlojamiento(pm, reserva.getId(), Long.parseLong(alojamientos.get(0)[0].toString()));
-	// 			tx.commit();
-	// 			String resp = "Se relocalizo " + reservasActualizadas + " " + reserva  + " con id " +  reserva.getId() + " al alojamiento con id " + alojamientos.get(0)[0].toString() + "\n";
-	// 			return resp;
-	// 		//  adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento)
-	// 		}
-	// 		catch (Exception e)
-	// 		{
-	// //        	e.printStackTrace();
-	// 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-	// 			String resp = "No fue posible realizar la reserva colectiva " + reserva.getId()  + " dado que no se encontraron alojamientos disponibles" + "\n";
-	// 			return resp;
-	// 		}
-	// 		finally
-	// 		{
-	// 			if (tx.isActive())
-	// 			{
-	// 				tx.rollback();
-	// 			}
-	// 			pm.close();
-	// 		}
-	// }
+			List<Object[]> subLista = alojamientos.subList(0, cantidadAlojamientos);
+
+			tx.begin();
+			for (Object[] alojamiento : subLista) {
+				adicionarReserva(fechaIni, fechaFin, identificacionCliente, Long.parseLong(alojamiento[0].toString()));
+			}
+			tx.commit();
+			String resp = "Se realizo la reserva colectiva de " + cantidadAlojamientos + " alojamientos; los cuales son: " + "\n";
+			for (Object[] alojamiento : subLista) {
+				resp += "Alojamiento con id: " + alojamiento[0] + " - Precio: " + alojamiento[3] + "\n";
+			}
+			
+			return resp;
+		}
+		catch (Exception e)
+		{
+//        	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			String resp = "No fue posible realizar la reserva colectiva con id: " + idReservaGrupal  + " dado que no se encontraron alojamientos disponibles" + "\n";
+			return resp;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 
 	/**
 	 * Método que consulta la resrva en la tabla RESERVA que tienen el identificador dado

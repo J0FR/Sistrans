@@ -953,3 +953,8 @@ ORA-02291: integrity constraint (ISIS2304C19202310.FK_AL_ALOJAMIENTOSERVICIO) vi
 09:24:11,408 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Reserva [id=53, fechaIni=2023-05-18 00:00:00.0, fechaFin=2023-05-20 00:00:00.0, identificacionCliente=1, idAlojamiento=45]
 09:24:11,408 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 53
 09:24:11,571 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 53
+15:20:04,781 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+15:20:04,782 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+15:20:04,804 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:20:12,576 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+15:20:12,576 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración

@@ -103,4 +103,26 @@ class SQLCliente {
 		Query q = pm.newQuery(SQL, "SELECT A_CLIENTE.TIPOVINCULO, COUNT(A_RESERVA.ID) numReservas FROM A_CLIENTE LEFT JOIN A_RESERVA ON A_CLIENTE.IDENTIFICACION = A_RESERVA.IDENTIFICACIONCLIENTE GROUP BY A_CLIENTE.TIPOVINCULO;");
 		return q.executeList();
 	}
+
+	// RFC8
+	public List<Cliente> encontrarClientesFrecuentesPorIdAlojamiento(PersistenceManager pm, long idAlojamiento)
+    {
+        Query q = pm.newQuery(SQL, "SELECT *"+
+		"FROM A_RESERVA"+
+		"WHERE (A_RESERVA.IDENTIFICACIONCLIENTE = (SELECT A_RESERVA.IDENTIFICACIONCLIENTE"+
+													"FROM A_RESERVA"+
+													"WHERE (A_RESERVA.IDALOJAMIENTO = ?)"+
+													"GROUP BY A_RESERVA.IDENTIFICACIONCLIENTE"+
+													"HAVING COUNT(A_RESERVA.IDENTIFICACIONCLIENTE) >= 3)"+
+												"OR A_RESERVA.IDENTIFICACIONCLIENTE = (SELECT A_RESERVA.IDENTIFICACIONCLIENTE"+
+																						"FROM A_RESERVA"+
+																						"WHERE A_RESERVA.IDALOJAMIENTO = ?"+
+																						"GROUP BY A_RESERVA.IDENTIFICACIONCLIENTE"+
+																						"HAVING 15 <= SUM(A_RESERVA.FECHAFIN - A_RESERVA.FECHAINI)))"+
+																						"AND A_RESERVA.IDALOJAMIENTO = ?)");
+        q.setResultClass(Cliente.class); 
+        q.setParameters(idAlojamiento, idAlojamiento, idAlojamiento);
+        return q.executeList();
+    }
+
 }

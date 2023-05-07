@@ -1,5 +1,7 @@
 package uniandes.isis2304.parranderos.persistencia;
 import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
 import java.util.List;
 import javax.jdo.JDODataStoreException;
@@ -24,6 +26,7 @@ import uniandes.isis2304.parranderos.negocio.Hotel;
 import uniandes.isis2304.parranderos.negocio.OperadorUsuario;
 import uniandes.isis2304.parranderos.negocio.Reserva;
 import uniandes.isis2304.parranderos.negocio.Servicio;
+import uniandes.isis2304.parranderos.negocio.VOReserva;
 import uniandes.isis2304.parranderos.negocio.ViviendaTemporal;
 import uniandes.isis2304.parranderos.negocio.ViviendaUniversitaria;
 
@@ -724,6 +727,70 @@ public class PersistenciaAlohandes {
 	public Reserva darReservaPorId(long id)
 	{
 		return sqlReserva.darReservaPorId(pmf.getPersistenceManager(), id);
+	}
+
+	/**
+	 * Método que cancela la reserva en la tabla RESERVA que tienen el identificador dado
+	 * @param idReserva - El id de la reserva
+	 * @return El objeto Reserva
+	 */
+	public long actualizarEstadoCanceladoReservaPorIdReserva(long idReserva)
+	{
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				VOReserva val = darReservaPorId(idReserva);
+				Timestamp fechaIni = val.getFechaIni();
+				Timestamp fechaFin = val.getFechaFin();
+				Instant instant1 = fechaIni.toInstant();
+				Instant instant2 = fechaFin.toInstant();
+				int diasDeUso = (int) ChronoUnit.DAYS.between(instant1, instant2);
+				Timestamp fechaActual = new Timestamp(System.currentTimeMillis());
+				Instant instantHoy = fechaActual.toInstant();
+				int diasHastaReserva = (int) ChronoUnit.DAYS.between(instantHoy, instant1);
+
+				int diasLimiteCancelacion;
+				float penalizacion;
+
+				if (diasDeUso <= 6) {
+					diasLimiteCancelacion = 3;
+				} else {
+					diasLimiteCancelacion = 7;
+				}
+
+				if (diasHastaReserva > diasLimiteCancelacion) {
+					penalizacion = 0.10f;
+				} else if (diasLimiteCancelacion - diasHastaReserva > 0) {
+					penalizacion = 0.30f;
+				} else if (diasLimiteCancelacion - diasHastaReserva <= 0) {
+					penalizacion = 0.50f;
+				} else {
+					penalizacion = 0.0f;
+				}
+				
+				tx.begin();
+				long resp = sqlReserva.actualizarEstadoReservaPorIdReserva(pmf.getPersistenceManager(), "N", idReserva);
+				tx.commit();
+	
+				return resp;
+			}
+			catch (Exception e)
+			{
+	//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return -1;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
 	}
 	
 	/**

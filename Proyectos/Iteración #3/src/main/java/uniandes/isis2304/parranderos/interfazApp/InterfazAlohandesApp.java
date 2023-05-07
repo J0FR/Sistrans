@@ -1504,7 +1504,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 					throw new Exception ("Ya se realizo la maxima cantidad de reservas para este cliente por hoy!");
 				} else if (perteneceViviendaUniversitaria != null && (cliente.getTipoVinculo().equals("padre de estudiante") || cliente.getTipoVinculo().equals("egresado"))) {
 					throw new Exception ("Egresados ni padres de familia pueden reservar una habitacion en las viviendas universitarias!");
-				} else if (daysBetween <= 0 || (int) ChronoUnit.DAYS.between(instantOne, instant1) <= 0 || ChronoUnit.DAYS.between(instantOne, instant2) <= 0) {
+				} else if (/**daysBetween <= 0||**/ (int) ChronoUnit.DAYS.between(instantOne, instant1) <= 0 || ChronoUnit.DAYS.between(instantOne, instant2) <= 0) {
 					throw new Exception ("Error en las fechas ingresadas!");
 				} else {
 					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong);
@@ -1543,6 +1543,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		String idReservaStr = JOptionPane.showInputDialog (this, "Id de la reserva", "Cancelar reserva por Id", JOptionPane.QUESTION_MESSAGE);
 			long idReserva = Long.valueOf (idReservaStr);
 			VOReserva val = buscarReservaPorId(idReserva);
+
     		if (idReservaStr != null && val.getIdentificacionCliente().equals(this.identificadorLogin))
     		{
     			long tbEliminados = alohandes.actualizarEstadoReservaPorIdReserva("N", idReserva);

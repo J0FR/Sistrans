@@ -593,15 +593,17 @@ public class PersistenciaAlohandes {
 	/* ****************************************************************
 	 * 			Métodos para manejar las RESERVAS
 	 *****************************************************************/
-	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, long idGrupo)
+	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, long idGrupo, int ganancia)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
+			Cliente cliente = sqlCliente.darClientePorIdentificacion(pm, identificacionCliente);
             tx.begin();
             long idReserva = nextval ();
-            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo);
+            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo, ganancia);
+			sqlCliente.actualizarSaldoCliente(pm, identificacionCliente,  cliente.getSaldo() - ganancia);
             tx.commit();
             
             log.trace ("Inserción de la Reserva con id " + idReserva + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -647,7 +649,7 @@ public class PersistenciaAlohandes {
 
 			tx.begin();
 			for (Object[] alojamiento : subLista) {
-				adicionarReserva(fechaIni, fechaFin, identificacionCliente, Long.parseLong(alojamiento[0].toString()), idGrupalReserva);
+				adicionarReserva(fechaIni, fechaFin, identificacionCliente, Long.parseLong(alojamiento[0].toString()), idGrupalReserva, Integer.parseInt(alojamiento[2].toString()));
 			}
 			tx.commit();
 			String resp = "Se realizo la reserva colectiva de " + cantidadAlojamientos + " alojamientos con id de grupo : " + idGrupalReserva + "; los alojamientos reservados fueron: " + "\n";
@@ -690,7 +692,7 @@ public class PersistenciaAlohandes {
 		{
 			tx.begin();
 			for (Reserva reserva : reservas) {
-				sqlReserva.actualizarEstadoReservaPorIdReserva(pm, "N", reserva.getId());
+				actualizarEstadoCanceladoReservaPorIdReserva(reserva.getId());
 			}
 			tx.commit();
 			String resp = "Se cancelo la reserva colectiva con id: " + idReservaGrupal + "; las reservas canceladas fueron: " + "\n";
@@ -750,6 +752,10 @@ public class PersistenciaAlohandes {
 				Timestamp fechaActual = new Timestamp(System.currentTimeMillis());
 				Instant instantHoy = fechaActual.toInstant();
 				int diasHastaReserva = (int) ChronoUnit.DAYS.between(instantHoy, instant1);
+				String identificacionCliente = val.getIdentificacionCliente();
+				Cliente cliente = sqlCliente.darClientePorIdentificacion(pm, identificacionCliente);
+				int saldoCliente = cliente.getSaldo();
+				int gananciaReserva = val.getGanancia();
 
 				int diasLimiteCancelacion;
 				float penalizacion;
@@ -769,9 +775,14 @@ public class PersistenciaAlohandes {
 				} else {
 					penalizacion = 0.0f;
 				}
+
+				int gananciaReservaPenalizacion = Math.round(gananciaReserva * penalizacion);
+				int devolucion = gananciaReserva - gananciaReservaPenalizacion;
 				
 				tx.begin();
-				long resp = sqlReserva.actualizarEstadoReservaPorIdReserva(pmf.getPersistenceManager(), "N", idReserva);
+				long resp = sqlReserva.actualizarEstadoReservaPorIdReserva(pm, "N", idReserva);
+				sqlReserva.actualizarGananciaIdReserva(pm, gananciaReserva - devolucion, idReserva);
+				sqlCliente.actualizarSaldoCliente(pm, identificacionCliente, saldoCliente + devolucion);
 				tx.commit();
 	
 				return resp;

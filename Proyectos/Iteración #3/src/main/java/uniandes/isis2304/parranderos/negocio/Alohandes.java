@@ -156,9 +156,9 @@ public class Alohandes {
 	 * Métodos para manejar las RESERVAS
 	 *****************************************************************/
 
-	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento) {
+	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, int precio) {
 		log.info("Adicionando reserva del cliente " + identificacionCliente + " al alojamiento " + idAlojamiento);
-		Reserva reserva = pa.adicionarReserva(fechaInicio, fechaFin, identificacionCliente, idAlojamiento, -1);
+		Reserva reserva = pa.adicionarReserva(fechaInicio, fechaFin, identificacionCliente, idAlojamiento, -1, precio);
 		log.info("Finalizo adicionando reserva del cliente " + identificacionCliente + " al alojamiento " + idAlojamiento);
 		return reserva;
 	}
@@ -176,6 +176,14 @@ public class Alohandes {
 		log.info("Finalizo cancelacion de reserva colectiva con id grupal: " + idReservaGrupal);
 		return resp;
 	}
+
+	public long cancelarReserva(long idReserva) {
+		log.info("Cancelando reserva colectiva con id grupal: " + idReserva);
+		long resp = pa.actualizarEstadoCanceladoReservaPorIdReserva(idReserva);
+		log.info("Finalizo cancelacion de reserva colectiva con id grupal: " + idReserva);
+		return resp;
+	}
+
 
 	/**
 	 * Elimina una reserva por su identificador

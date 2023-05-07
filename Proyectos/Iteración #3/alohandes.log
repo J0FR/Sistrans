@@ -765,3 +765,191 @@ ORA-02291: integrity constraint (ISIS2304C19202310.FK_HABITACIONHUESPED_OPERADOR
 00:56:41,461 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
 00:56:45,459 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 30
 00:56:45,791 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 30
+08:42:26,676 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:42:26,676 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:42:26,697 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:42:48,938 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando Cliente: jose
+08:42:49,206 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando Cliente: Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+08:42:51,440 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+08:42:51,541 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+08:42:51,542 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:42:51,542 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:43:09,647 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:43:09,647 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:43:16,269 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:43:16,269 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:43:23,359 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando Hotel: sdf
+08:43:23,425 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando Hotel: Hotel [regComercio=1, nit=1, nombre=sdf, restaurante=Y, parqueadero=Y, piscina=Y]
+08:43:29,312 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:43:29,312 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:43:31,572 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Hotel por regComercio: 1
+08:43:31,622 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Hotel [regComercio=1, nit=1, nombre=sdf, restaurante=Y, parqueadero=Y, piscina=Y]
+08:43:31,623 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:43:31,623 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:43:40,384 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: 1
+08:43:40,507 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: Alojamiento [id=41, ubicacion=1, duracionMin=1, costo=1, estatus=Y]
+08:43:40,507 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 41
+08:43:40,557 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 41
+08:43:46,599 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: 2
+08:43:46,704 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: Alojamiento [id=42, ubicacion=2, duracionMin=1, costo=2, estatus=Y]
+08:43:46,704 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 42
+08:43:46,749 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 42
+08:43:50,416 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: 3
+08:43:50,523 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: Alojamiento [id=43, ubicacion=3, duracionMin=1, costo=3, estatus=Y]
+08:43:50,524 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 43
+08:43:50,565 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 43
+08:43:53,991 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: 4
+08:43:54,097 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: Alojamiento [id=44, ubicacion=4, duracionMin=1, costo=4, estatus=Y]
+08:43:54,097 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 44
+08:43:54,139 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 44
+08:43:59,118 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: 5
+08:43:59,236 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: Alojamiento [id=45, ubicacion=5, duracionMin=1, costo=5, estatus=Y]
+08:43:59,236 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 45
+08:43:59,288 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 45
+08:44:08,536 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 1 - 1
+08:44:08,627 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohandes] - Exception : Error executing SQL query "INSERT INTO A_ALOJAMIENTOSERVICIO(idAlojamiento, idServicio, costo) values (?, ?, ?)".
+ORA-02291: integrity constraint (ISIS2304C19202310.FK_SERV_ALOJAMIENTOSERVICIO) violated - parent key not found
+
+08:44:08,653 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: null
+08:44:13,811 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 3 - 1
+08:44:13,848 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohandes] - Exception : Error executing SQL query "INSERT INTO A_ALOJAMIENTOSERVICIO(idAlojamiento, idServicio, costo) values (?, ?, ?)".
+ORA-02291: integrity constraint (ISIS2304C19202310.FK_SERV_ALOJAMIENTOSERVICIO) violated - parent key not found
+
+08:44:13,924 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: null
+08:44:34,221 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 3 - 1
+08:44:34,271 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohandes] - Exception : Error executing SQL query "INSERT INTO A_ALOJAMIENTOSERVICIO(idAlojamiento, idServicio, costo) values (?, ?, ?)".
+ORA-02291: integrity constraint (ISIS2304C19202310.FK_SERV_ALOJAMIENTOSERVICIO) violated - parent key not found
+
+08:44:34,294 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: null
+08:46:20,431 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 1 - 1
+08:46:20,904 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohandes] - Exception : Error executing SQL query "INSERT INTO A_ALOJAMIENTOSERVICIO(idAlojamiento, idServicio, costo) values (?, ?, ?)".
+ORA-02291: integrity constraint (ISIS2304C19202310.FK_SERV_ALOJAMIENTOSERVICIO) violated - parent key not found
+
+08:46:20,940 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: null
+08:47:46,708 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 1 - 1
+08:48:01,572 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:48:01,573 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:48:01,592 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:48:05,615 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Hotel por regComercio: 1
+08:48:05,733 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Hotel [regComercio=1, nit=1, nombre=sdf, restaurante=Y, parqueadero=Y, piscina=Y]
+08:48:05,734 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:48:05,735 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:48:10,572 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 1 - 1
+08:48:29,858 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:48:29,859 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:48:29,881 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:48:34,174 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Hotel por regComercio: 1
+08:48:34,269 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Hotel [regComercio=1, nit=1, nombre=sdf, restaurante=Y, parqueadero=Y, piscina=Y]
+08:48:34,270 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:48:34,270 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:48:37,167 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 3 - 1
+08:49:35,314 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:49:35,314 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:49:35,334 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:49:41,413 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Hotel por regComercio: 1
+08:49:41,528 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Hotel [regComercio=1, nit=1, nombre=sdf, restaurante=Y, parqueadero=Y, piscina=Y]
+08:49:41,528 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:49:41,528 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:49:48,678 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: 6
+08:49:49,137 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando alojamiento: Alojamiento [id=46, ubicacion=6, duracionMin=1, costo=6, estatus=Y]
+08:49:49,137 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 46
+08:49:49,179 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando HabitacionHotel: 46
+08:49:58,192 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 46 - 1
+08:50:34,864 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: AlojamientoServicio [idAlojamiento=46, idServicio=1, costo=2]
+08:50:42,411 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:50:42,411 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:50:42,430 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:50:47,008 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Hotel por regComercio: 1
+08:50:47,101 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Hotel [regComercio=1, nit=1, nombre=sdf, restaurante=Y, parqueadero=Y, piscina=Y]
+08:50:47,102 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:50:47,102 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:50:53,164 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 46 - 1
+08:50:53,516 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohandes] - Exception : Error executing SQL query "INSERT INTO A_ALOJAMIENTOSERVICIO(idAlojamiento, idServicio, costo) values (?, ?, ?)".
+ORA-00001: unique constraint (ISIS2304C19202310.PK_EMPRESASERVICIO) violated
+
+08:50:53,538 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: null
+08:51:30,363 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 1 - 1
+08:51:30,408 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohandes] - Exception : Error executing SQL query "INSERT INTO A_ALOJAMIENTOSERVICIO(idAlojamiento, idServicio, costo) values (?, ?, ?)".
+ORA-02291: integrity constraint (ISIS2304C19202310.FK_AL_ALOJAMIENTOSERVICIO) violated - parent key not found
+
+08:51:30,432 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: null
+08:51:53,799 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: 44 - 1
+08:51:54,171 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando AlojamientoServicio: AlojamientoServicio [idAlojamiento=44, idServicio=1, costo=2]
+08:52:02,727 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:52:02,728 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:52:05,341 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+08:52:05,396 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+08:52:05,397 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:52:05,397 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:52:49,503 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando reserva colectiva del cliente 1
+08:52:49,927 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo adicionando reserva colectiva del cliente 1
+08:56:08,397 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:56:08,398 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:56:08,420 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:56:13,006 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+08:56:13,113 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+08:56:13,114 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:56:13,114 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:56:29,502 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando reserva colectiva del cliente 1
+08:56:30,105 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo adicionando reserva colectiva del cliente 1
+08:58:05,617 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 50
+08:58:05,753 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 50
+08:59:00,252 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Reserva por id: 51
+08:59:00,302 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Reserva [id=51, fechaIni=2023-05-18 00:00:00.0, fechaFin=2023-05-30 00:00:00.0, identificacionCliente=1, idAlojamiento=46]
+08:59:00,302 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Actualizando reserva por id: 51
+08:59:00,338 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Actualizando reserva por id: 1 tuplas eliminadas
+09:05:17,211 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:05:17,211 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:05:17,230 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:05:23,407 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+09:05:23,506 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+09:05:23,506 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:05:23,506 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:05:38,614 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 50
+09:05:39,291 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 50
+09:10:54,945 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:10:54,945 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:10:54,967 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:11:28,601 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+09:11:28,707 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+09:11:28,708 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:11:28,708 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:11:40,783 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Reserva por id: 50
+09:11:40,837 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - 
+09:14:52,587 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Reserva por id: 50
+09:14:52,638 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - 
+09:15:17,395 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 50
+09:15:18,589 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 50
+09:18:15,521 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:18:15,522 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:18:15,546 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:18:20,148 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+09:18:20,250 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+09:18:20,251 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:18:20,251 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:18:24,522 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 50
+09:18:25,126 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 50
+09:20:14,667 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:20:14,668 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:20:14,697 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:20:18,714 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+09:20:18,841 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+09:20:18,841 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:20:18,841 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:20:25,984 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 50
+09:20:26,547 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 50
+09:23:06,487 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 50
+09:23:07,010 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 50
+09:23:37,104 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando cliente por identificador: 1
+09:23:37,157 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cliente [identificacion=1, nombre=jose, tipoVinculo=profesor, correoElectronico=a, telefono=31]
+09:23:37,157 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando alojamiento por identificador: 45
+09:23:37,201 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Alojamiento [id=45, ubicacion=5, duracionMin=1, costo=5, estatus=Y]
+09:23:37,201 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Dar HabitacionViviendaUniversitaria por id: 45
+09:23:37,241 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Dar HabitacionViviendaUniversitaria: null
+09:23:37,241 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Adicionando reserva del cliente 1 al alojamiento 45
+09:23:37,398 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo adicionando reserva del cliente 1 al alojamiento 45
+09:23:37,398 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cambiando ultimaFechaReserva de cliente: 1
+09:24:11,055 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Buscando Reserva por id: 53
+09:24:11,408 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Reserva [id=53, fechaIni=2023-05-18 00:00:00.0, fechaFin=2023-05-20 00:00:00.0, identificacionCliente=1, idAlojamiento=45]
+09:24:11,408 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Cancelando reserva colectiva con id grupal: 53
+09:24:11,571 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Alohandes] - Finalizo cancelacion de reserva colectiva con id grupal: 53

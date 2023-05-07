@@ -1413,7 +1413,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				} else if (daysBetween <= 0 || (int) ChronoUnit.DAYS.between(instantOne, instant1) <= 0 || ChronoUnit.DAYS.between(instantOne, instant2) <= 0) {
 					throw new Exception ("Error en las fechas ingresadas!");
 				} else {
-					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong);
+					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong, var.getCosto());
 					alohandes.cambiarCiudadBebedor(identificacionCliente, fechaActual);
 				}
 
@@ -1507,7 +1507,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				} else if (/**daysBetween <= 0||**/ (int) ChronoUnit.DAYS.between(instantOne, instant1) <= 0 || ChronoUnit.DAYS.between(instantOne, instant2) <= 0) {
 					throw new Exception ("Error en las fechas ingresadas!");
 				} else {
-					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong);
+					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong, var.getCosto());
 					alohandes.cambiarCiudadBebedor(identificacionCliente, fechaActual);
 				}
 
@@ -1546,7 +1546,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 
     		if (idReservaStr != null && val.getIdentificacionCliente().equals(this.identificadorLogin))
     		{
-    			long tbEliminados = alohandes.actualizarEstadoReservaPorIdReserva("N", idReserva);
+    			long tbEliminados = alohandes.cancelarReserva(idReserva);
 
     			String resultado = "En cancelar Reserva\n\n";
     			resultado += tbEliminados + " Reserva cancelada\n";

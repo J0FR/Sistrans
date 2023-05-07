@@ -51,10 +51,10 @@ class SQLReserva {
      * @param idGrupo - El idGrupo de la reserva
      * @return El número de tuplas insertadas
      */
-    public long adicionarReserva (PersistenceManager pm, long idReserva, Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado, long idGrupo)
+    public long adicionarReserva (PersistenceManager pm, long idReserva, Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado, long idGrupo, int ganancia)
     {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaReserva () + "(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado, idGrupo) values (?, ?, ?, ?, ?, ?, ?) ");
-        q.setParameters(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, estado, idGrupo);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaReserva () + "(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado, idGrupo, ganancia) values (?, ?, ?, ?, ?, ?, ?, ?) ");
+        q.setParameters(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, estado, idGrupo, ganancia);
         return (long) q.executeUnique();
     }
 

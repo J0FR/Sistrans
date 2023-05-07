@@ -562,6 +562,33 @@ public class PersistenciaAlohandes {
             pm.close();
         }
 	}
+
+	public long cambiarSaldoCliente (String idCliente, Integer saldo)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long resp = sqlCliente.actualizarSaldoCliente(pm, idCliente, saldo);
+			tx.commit();
+			return resp;
+		}
+		catch (Exception e)
+		{
+//        	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 	
 	/* ****************************************************************
 	 * 			Métodos para manejar las RESERVAS

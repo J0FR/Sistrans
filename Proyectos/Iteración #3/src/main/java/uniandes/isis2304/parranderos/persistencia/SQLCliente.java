@@ -86,5 +86,10 @@ class SQLCliente {
 	     return (long) q.executeUnique();            
 	}
 
-	
+	public long actualizarSaldoCliente(PersistenceManager pm, String identificacion, Integer saldo) {
+		Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaCliente() + " SET saldo = ? WHERE identificacion = ? ");
+	     q.setParameters(saldo, identificacion);
+	     return (long) q.executeUnique();            
+	}
+
 }

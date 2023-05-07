@@ -1,6 +1,7 @@
 package uniandes.isis2304.parranderos.persistencia;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
@@ -92,4 +93,14 @@ class SQLCliente {
 	     return (long) q.executeUnique();            
 	}
 
+	/**
+	 * 
+	 * @param pm
+	 * @return 
+	 */
+	public List<Object[]> usoParaCadaUsuario(PersistenceManager pm)
+	{
+		Query q = pm.newQuery(SQL, "SELECT A_CLIENTE.TIPOVINCULO, COUNT(A_RESERVA.ID) numReservas FROM A_CLIENTE LEFT JOIN A_RESERVA ON A_CLIENTE.IDENTIFICACION = A_RESERVA.IDENTIFICACIONCLIENTE GROUP BY A_CLIENTE.TIPOVINCULO;");
+		return q.executeList();
+	}
 }

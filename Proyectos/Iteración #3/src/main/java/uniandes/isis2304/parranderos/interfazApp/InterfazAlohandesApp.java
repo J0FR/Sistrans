@@ -2472,6 +2472,35 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+
+	/* ****************************************************************
+	 * 			CONSULTAS
+	 *****************************************************************/
+
+	/**
+	 * RFC5
+	 */
+
+	public void usoParaCadaUsuario(){
+		try{
+
+			List<Object[]> tuplas = alohandes.usoParaCadaUsuario();
+			String resultado = "En USO DE ALOHANDES PARA CADA TIPO DE USUARIO DE LA COMUNIDAD\n\n";
+			for (Object[] tupla : tuplas) {
+				resultado += "Tipo de vinculo: " + tupla[0] + " Número de reservas realizadas (uso): " + tupla[1] + "\n";
+			}
+			panelDatos.actualizarInterfaz(resultado);
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+
+	}
+
 	
 	/**
 	 * RFC4 - MOSTRAR LOS ALOJAMIENTOS DISPONIBLES EN UN RANGO DE FECHAS, 

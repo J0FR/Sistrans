@@ -876,4 +876,16 @@ public class Alohandes {
 		return resp;
 	}
 
+	/**
+	 * RFC5
+	 * @return
+	 */
+	public List<Object[]> usoParaCadaUsuario()
+	{
+		log.info ("Listando USO DE ALOHANDES PARA CADA TIPO DE USUARIO DE LA COMUNIDAD:");
+        List<Object []> tuplas = pa.usoParaCadaUsuario();
+        log.info ("Listando USO DE ALOHANDES PARA CADA TIPO DE USUARIO DE LA COMUNIDAD: Listo!");
+        return tuplas;
+	}
+
 }

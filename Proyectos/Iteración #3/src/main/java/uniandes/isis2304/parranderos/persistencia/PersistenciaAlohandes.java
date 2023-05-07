@@ -1925,5 +1925,13 @@ public class PersistenciaAlohandes {
 		}
 	}
 
+	/**
+	 * RFC5
+	 */
+	public List<Object[]> usoParaCadaUsuario()
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		return sqlCliente.usoParaCadaUsuario(pm);
+	}
 }
 

@@ -630,13 +630,15 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 		String idAlojamiento = JOptionPane.showInputDialog (this, "Id del alojamiento?", "Encontrar cliente frecuente por id alojamiento", JOptionPane.QUESTION_MESSAGE);
 		long idAlojamientoLong = Long.parseLong(idAlojamiento);
 		try{
-			List<Cliente> clientesFrecuentes= alohandes.encontrarClientesFrecuentesPorIdAlojamiento(idAlojamientoLong);
+			List<Object> clientesFrecuentes= alohandes.encontrarClientesFrecuentesPorIdAlojamiento(idAlojamientoLong);
 
 			String resultado = "Los clientes frecuentes del alojamiento: " + idAlojamiento + " son: " + "\n\n";
 
-			for (Cliente cliente : clientesFrecuentes) {
-				resultado += "Identificacion cliente: " + cliente.getIdentificacion() + " | Nombre: " + cliente.getNombre()
-									+ " | Vinculo: " + cliente.getTipoVinculo() + "\n";
+			for (Object cliente : clientesFrecuentes) {
+				String idCliente = (String) cliente;
+				Cliente clienteObj = alohandes.darClientePorIdentificacion(idCliente);
+				resultado += "Identificacion cliente: " + clienteObj.getIdentificacion() + " | Nombre: " + clienteObj.getNombre()
+									+ " | Vinculo: " + clienteObj.getTipoVinculo() + "\n";
 			}
 			panelDatos.actualizarInterfaz(resultado);
 		}

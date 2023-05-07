@@ -579,7 +579,7 @@ public class PersistenciaAlohandes {
             
             log.trace ("Inserción de la Reserva con id " + idReserva + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Reserva(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo);
+            return new Reserva(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo, 0);
         }
         catch (Exception e)
         {

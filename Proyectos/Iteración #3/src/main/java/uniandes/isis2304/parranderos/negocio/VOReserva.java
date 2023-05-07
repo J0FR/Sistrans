@@ -42,6 +42,11 @@ public interface VOReserva {
 	 */
 	public long getIdGrupo();
 
+	/**
+	 * @return La Ganancia
+	 */
+	public int getGanancia();
+
 	/** 
 	 * @return Una cadena con la información básica
 	 */

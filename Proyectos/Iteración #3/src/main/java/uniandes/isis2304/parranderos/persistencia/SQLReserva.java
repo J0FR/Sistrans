@@ -121,4 +121,11 @@ class SQLReserva {
         q.setParameters(idReservaColectiva);
         return q.executeList();
     }
+
+    public long actualizarGananciaIdReserva(PersistenceManager pm, int ganancia, long idReserva)
+    {
+        Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaReserva() + " SET GANANCIA = ? WHERE ID = ?");
+        q.setParameters(ganancia, idReserva);
+        return (long) q.executeUnique();
+    }
 }

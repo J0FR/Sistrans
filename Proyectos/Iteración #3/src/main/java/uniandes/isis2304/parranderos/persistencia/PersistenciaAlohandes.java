@@ -1786,10 +1786,39 @@ public class PersistenciaAlohandes {
 
 	}
 
-
-
-
-
+	
+	/**
+	 * Método que actualiza, de manera transaccional, el estatus de una oferta de alojamiento
+	 * a activo (Y)
+	 * @param idAlojamiento
+	 * @return
+	 */
+	public long habilitarAlojamiento(long idAlojamiento)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long resp = sqlAlojamiento.habilitarAlojamiento(pm, idAlojamiento);
+			tx.commit();
+			return resp;
+		}
+		catch (Exception e)
+		{
+//        	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 
 }
 

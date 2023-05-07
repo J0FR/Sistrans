@@ -857,4 +857,15 @@ public class Alohandes {
 	}
 
 
+	public String habilitarAlojamiento(long idAlojamiento){
+		log.info("Inicia proceso de habilitar alojamiento por id: " + idAlojamiento);
+
+		long numAlojamientosHabilitados = pa.habilitarAlojamiento(idAlojamiento);
+		
+		log.info("Se habilitaron : " + numAlojamientosHabilitados + " alojamientos");
+		String resp = "Se ha habilitado " + numAlojamientosHabilitados + " alojamiento \n";
+		
+		return resp;
+	}
+
 }

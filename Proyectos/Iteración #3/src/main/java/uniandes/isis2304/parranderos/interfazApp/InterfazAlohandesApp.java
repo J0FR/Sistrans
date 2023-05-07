@@ -2866,6 +2866,32 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 		}
 	}
 
+	public void habilitarAlojamiento()
+	{
+		try{
+
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamiento a deshabilitar", "Deshabilitar alojamiento", JOptionPane.QUESTION_MESSAGE);
+
+			if(idAlojamiento != null)
+			{
+				String resp = alohandes.habilitarAlojamiento(Long.parseLong(idAlojamiento));
+				panelDatos.actualizarInterfaz(resp);
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+
+	}
+
 	 
 
 

@@ -25,11 +25,6 @@ public class Alojamiento implements VOAlojamiento {
 	private int costo;
 
 	/**
-	 * El id de un grupo de alojamientos
-	 */
-	private long idGrupo;
-
-	/**
 	 * El estado de un alojamiento si esta activo o no ( 'Y' || 'N' )
 	 */
 	private String estatus;
@@ -52,7 +47,6 @@ public class Alojamiento implements VOAlojamiento {
 		this.ubicacion = "";
 		this.duracionMin = 0;
 		this.costo = 0;
-		this.idGrupo = 0;
 		this.estatus = "";
 		this.tipoAlojamiento = "";
 	}
@@ -62,17 +56,15 @@ public class Alojamiento implements VOAlojamiento {
 	 * @param id - La id de un alojamiento
 	 * @param tipo - El ubicacion de un alojamiento
 	 * @param costo - El duracionMin de un alojamiento
-	 * @param idGrupo - El idGrupo de un alojamiento
 	 * @param estatus - El estado de un alojamiento
 	 * @param tipoAlojamiento - El tipoAlojamiento de un alojamiento
 	 */
-    public Alojamiento(long id, String ubicacion, int duracionMin, int costo, long idGrupo, String estatus, String tipoAlojamiento) 
+    public Alojamiento(long id, String ubicacion, int duracionMin, int costo, String estatus, String tipoAlojamiento) 
     {
     	this.id = id;
 		this.ubicacion = ubicacion;
 		this.duracionMin = duracionMin;
 		this.costo = costo;
-		this.idGrupo = idGrupo;
 		this.estatus = estatus;
 		this.tipoAlojamiento = tipoAlojamiento;
 	}
@@ -139,22 +131,6 @@ public class Alojamiento implements VOAlojamiento {
 	public void setCosto(int costo) 
 	{
 		this.costo = costo;
-	}
-
-	/**
-	 * @return El idGrupo del alojamiento
-	 */
-	public long getIdGrupo() 
-	{
-		return idGrupo;
-	}
-
-	/**
-	 * @param idGrupo - El nuevo idGrupo del alojamiento
-	 */
-	public void setIdGrupo(long idGrupo) 
-	{
-		this.idGrupo = idGrupo;
 	}
 
 	/**

@@ -19,6 +19,10 @@
 				{
 					"label": "Cancelar una reserva",
 					"event": "cancelarReservaPorId" 
+				},
+				{
+					"label": "Cancelar un grupo de reservas",
+					"event": "cancelarReservaColectiva" 
 				}
 			]
 		},

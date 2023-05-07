@@ -158,9 +158,23 @@ public class Alohandes {
 
 	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento) {
 		log.info("Adicionando reserva del cliente " + identificacionCliente + " al alojamiento " + idAlojamiento);
-		Reserva reserva = pa.adicionarReserva(fechaInicio, fechaFin, identificacionCliente, idAlojamiento);
-		log.info("Adicionando reserva del cliente " + identificacionCliente + " al alojamiento " + idAlojamiento);
+		Reserva reserva = pa.adicionarReserva(fechaInicio, fechaFin, identificacionCliente, idAlojamiento, -1);
+		log.info("Finalizo adicionando reserva del cliente " + identificacionCliente + " al alojamiento " + idAlojamiento);
 		return reserva;
+	}
+
+	public String adicionarReservaColectiva(Timestamp fechaInicio, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, String identificacionCliente, int cantidadAlojamientos) {
+		log.info("Adicionando reserva colectiva del cliente " + identificacionCliente);
+		String resp = pa.adicionarReservaColectiva(fechaInicio, fechaFin, tipoServicio, tipoAlojamiento, identificacionCliente, cantidadAlojamientos);
+		log.info("Finalizo adicionando reserva colectiva del cliente " + identificacionCliente);
+		return resp;
+	}
+
+	public String cancelarReservaColectiva(long idReservaGrupal) {
+		log.info("Cancelando reserva colectiva con id grupal: " + idReservaGrupal);
+		String resp = pa.cancelarReservaColectiva(idReservaGrupal);
+		log.info("Finalizo cancelacion de reserva colectiva con id grupal: " + idReservaGrupal);
+		return resp;
 	}
 
 	/**

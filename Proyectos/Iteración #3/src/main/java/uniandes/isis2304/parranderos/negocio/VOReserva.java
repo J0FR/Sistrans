@@ -37,6 +37,11 @@ public interface VOReserva {
 	 */
 	public String getEstado();
 
+	/**
+	 * @return El costoBase
+	 */
+	public long getIdGrupo();
+
 	/** 
 	 * @return Una cadena con la información básica
 	 */

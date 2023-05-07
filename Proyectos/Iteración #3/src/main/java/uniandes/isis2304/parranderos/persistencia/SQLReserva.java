@@ -48,12 +48,13 @@ class SQLReserva {
      * @param identificacionCliente - La identificacion del cliente
      * @param idAlojamiento - El identificador del alojamiento
      * @param estado - El estado de la reserva
+     * @param idGrupo - El idGrupo de la reserva
      * @return El número de tuplas insertadas
      */
-    public long adicionarReserva (PersistenceManager pm, long idReserva, Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado)
+    public long adicionarReserva (PersistenceManager pm, long idReserva, Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado, long idGrupo)
     {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaReserva () + "(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado) values (?, ?, ?, ?, ?, ?) ");
-        q.setParameters(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, estado);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaReserva () + "(id, fechaIni, fechaFin, identificacionCliente, idAlojamiento, estado, idGrupo) values (?, ?, ?, ?, ?, ?, ?) ");
+        q.setParameters(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, estado, idGrupo);
         return (long) q.executeUnique();
     }
 
@@ -111,5 +112,13 @@ class SQLReserva {
         Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaReserva() + " SET ESTADO = ? WHERE ID = ?");
         q.setParameters(estado, idReserva);
         return (long) q.executeUnique();
+    }
+
+    public List<Reserva> darReservasColectivas(PersistenceManager pm, long idReservaColectiva)
+    {
+        Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaReserva() + " WHERE idGrupo = ?");
+        q.setResultClass(Reserva.class); 
+        q.setParameters(idReservaColectiva);
+        return q.executeList();
     }
 }

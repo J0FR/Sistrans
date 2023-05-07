@@ -37,6 +37,11 @@ public class Reserva implements VOReserva {
 	 */
 	private String estado;
 
+	/**
+	 * El id de un grupo de alojamientos
+	 */
+	private long idGrupo;
+
 	/* ****************************************************************
 	 * 			Métodos 
 	 *****************************************************************/
@@ -51,6 +56,7 @@ public class Reserva implements VOReserva {
 		this.identificacionCliente = "";
 		this.idAlojamiento = 0;
 		this.estado = "";
+		this.idGrupo = 0;
 	}
 
 	/**
@@ -61,8 +67,9 @@ public class Reserva implements VOReserva {
 	 * @param identificacionCliente - La identificacionCliente de una reserva
 	 * @param idAlojamiento - La idAlojamiento de una reserva
 	 * @param estado - La estado de una reserva (Y si esta activa o N si esta cancelada)
+	 * @param idGrupo - La idGrupo de una reserva
 	 */
-    public Reserva(long id, Timestamp fechaIni, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado) 
+    public Reserva(long id, Timestamp fechaIni, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado, long idGrupo) 
     {
     	this.id = id;
 		this.fechaIni = fechaIni;
@@ -70,6 +77,7 @@ public class Reserva implements VOReserva {
 		this.identificacionCliente = identificacionCliente;
 		this.idAlojamiento = idAlojamiento;
 		this.estado = estado;
+		this.idGrupo = idGrupo;
 	}
 
     /**
@@ -161,11 +169,27 @@ public class Reserva implements VOReserva {
 	}
 	
 	/**
-	 * @param id - El nuevo estado de la reserva
+	 * @param estado - El nuevo estado de la reserva
 	 */
 	public void setEstado(String estado) 
 	{
 		this.estado = estado;
+	}
+
+	/**
+	 * @return El idGrupo de la reserva
+	 */
+	public long getIdGrupo() 
+	{
+		return idGrupo;
+	}
+	
+	/**
+	 * @param idGrupo - El nuevo idGrupo de la reserva
+	 */
+	public void setIdGrupo(long idGrupo) 
+	{
+		this.idGrupo = idGrupo;
 	}
 	
 	@Override

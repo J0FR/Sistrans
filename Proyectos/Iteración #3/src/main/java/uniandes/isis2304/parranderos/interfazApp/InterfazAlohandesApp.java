@@ -1790,20 +1790,9 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				Timestamp fechaFinal = new Timestamp(formatoFecha.parse(fechaFin.getText()).getTime());
 				int cantidadAlojamientos = (Integer) cantidad.getValue();
 
-				List<Object[]> alojamientosConCondicion= alohandes.darAlojamientosConCondicion(fechaInicio, fechaFinal, servicios);
-				if ( alojamientosConCondicion == null)
-				{
-					throw new Exception ("No se encontro ningun alojamiento con esas condciciones");
-				}
-
-				String resultado = "En mostrarAlojamientoConCondicion\n\n";
-				resultado += "Los alojamientos con esas condiciones son:\n";
+				String respuesta = alohandes.adicionarReservaColectiva(fechaInicio, fechaFinal, servicios, String.valueOf(tipoAlojamiento.getSelectedItem()), identificadorLogin, cantidadAlojamientos);
 				
-				for (Object[] alojamiento : alojamientosConCondicion) {
-					resultado += "id: " + alojamiento[0] + " ubicación: " +alojamiento[1] + " costo: " + alojamiento[2] + "\n";
-				}
-				
-				panelDatos.actualizarInterfaz(resultado);
+				panelDatos.actualizarInterfaz(respuesta);
 			}
 			else
 			{
@@ -1816,8 +1805,27 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
+	}
 
-	
+	public void cancelarReservaColectiva(){
+		try{
+			String idReservaGrupal = JOptionPane.showInputDialog (this, "Ingrese el id de la reserva colectiva", "Cancelar reserva colectiva", JOptionPane.QUESTION_MESSAGE);
+			if(idReservaGrupal != null)
+			{
+				String resp = alohandes.cancelarReservaColectiva(Long.parseLong(idReservaGrupal));
+				panelDatos.actualizarInterfaz(resp);
+			}
+			else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		}
+		catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
 	}
 
 	/* ****************************************************************

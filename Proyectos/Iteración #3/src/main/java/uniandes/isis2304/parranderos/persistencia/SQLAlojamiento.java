@@ -47,15 +47,14 @@ public class SQLAlojamiento {
 	 * @param ubicacion - La ubicacion de un alojamiento
 	 * @param duracionMin - La duracionMin de un alojamiento
 	 * @param costo - El costo de un alojamiento
-	 * @param idGrupo - El idGrupo de un alojamiento
 	 * @param estatus - El estatus de un alojamiento
 	 * @param tipoAlojamiento - El tipoAlojamiento de un alojamiento
      * @return El número de tuplas insertadas
      */
-    public long adicionarAlojamiento(PersistenceManager pm, long id, String ubicacion, int duracionMin, int costo, long idGrupo, String estatus, String tipoAlojamiento) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, idGrupo, estatus, tipoAlojamiento) values (?, ?, ?, ?, ?, ?, ?) ");
+    public long adicionarAlojamiento(PersistenceManager pm, long id, String ubicacion, int duracionMin, int costo, String estatus, String tipoAlojamiento) {
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, estatus, tipoAlojamiento) values (?, ?, ?, ?, ?, ?) ");
             
-        q.setParameters(id, ubicacion, duracionMin, costo, idGrupo, estatus, tipoAlojamiento);
+        q.setParameters(id, ubicacion, duracionMin, costo, estatus, tipoAlojamiento);
         return (long) q.executeUnique();
     }
 
@@ -104,8 +103,8 @@ public class SQLAlojamiento {
 		sql+= "	LEFT JOIN A_SERVICIO ON A_ALOJAMIENTOSERVICIO.IDSERVICIO = A_SERVICIO.ID ";
 		sql+= " WHERE A_ALOJAMIENTO.ID NOT IN (Select A_RESERVA.IDALOJAMIENTO ";
 		sql+= "	FROM A_RESERVA ";
-		sql+= " WHERE ? BETWEEN FECHAINI AND FECHAFIN ";
-		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) AND ESTADO = 'Y' ";
+		sql+= " WHERE (? BETWEEN FECHAINI AND FECHAFIN ";
+		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) AND (ESTADO = 'Y'))";
 		sql+= "	AND A_ALOJAMIENTO.ESTATUS = 'Y' ";
 		if (!tiposServicio.isEmpty()) {
 			String tiposServicioParam = String.join(",", Collections.nCopies(tiposServicio.size(), "?"));
@@ -113,11 +112,11 @@ public class SQLAlojamiento {
 		}
 			
 		sql+= " GROUP BY A_ALOJAMIENTO.ID,UBICACION, A_ALOJAMIENTO.COSTO, FECHAINI, FECHAFIN, ESTADO ";
-		sql+= " HAVING ( ? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
+		sql+= " HAVING ((? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
 		sql+= " AND ? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) ";
 		sql+= " OR ";
 		sql+= " ( ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
-		sql+= " AND ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) OR ESTADO = 'N'";
+		sql+= " AND ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY')))) OR (ESTADO = 'N')";
 
 		Query q = pm.newQuery(SQL, sql);
 		List<Object> parameters = new ArrayList<>();
@@ -147,6 +146,7 @@ public class SQLAlojamiento {
 	 * @param fechaFin - La fecha final
 	 * @param tiposServicio - Los tipos de servicio que debe tener el alojamiento
 	 * @return Una lista de tuplas con la información de los alojamientos que cumplen con la condición
+	 * darAlojamientosConCondicionRF7
 	 */
 	public List<Object []> darAlojamientosConCondicionRF7(PersistenceManager pm, Timestamp fechaIni, Timestamp fechaFin, List<String> tiposServicio, String tipoAlojamiento)
 	{
@@ -157,8 +157,8 @@ public class SQLAlojamiento {
 		sql+= "	LEFT JOIN A_SERVICIO ON A_ALOJAMIENTOSERVICIO.IDSERVICIO = A_SERVICIO.ID ";
 		sql+= " WHERE A_ALOJAMIENTO.ID NOT IN (Select A_RESERVA.IDALOJAMIENTO ";
 		sql+= "	FROM A_RESERVA ";
-		sql+= " WHERE ? BETWEEN FECHAINI AND FECHAFIN ";
-		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) AND ESTADO = 'Y' ";
+		sql+= " WHERE (? BETWEEN FECHAINI AND FECHAFIN ";
+		sql+= "	OR ? BETWEEN FECHAINI AND FECHAFIN) AND (ESTADO = 'Y'))";
 		sql+= "	AND A_ALOJAMIENTO.ESTATUS = 'Y' ";
 		if (!tiposServicio.isEmpty()) {
 			String tiposServicioParam = String.join(",", Collections.nCopies(tiposServicio.size(), "?"));
@@ -166,11 +166,11 @@ public class SQLAlojamiento {
 		}
 			
 		sql+= " GROUP BY A_ALOJAMIENTO.ID,UBICACION, A_ALOJAMIENTO.COSTO, FECHAINI, FECHAFIN, ESTADO, A_ALOJAMIENTO.TIPOALOJAMIENTO ";
-		sql+= " HAVING ( ( ? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
+		sql+= " HAVING (((? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
 		sql+= " AND ? < COALESCE(A_RESERVA.FECHAINI, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) ";
 		sql+= " OR ";
 		sql+= " ( ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY')) ";
-		sql+= " AND ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY'))) OR ESTADO = 'N') AND A_ALOJAMIENTO.TIPOALOJAMIENTO = ?";
+		sql+= " AND ? > COALESCE(A_RESERVA.FECHAFIN, TO_DATE('11-11-1111', 'DD-MM-YYYY')))) OR (ESTADO = 'N')) AND A_ALOJAMIENTO.TIPOALOJAMIENTO = ?";
 
 		Query q = pm.newQuery(SQL, sql);
 		List<Object> parameters = new ArrayList<>();

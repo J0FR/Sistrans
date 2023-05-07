@@ -563,7 +563,7 @@ public class PersistenciaAlohandes {
 	/* ****************************************************************
 	 * 			Métodos para manejar las RESERVAS
 	 *****************************************************************/
-	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento)
+	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, long idGrupo)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -571,12 +571,12 @@ public class PersistenciaAlohandes {
         {
             tx.begin();
             long idReserva = nextval ();
-            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y");
+            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo);
             tx.commit();
             
             log.trace ("Inserción de la Reserva con id " + idReserva + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Reserva(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y");
+            return new Reserva(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo);
         }
         catch (Exception e)
         {
@@ -599,12 +599,12 @@ public class PersistenciaAlohandes {
 	 * @param id - El id de la reserva
 	 * @return El id de confirmacion
 	 */
-	public String RelocalizarReservaA(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, String identificacionCliente, long idGrupo, int cantidadAlojamientos)
+	public String adicionarReservaColectiva(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, String identificacionCliente, int cantidadAlojamientos)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 
 		List<Object[]> alojamientos = sqlAlojamiento.darAlojamientosConCondicionRF7(pm, fechaIni, fechaFin, tipoServicio, tipoAlojamiento);
-		long idReservaGrupal = nextval ();
+		long idGrupalReserva = nextval ();
 
 		Transaction tx=pm.currentTransaction();
 		try
@@ -617,12 +617,14 @@ public class PersistenciaAlohandes {
 
 			tx.begin();
 			for (Object[] alojamiento : subLista) {
-				adicionarReserva(fechaIni, fechaFin, identificacionCliente, Long.parseLong(alojamiento[0].toString()));
+				adicionarReserva(fechaIni, fechaFin, identificacionCliente, Long.parseLong(alojamiento[0].toString()), idGrupalReserva);
 			}
 			tx.commit();
-			String resp = "Se realizo la reserva colectiva de " + cantidadAlojamientos + " alojamientos; los cuales son: " + "\n";
+			String resp = "Se realizo la reserva colectiva de " + cantidadAlojamientos + " alojamientos con id de grupo : " + idGrupalReserva + "; los alojamientos reservados fueron: " + "\n";
+			int i = 0;
 			for (Object[] alojamiento : subLista) {
-				resp += "Alojamiento con id: " + alojamiento[0] + " - Precio: " + alojamiento[3] + "\n";
+				i++;
+				resp += "#" + i + " - id: " + alojamiento[0] + " - precio: " + alojamiento[2] + "\n";
 			}
 			
 			return resp;
@@ -631,7 +633,50 @@ public class PersistenciaAlohandes {
 		{
 //        	e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-			String resp = "No fue posible realizar la reserva colectiva con id: " + idReservaGrupal  + " dado que no se encontraron alojamientos disponibles" + "\n";
+			String resp = "No fue posible realizar la reserva colectiva con id: " + idGrupalReserva  + " dado que no se encontraron alojamientos disponibles" + "\n";
+			return resp;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+	/**
+	 * Método que consulta RF8
+	 */
+	public String cancelarReservaColectiva(long idReservaGrupal)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+
+		List<Reserva> reservas = sqlReserva.darReservasColectivas(pm, idReservaGrupal);
+
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			for (Reserva reserva : reservas) {
+				sqlReserva.actualizarEstadoReservaPorIdReserva(pm, "N", reserva.getId());
+			}
+			tx.commit();
+			String resp = "Se cancelo la reserva colectiva con id: " + idReservaGrupal + "; las reservas canceladas fueron: " + "\n";
+			int i = 0;
+			for (Reserva reserva : reservas) {
+				i++;
+				resp += "#" + i + " - id reserva individual: " + reserva.getId() + " - id de alojamiento: " + reserva.getIdAlojamiento() + "\n";
+			}
+
+			return resp;
+		}
+		catch (Exception e)
+		{
+//        	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			String resp = "No fue posible cancelar la reserva colectiva con id grupal: " + idReservaGrupal + "\n";
 			return resp;
 		}
 		finally
@@ -932,13 +977,12 @@ public class PersistenciaAlohandes {
         {
             tx.begin();
 			long idAlojamiento = nextval();
-			long idGrupo = nextval();
-            long tuplasInsertadas = sqlAlojamiento.adicionarAlojamiento(pm, idAlojamiento, ubicacion, duracionMin, costo, idGrupo, "Y", tipoAlojamiento);
+            long tuplasInsertadas = sqlAlojamiento.adicionarAlojamiento(pm, idAlojamiento, ubicacion, duracionMin, costo, "Y", tipoAlojamiento);
             tx.commit();
             
             log.trace ("Inserción de Alojamiento con id: " + idAlojamiento + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Alojamiento(idAlojamiento, ubicacion, duracionMin, costo, idGrupo, "Y", tipoAlojamiento);
+            return new Alojamiento(idAlojamiento, ubicacion, duracionMin, costo, "Y", tipoAlojamiento);
         }
         catch (Exception e)
         {

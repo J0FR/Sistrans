@@ -2538,7 +2538,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			List<Object[]> tuplas = alohandes.usoParaCadaUsuario();
 			String resultado = "En USO DE ALOHANDES PARA CADA TIPO DE USUARIO DE LA COMUNIDAD\n\n";
 			for (Object[] tupla : tuplas) {
-				resultado += "Tipo de vinculo: " + tupla[0] + " Número de reservas realizadas (uso): " + tupla[1] + "\n";
+				resultado += "Tipo de vinculo: " + tupla[0] + " || " + "Número de reservas realizadas (uso): " + tupla[1] + "\n";
 			}
 			panelDatos.actualizarInterfaz(resultado);
 

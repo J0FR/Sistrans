@@ -579,7 +579,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			
 			if (nombre!= null && identificacion != null && !identificacion.equals("Admin") && tipoVinculo != null && correoElectronico != null && telefono != null)
     		{
-        		VOCliente tb = alohandes.adicionarCliente(identificacion, nombre, tipoVinculo, correoElectronico, telefono, new Timestamp(0));
+        		VOCliente tb = alohandes.adicionarCliente(identificacion, nombre, tipoVinculo, correoElectronico, telefono, new Timestamp(0), 0);
         		if (tb == null)
         		{
         			throw new Exception ("No se pudo registrar al cliente con identifiación " + identificacion);

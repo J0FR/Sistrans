@@ -49,10 +49,10 @@ class SQLCliente {
      * @param telefono - El telefono del cliente
      * @return El número de tuplas insertadas
      */
-    public long adicionarCliente(PersistenceManager pm, String identificacion, String nombre, String tipoVinculo, String correoElectronico, String telefono, Timestamp ultimaFechaReserva) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaCliente() + "(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva) values (?, ?, ?, ?, ?, ?) ");
+    public long adicionarCliente(PersistenceManager pm, String identificacion, String nombre, String tipoVinculo, String correoElectronico, String telefono, Timestamp ultimaFechaReserva, Integer saldo) {
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaCliente() + "(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva, saldo) values (?, ?, ?, ?, ?, ?, ?) ");
             
-        q.setParameters(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva);
+        q.setParameters(identificacion, nombre, tipoVinculo, correoElectronico, telefono, ultimaFechaReserva, saldo);
         return (long) q.executeUnique();
     }
 	
@@ -85,4 +85,6 @@ class SQLCliente {
 	     q.setParameters(ultimaFechaReserva, identificacion);
 	     return (long) q.executeUnique();            
 	}
+
+	
 }

@@ -32,6 +32,15 @@
 				}
 			]
 		},
+		{ "menuTitle": "Deshabilitar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Deshabilitar alojamiento Hostal",
+					"event": "deshabilitarHabitacionHostal"
+				}
+			]
+		},
 		{ "menuTitle": "Operacion Cuenta",
 		  "options":
 			[

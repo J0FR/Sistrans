@@ -662,7 +662,32 @@ public class PersistenciaAlohandes {
 	 */
 	public long actualizarEstadoReservaPorIdReserva(String estado, long idReserva)
 	{
-		return sqlReserva.actualizarEstadoReservaPorIdReserva(pmf.getPersistenceManager(), estado, idReserva);
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				tx.begin();
+				long resp = sqlReserva.actualizarEstadoReservaPorIdReserva(pmf.getPersistenceManager(), estado, idReserva);
+				tx.commit();
+	
+				return resp;
+			}
+			catch (Exception e)
+			{
+	//        	e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return -1;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
 	}
 
 	/**
@@ -1667,6 +1692,10 @@ public class PersistenciaAlohandes {
 //        	e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			String resp = "No fue posible relocalizar la reserva " + reserva.getId()  + " dado que no se encontraron alojamientos disponibles" + "\n";
+			log.trace("Inicia proceso de cancelar reserva con id: " + reserva.getId());
+			actualizarEstadoReservaPorIdReserva("N", reserva.getId());
+			log.trace("Termina proceso de cancelar reserva con id: " + reserva.getId());
+			resp += "Se cancelo la reserva con id " + reserva.getId() + "\n";
 			return resp;
 		}
 		finally

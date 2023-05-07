@@ -32,6 +32,15 @@
 				}
 			]
 		},
+		{ "menuTitle": "Deshabilitar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Deshabilitar alojamiento ViviendaUniversitaria",
+					"event": "deshabilitarHabitacionViviendaUniversitaria"
+				}
+			]
+		},
 		{ "menuTitle": "Operacion Cuenta",
 		  "options":
 			[

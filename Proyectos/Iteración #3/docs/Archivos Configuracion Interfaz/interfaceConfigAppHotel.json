@@ -32,6 +32,25 @@
 				}
 			]
 		},
+		{ "menuTitle": "Deshabilitar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Deshabilitar alojamiento Hotel",
+					"event": "deshabilitarHabitacionHotel"
+				}
+			]
+		},
+		{
+			"menuTitle": "Habilitar un alojamiento",
+	    	"options":
+			[
+				{
+					"label": "Habilitar un alojamiento Hotel",
+					"event": "habilitarAlojamiento"	
+				}
+			]
+		},
 		{ "menuTitle": "Operacion Cuenta",
 		  "options":
 			[

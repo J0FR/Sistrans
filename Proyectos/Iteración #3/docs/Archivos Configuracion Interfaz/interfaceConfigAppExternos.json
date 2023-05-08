@@ -32,6 +32,25 @@
 				}
 			]
 		},
+		{ "menuTitle": "Deshabilitar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Deshabilitar alojamiento ViviendaTemporal",
+					"event": "deshabilitarViviendaTemporal"
+				}
+			]
+		},
+		{
+			"menuTitle": "Habilitar un alojamiento",
+	    	"options":
+			[
+				{
+					"label": "Habilitar un alojamiento ViviendaTemporal",
+					"event": "habilitarAlojamiento"	
+				}
+			]
+		},
 		{ "menuTitle": "Operacion Cuenta",
 		  "options":
 			[

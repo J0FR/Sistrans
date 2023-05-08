@@ -48,6 +48,33 @@
 				}
 			]
 		},
+		{ "menuTitle": "Eliminar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Deshabilitar vivienda temporal",
+					"event": "deshabilitarViviendaTemporal" 
+				},
+                {
+					"label": "Deshabilitar apartamento en alquiler",
+					"event": "deshabilitarApartamentoAlquiler" 
+				},
+                {
+					"label": "Deshabilitar habitación huesped",
+					"event": "deshabilitarHabitacionHuesped"
+				}
+			]
+		},
+		{
+			"menuTitle": "Habilitar un alojamiento",
+	    	"options":
+			[
+				{
+					"label": "Habilitar un alojamiento",
+					"event": "habilitarAlojamiento"	
+				}
+			]
+		},
 		{ "menuTitle": "Operacion Cuenta",
 		  "options":
 			[

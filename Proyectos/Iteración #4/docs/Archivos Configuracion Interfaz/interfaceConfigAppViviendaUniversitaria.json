@@ -1,0 +1,66 @@
+{
+	"title": "Aplicación transaccional de Alohandes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Crear alojamiento",
+		  "options":
+			[
+				{
+					"label": "Crear alojamiento ViviendaUniversitaria",
+					"event": "adicionarHabitacionViviendaUniversitariaUsuario"
+				}
+			]
+		},
+		{ "menuTitle": "Gestionar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Adicionar un servicio a un alojamiento",
+					"event": "adicionarAlojamientoServicio"
+				}
+			]
+		},
+        { "menuTitle": "Eliminar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Eliminar alojamiento ViviendaUniversitaria",
+					"event": "eliminarHabitacionViviendaUniversitaria"
+				}
+			]
+		},
+		{ "menuTitle": "Deshabilitar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Deshabilitar alojamiento ViviendaUniversitaria",
+					"event": "deshabilitarHabitacionViviendaUniversitaria"
+				}
+			]
+		},
+		{
+			"menuTitle": "Habilitar un alojamiento",
+	    	"options":
+			[
+				{
+					"label": "Habilitar un alojamiento ViviendaUniversitaria",
+					"event": "habilitarAlojamiento"	
+				}
+			]
+		},
+		{ "menuTitle": "Operacion Cuenta",
+		  "options":
+			[
+				{
+					"label": "Cerrar Sesion",
+					"event": "cerrarSesion"
+				}
+			]
+		}
+       
+	]
+}
+	

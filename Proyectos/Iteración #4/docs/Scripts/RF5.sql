@@ -1,0 +1,4 @@
+-- RF5 | CANCELAR UNA RESERVA
+
+-- Reserva
+DELETE FROM A_Reserva WHERE id = ?

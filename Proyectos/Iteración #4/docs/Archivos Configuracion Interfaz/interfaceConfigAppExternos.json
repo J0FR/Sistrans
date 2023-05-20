@@ -1,0 +1,66 @@
+{
+	"title": "Aplicación transaccional de Alohandes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Crear alojamiento",
+		  "options":
+			[
+				{
+					"label": "Crear alojamiento ViviendaTemporal",
+					"event": "adicionarViviendaTemporalUsuario"
+				}
+			]
+		},
+		{ "menuTitle": "Gestionar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Adicionar un servicio a un alojamiento",
+					"event": "adicionarAlojamientoServicio"
+				}
+			]
+		},
+        { "menuTitle": "Eliminar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Eliminar alojamiento ViviendaTemporal",
+					"event": "eliminarViviendaTemporal"
+				}
+			]
+		},
+		{ "menuTitle": "Deshabilitar alojamiento",
+		  "options":
+			[
+				{
+					"label": "Deshabilitar alojamiento ViviendaTemporal",
+					"event": "deshabilitarViviendaTemporal"
+				}
+			]
+		},
+		{
+			"menuTitle": "Habilitar un alojamiento",
+	    	"options":
+			[
+				{
+					"label": "Habilitar un alojamiento ViviendaTemporal",
+					"event": "habilitarAlojamiento"	
+				}
+			]
+		},
+		{ "menuTitle": "Operacion Cuenta",
+		  "options":
+			[
+				{
+					"label": "Cerrar Sesion",
+					"event": "cerrarSesion"
+				}
+			]
+		}
+       
+	]
+}
+	

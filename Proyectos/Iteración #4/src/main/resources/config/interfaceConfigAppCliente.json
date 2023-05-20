@@ -1,0 +1,53 @@
+{
+	"title": "Aplicación transaccional de Alohandes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Getionar Reservas",
+		  "options":
+			[
+				{
+					"label": "Registrar una nueva reserva",
+					"event": "adicionarReservaUsuario"
+				},
+				{
+					"label": "Registrar reserva colectiva",
+					"event": "registrarUnaReservaColectiva"
+				},
+				{
+					"label": "Cancelar una reserva",
+					"event": "cancelarReservaPorId" 
+				},
+				{
+					"label": "Cancelar un grupo de reservas",
+					"event": "cancelarReservaColectiva" 
+				}
+			]
+		},
+        { "menuTitle": "Busqueda",
+		  "options":
+			[
+                {
+					"label": "Mostrar 20 alojamientos mas populares",
+					"event": "listarTop20"
+				},
+				{
+					"label": "Filtrar alojamiento por condiciones",
+					"event": "mostrarAlojamientoConCondicion"
+				}
+			]
+		},
+		{ "menuTitle": "Operacion Cuenta",
+		  "options":
+			[
+				{
+					"label": "Cerrar Sesion",
+					"event": "cerrarSesion"
+				}
+			]
+		}
+	]
+}
+	

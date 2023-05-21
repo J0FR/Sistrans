@@ -47,6 +47,11 @@ public interface VOReserva {
 	 */
 	public int getGanancia();
 
+	/**
+	 * @return La Ganancia
+	 */
+	public int getNumOcupamiento();
+	
 	/** 
 	 * @return Una cadena con la información básica
 	 */

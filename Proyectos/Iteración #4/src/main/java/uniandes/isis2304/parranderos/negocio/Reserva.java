@@ -47,6 +47,11 @@ public class Reserva implements VOReserva {
 	 */
 	private int ganancia;
 
+	/**
+	 * La NumOcupamiento de un grupo de alojamientos
+	 */
+	private int numOcupamiento;
+
 	/* ****************************************************************
 	 * 			Métodos 
 	 *****************************************************************/
@@ -63,6 +68,7 @@ public class Reserva implements VOReserva {
 		this.estado = "";
 		this.idGrupo = 0;
 		this.ganancia = 0;
+		this.numOcupamiento = 0;
 	}
 
 	/**
@@ -75,8 +81,9 @@ public class Reserva implements VOReserva {
 	 * @param estado - La estado de una reserva (Y si esta activa o N si esta cancelada)
 	 * @param idGrupo - La idGrupo de una reserva
 	 * @param ganancia - La ganancia de una reserva
+	 * @param numOcupamiento - La numOcupamiento de una reserva
 	 */
-    public Reserva(long id, Timestamp fechaIni, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado, long idGrupo, int ganancia) 
+    public Reserva(long id, Timestamp fechaIni, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, String estado, long idGrupo, int ganancia, int numOcupamiento) 
     {
     	this.id = id;
 		this.fechaIni = fechaIni;
@@ -86,6 +93,7 @@ public class Reserva implements VOReserva {
 		this.estado = estado;
 		this.idGrupo = idGrupo;
 		this.ganancia = ganancia;
+		this.numOcupamiento = numOcupamiento;
 	}
 
     /**
@@ -214,6 +222,22 @@ public class Reserva implements VOReserva {
 	public void setGanancia(int ganancia) 
 	{
 		this.ganancia = ganancia;
+	}
+
+	/**
+	 * @return El numOcupamiento de la reserva
+	 */
+	public int getNumOcupamiento() 
+	{
+		return numOcupamiento;
+	}
+	
+	/**
+	 * @param ganancia - El nuevo ganancia de la reserva
+	 */
+	public void setNumOcupamiento(int numOcupamiento) 
+	{
+		this.numOcupamiento = numOcupamiento;
 	}
 	
 	@Override

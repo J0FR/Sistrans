@@ -1497,9 +1497,10 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 		try 
     	{
     		String FechaInicio = JOptionPane.showInputDialog (this, "Ingrese la fecha de inicio de la reserva (dd/MM/yyyy)", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
-    		String FechaFin = JOptionPane.showInputDialog (this, "Ingrese la fecha en que finaliza la reserva (dd/MM/yyyy)", "Adicionar Cliente", JOptionPane.QUESTION_MESSAGE);
-			String identificacionCliente = JOptionPane.showInputDialog (this, "Ingrese su identificacion", "Identificacion Cliente", JOptionPane.QUESTION_MESSAGE);
-			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamineto que va a reservar", "Adicionar Cliente", JOptionPane.QUESTION_MESSAGE);
+    		String FechaFin = JOptionPane.showInputDialog (this, "Ingrese la fecha en que finaliza la reserva (dd/MM/yyyy)", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
+			String identificacionCliente = JOptionPane.showInputDialog (this, "Ingrese su identificacion", "Identificacion Reserva", JOptionPane.QUESTION_MESSAGE);
+			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamineto que va a reservar", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
+			String numOcupamiento = JOptionPane.showInputDialog (this, "Ingrese la cantidad de gente que piensa utilizaran el alojamineto que va a reservar", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
 			Cliente cliente = alohandes.darClientePorIdentificacion(identificacionCliente);
 			if (FechaInicio!= null && FechaFin != null && identificacionCliente != null && idAlojamiento != null && cliente != null)
     		{
@@ -1512,6 +1513,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
         		Instant instant2 = fechaFin.toInstant();
 				int daysBetween = (int) ChronoUnit.DAYS.between(instant1, instant2);
 				long idAlojamientolong = Long.valueOf (idAlojamiento);
+				int numOcupamientoInt = Integer.valueOf (numOcupamiento);
 				VOAlojamiento var = darAlojamientoPorId(idAlojamientolong);
 				VOHabitacionViviendaUniversitaria perteneceViviendaUniversitaria = alohandes.darHabitacionViviendaUniversitariaPorId(idAlojamientolong);
 				VOReserva tb = null;
@@ -1543,7 +1545,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				} else if (daysBetween <= 0 || (int) ChronoUnit.DAYS.between(instantOne, instant1) <= 0 || ChronoUnit.DAYS.between(instantOne, instant2) <= 0) {
 					throw new Exception ("Error en las fechas ingresadas!");
 				} else {
-					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong, var.getCosto());
+					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong, var.getCosto(), numOcupamientoInt);
 					alohandes.cambiarCiudadBebedor(identificacionCliente, fechaActual);
 				}
 
@@ -1601,6 +1603,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		String FechaFin = JOptionPane.showInputDialog (this, "Ingrese la fecha en que finaliza la reserva (dd/MM/yyyy)", "Adicionar Cliente", JOptionPane.QUESTION_MESSAGE);
 			String identificacionCliente = this.identificadorLogin;
 			String idAlojamiento = JOptionPane.showInputDialog (this, "Ingrese el id del alojamineto que va a reservar", "Adicionar Cliente", JOptionPane.QUESTION_MESSAGE);
+			String numOcupamiento = JOptionPane.showInputDialog (this, "Ingrese la cantidad de gente que piensa utilizaran el alojamineto que va a reservar", "Adicionar Reserva", JOptionPane.QUESTION_MESSAGE);
 			Cliente cliente = alohandes.darClientePorIdentificacion(identificacionCliente);
 			if (FechaInicio!= null && FechaFin != null && identificacionCliente != null && idAlojamiento != null && cliente != null)
     		{
@@ -1613,6 +1616,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
         		Instant instant2 = fechaFin.toInstant();
 				int daysBetween = (int) ChronoUnit.DAYS.between(instant1, instant2);
 				long idAlojamientolong = Long.valueOf (idAlojamiento);
+				int numOcupamientoInt = Integer.valueOf (numOcupamiento);
 				VOAlojamiento var = darAlojamientoPorId(idAlojamientolong);
 				VOHabitacionViviendaUniversitaria perteneceViviendaUniversitaria = alohandes.darHabitacionViviendaUniversitariaPorId(idAlojamientolong);
 				VOReserva tb = null;
@@ -1637,7 +1641,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				} else if (/**daysBetween <= 0||**/ (int) ChronoUnit.DAYS.between(instantOne, instant1) <= 0 || ChronoUnit.DAYS.between(instantOne, instant2) <= 0) {
 					throw new Exception ("Error en las fechas ingresadas!");
 				} else {
-					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong, var.getCosto());
+					tb = alohandes.adicionarReserva(fechaIni, fechaFin, identificacionCliente, idAlojamientolong, var.getCosto(), numOcupamientoInt);
 					alohandes.cambiarCiudadBebedor(identificacionCliente, fechaActual);
 				}
 
@@ -1748,6 +1752,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			cantidad = new JSpinner(m_numberSpinnerModel);
 			String[] choicesTipoAlojamiento = {"HabitacionHuesped", "ApartamentoAlquiler", "ViviendaTemporal", "HabitacionHotel", "HabitacionViviendaUniversitaria", "HabitacionHostal"};
 			final JComboBox<String> tipoAlojamiento = new JComboBox<String>(choicesTipoAlojamiento);
+			JTextField numPersonas = new JTextField(7);
+			
 			//Creacion de CheckBox
 			JCheckBox salaEsparcimientoCheck = new JCheckBox("Sala de esparcimiento");
 			JCheckBox tvCableCheck = new JCheckBox("tvCable");
@@ -1843,6 +1849,12 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			gbc.gridy = 11;
 			myPanel.add(tipoAlojamiento,gbc);
 
+			gbc.gridy = 12;
+			myPanel.add(new JLabel("Numero personas se van a alojar"), gbc);
+
+			gbc.gridy = 13;
+			myPanel.add(numPersonas,gbc);
+
 			
 
 			JOptionPane.showMessageDialog(this, myPanel, "Consultar alojamientos con condiciones", JOptionPane.DEFAULT_OPTION);
@@ -1920,8 +1932,9 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				Timestamp fechaInicio = new Timestamp(formatoFecha.parse(fechaIni.getText()).getTime());
 				Timestamp fechaFinal = new Timestamp(formatoFecha.parse(fechaFin.getText()).getTime());
 				int cantidadAlojamientos = (Integer) cantidad.getValue();
+				int cantidadPersonasReserva = Integer.parseInt(numPersonas.getText());
 
-				String respuesta = alohandes.adicionarReservaColectiva(fechaInicio, fechaFinal, servicios, String.valueOf(tipoAlojamiento.getSelectedItem()), identificadorLogin, cantidadAlojamientos);
+				String respuesta = alohandes.adicionarReservaColectiva(fechaInicio, fechaFinal, servicios, String.valueOf(tipoAlojamiento.getSelectedItem()), identificadorLogin, cantidadAlojamientos, cantidadPersonasReserva);
 				
 				panelDatos.actualizarInterfaz(respuesta);
 			}

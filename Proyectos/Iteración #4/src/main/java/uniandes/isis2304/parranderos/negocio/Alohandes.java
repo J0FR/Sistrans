@@ -156,16 +156,16 @@ public class Alohandes {
 	 * Métodos para manejar las RESERVAS
 	 *****************************************************************/
 
-	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, int precio) {
+	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, int precio, int numOcupamiento) {
 		log.info("Adicionando reserva del cliente " + identificacionCliente + " al alojamiento " + idAlojamiento);
-		Reserva reserva = pa.adicionarReserva(fechaInicio, fechaFin, identificacionCliente, idAlojamiento, -1, precio);
+		Reserva reserva = pa.adicionarReserva(fechaInicio, fechaFin, identificacionCliente, idAlojamiento, -1, precio, numOcupamiento);
 		log.info("Finalizo adicionando reserva del cliente " + identificacionCliente + " al alojamiento " + idAlojamiento);
 		return reserva;
 	}
 
-	public String adicionarReservaColectiva(Timestamp fechaInicio, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, String identificacionCliente, int cantidadAlojamientos) {
+	public String adicionarReservaColectiva(Timestamp fechaInicio, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, String identificacionCliente, int cantidadAlojamientos, int numOcupamiento) {
 		log.info("Adicionando reserva colectiva del cliente " + identificacionCliente);
-		String resp = pa.adicionarReservaColectiva(fechaInicio, fechaFin, tipoServicio, tipoAlojamiento, identificacionCliente, cantidadAlojamientos);
+		String resp = pa.adicionarReservaColectiva(fechaInicio, fechaFin, tipoServicio, tipoAlojamiento, identificacionCliente, cantidadAlojamientos, numOcupamiento);
 		log.info("Finalizo adicionando reserva colectiva del cliente " + identificacionCliente);
 		return resp;
 	}

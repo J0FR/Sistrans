@@ -612,7 +612,7 @@ public class PersistenciaAlohandes {
 	/* ****************************************************************
 	 * 			Métodos para manejar las RESERVAS
 	 *****************************************************************/
-	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, long idGrupo, int ganancia)
+	public Reserva adicionarReserva(Timestamp fechaInicio, Timestamp fechaFin, String identificacionCliente, long idAlojamiento, long idGrupo, int ganancia, int numOcupamiento)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -621,13 +621,13 @@ public class PersistenciaAlohandes {
 			Cliente cliente = sqlCliente.darClientePorIdentificacion(pm, identificacionCliente);
             tx.begin();
             long idReserva = nextval ();
-            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo, ganancia);
+            long tuplasInsertadas = sqlReserva.adicionarReserva(pm, idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo, ganancia, numOcupamiento);
 			sqlCliente.actualizarSaldoCliente(pm, identificacionCliente,  cliente.getSaldo() - ganancia);
             tx.commit();
             
             log.trace ("Inserción de la Reserva con id " + idReserva + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Reserva(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo, 0);
+            return new Reserva(idReserva, fechaInicio, fechaFin, identificacionCliente, idAlojamiento, "Y", idGrupo, 0, numOcupamiento);
         }
         catch (Exception e)
         {
@@ -650,7 +650,7 @@ public class PersistenciaAlohandes {
 	 * @param id - El id de la reserva
 	 * @return El id de confirmacion
 	 */
-	public String adicionarReservaColectiva(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, String identificacionCliente, int cantidadAlojamientos)
+	public String adicionarReservaColectiva(Timestamp fechaIni, Timestamp fechaFin, List<String> tipoServicio, String tipoAlojamiento, String identificacionCliente, int cantidadAlojamientos, int numOcupamiento)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 
@@ -668,7 +668,7 @@ public class PersistenciaAlohandes {
 
 			tx.begin();
 			for (Object[] alojamiento : subLista) {
-				adicionarReserva(fechaIni, fechaFin, identificacionCliente, Long.parseLong(alojamiento[0].toString()), idGrupalReserva, Integer.parseInt(alojamiento[2].toString()));
+				adicionarReserva(fechaIni, fechaFin, identificacionCliente, Long.parseLong(alojamiento[0].toString()), idGrupalReserva, Integer.parseInt(alojamiento[2].toString()), numOcupamiento);
 			}
 			tx.commit();
 			String resp = "Se realizo la reserva colectiva de " + cantidadAlojamientos + " alojamientos con id de grupo : " + idGrupalReserva + "; los alojamientos reservados fueron: " + "\n";

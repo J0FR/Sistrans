@@ -83,6 +83,7 @@ class OperadorUsuario:
     def __init__(self) -> None:
         self.identificacion = 0
         self.tipoVinculo = ["profesor", "empleado", "egresado", "estudiante", "padre de estudiante"]
+        self.titulo = ["IDENTIFICACION", "NOMBRE", "TIPOVINCULO", "CORREOELECTRONICO", "TELEFONO"]
         
     def getIdentificacion(self):
         return self.identificacion
@@ -105,6 +106,7 @@ class OperadorUsuario:
     def generarOperadorUsuario(self, cantidad: int):
         with open("operadorUsuario.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3], self.titulo[4]])
             for i in range(cantidad):  
                 operadorUsuario = self.getRandomOperadorUsuario()
                 writer.writerow([operadorUsuario[0], operadorUsuario[1], operadorUsuario[2], operadorUsuario[3], operadorUsuario[4]])
@@ -117,6 +119,7 @@ class HabitacionHuesped:
         self.tipoBanio = ["privado", "compartido"]
         self.tipoHabitacionHuesped = ["individual", "compartido"]
         self.cantidadOperadorUsuario = cantidadOperadorUsuario
+        self.titulo = ["IDALOJAMIENTO", "COMIDAS", "TIPOBANIO", "TIPOHABITACION", "DTOMESEXTRA", "IDENTIFICACIONOPERADORUSUARIO"]
         
     def getIdAlojamiento(self):
         return self.idAlojamiento
@@ -146,6 +149,7 @@ class HabitacionHuesped:
     def generarHabitacionHuesped(self, cantidad: int):
         with open("habitacionHuesped.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3], self.titulo[4], self.titulo[5]])
             for i in range(cantidad):  
                 habitacionHuesped = self.getRandomHabitacionHuesped()
                 alojamientoDuenio[habitacionHuesped[0]] = habitacionHuesped[5]
@@ -158,6 +162,7 @@ class ApartamentoAlquiler:
         self.idAlojamiento = idAlojamiento
         self.cantidadOperadorUsuario = cantidadOperadorUsuario
         self.boolean = ["Y", "N"]
+        self.titulos = ["IDALOJAMIENTO", "SERVPUBLICO", "ADMINISTRACION", "IDENTIFICACIONOPERADORUSUARIO"]
         
     def getIdAlojamiento(self):
         return self.idAlojamiento
@@ -182,6 +187,7 @@ class ApartamentoAlquiler:
     def generarApartamentoAlquiler(self, cantidad: int):
         with open("apartamentoAlquiler.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulos[0], self.titulos[1], self.titulos[2], self.titulos[3]])
             for i in range(cantidad):  
                 apartamentoAlquiler = self.getRandomApartamentoAlquiler()
                 alojamientoDuenio[apartamentoAlquiler[0]] = apartamentoAlquiler[3]
@@ -193,6 +199,7 @@ class ViviendaTemporal:
     def __init__(self, idAlojamiento, cantidadOperadorUsuario) -> None:
         self.idAlojamiento = idAlojamiento
         self.cantidadOperadorUsuario = cantidadOperadorUsuario
+        self.titulo = ["IDALOJAMIENTO", "NUMEROHABITACIONES", "PRECIOSEGUROARRENDAMIENTO", "CARACTSEGURO", "DIASALQUILADO", "IDENTIFICACIONOPERADORUSUARIO"]
         
     def getIdAlojamiento(self):
         return self.idAlojamiento
@@ -216,6 +223,7 @@ class ViviendaTemporal:
     def generarViviendaTemporal(self, cantidad: int):
         with open("viviendaTemporal.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3], self.titulo[4], self.titulo[5]])
             for i in range(cantidad):  
                 viviendaTemporal = self.getRandomViviendaTemporal()
                 alojamientoDuenio[viviendaTemporal[0]] = viviendaTemporal[5]
@@ -227,6 +235,7 @@ class Hotel:
     def __init__(self) -> None:
         self.regComercio = 0
         self.boolean = ["Y", "N"]
+        self.titulo = ["REGCOMERCIO", "NIT", "NOMBRE", "RESTAURANTE", "PARQUEADERO", "PISCINA"]
         
     def getRegComercio(self):
         return self.regComercio
@@ -250,6 +259,7 @@ class Hotel:
     def generarHotel(self, cantidad: int):
         with open("hotel.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3], self.titulo[4], self.titulo[5]])
             for i in range(cantidad):  
                 hotel = self.getRandomHotel()
                 writer.writerow([hotel[0], hotel[1], hotel[2], hotel[3], hotel[4], hotel[5]])
@@ -260,6 +270,7 @@ class AdmViviendaUniversitaria:
     def __init__(self) -> None:
         self.regComercio = 0
         self.boolean = ["Y", "N"]
+        self.titulo = ["REGCOMERCIO", "NIT", "NOMBRE", "PRECIOSALAESTUDIO", "PRECIOSALAESPARCIMIENTO", "PRECIOGIMNASIO", "RESTAURANTE"]
         
     def getRegComercio(self):
         return self.regComercio
@@ -284,6 +295,7 @@ class AdmViviendaUniversitaria:
     def generarAdmViviendaUniversitaria(self, cantidad: int):
         with open("admViviendaUniversitaria.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3], self.titulo[4], self.titulo[5], self.titulo[6]])
             for i in range(cantidad):  
                 admViviendaUniversitaria = self.getRandomAdmViviendaUniversitaria()
                 writer.writerow([admViviendaUniversitaria[0], admViviendaUniversitaria[1], admViviendaUniversitaria[2], admViviendaUniversitaria[3], admViviendaUniversitaria[4], admViviendaUniversitaria[5], admViviendaUniversitaria[6]])
@@ -293,6 +305,7 @@ class AdmViviendaUniversitaria:
 class Hostal:
     def __init__(self) -> None:
         self.regComercio = 0
+        self.titulo = ["REGCOMERCIO", "NIT", "NOMBRE", "HORAAPERTURARECEPCION", "HORACIERRERECEPCION"]
         
     def getRegComercio(self):
         return self.regComercio
@@ -313,6 +326,7 @@ class Hostal:
     def generarHostal(self, cantidad: int):
         with open("hostal.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3], self.titulo[4]])
             for i in range(cantidad):  
                 hostal = self.getRandomHostal()
                 writer.writerow([hostal[0], hostal[1], hostal[2], hostal[3], hostal[4]])
@@ -323,6 +337,7 @@ class Cliente:
     def __init__(self) -> None:
         self.identificacion = 0
         self.tipoVinculoCliente = ["profesor", "empleado", "egresado", "estudiante", "padre de estudiante", "profesor invitado", "persona evento uniandes"]
+        self.titulos = ["IDENTIFICACION", "NOMBRE", "TIPOVINCULO", "CORREOELECTRONICO", "TELEFONO", "ULTIMAFECHARESERVA", "SALDO"]
         
     def getIdentificacion(self):
         return self.identificacion
@@ -347,6 +362,7 @@ class Cliente:
     def generarCliente(self, cantidad: int):
         with open("cliente.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulos[0], self.titulos[1], self.titulos[2], self.titulos[3], self.titulos[4], self.titulos[5], self.titulos[6]])
             for i in range(cantidad):  
                 cliente = self.getRandomCliente()
                 writer.writerow([cliente[0], cliente[1], cliente[2], cliente[3], cliente[4], cliente[5], cliente[6]])
@@ -358,6 +374,7 @@ class HabitacionHotel:
         self.idAlojamiento = idAlojamiento
         self.cantiadHotel = cantiadHotel
         self.tipoHabitacion = ["estandar", "semisuite", "suite"]
+        self.titulo = ["ID", "TIPOHABITACION", "TAMANIO", "IDHOTEL"]
         
     def getIdAlojamiento(self):
         return self.idAlojamiento
@@ -382,6 +399,7 @@ class HabitacionHotel:
     def generarHabitacionHotel(self, cantidad: int):
         with open("habitacionHotel.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3]])
             for i in range(cantidad):  
                 habitacionHotel = self.getRandomHabitacionHotel()
                 alojamientoDuenio[habitacionHotel[0]] = habitacionHotel[3]
@@ -394,6 +412,7 @@ class HabitacionViviendaUniversitaria:
         self.idAlojamiento = idAlojamiento
         self.cantiadAdmViviendaUniversitaria = cantiadAdmViviendaUniversitaria
         self.tipoHabitacion = ["individual","compartido"]
+        self.titulo = ["ID", "TIPOHABITACION", "CAPACIDAD", "IDVIVIENDAUNIVERSITARIA"]
         
     def getIdAlojamiento(self):
         return self.idAlojamiento
@@ -418,6 +437,7 @@ class HabitacionViviendaUniversitaria:
     def generarHabitacionViviendaUniversitaria(self, cantidad: int):
         with open("habitacionViviendaUniversitaria.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3]])
             for i in range(cantidad):  
                 habitacionViviendaUniversitaria = self.getRandomHabitacionViviendaUniversitaria()
                 alojamientoDuenio[habitacionViviendaUniversitaria[0]] = habitacionViviendaUniversitaria[3]
@@ -429,6 +449,7 @@ class HabitacionHostal:
     def __init__(self, idAlojamiento, cantiadHostal) -> None:
         self.idAlojamiento = idAlojamiento
         self.cantiadHostal = cantiadHostal
+        self.titulos = ["ID", "AFORO", "IDHOSTAL"]
         
     def getIdAlojamiento(self):
         return self.idAlojamiento
@@ -449,6 +470,7 @@ class HabitacionHostal:
     def generarHabitacionHostal(self, cantidad: int) -> None:
         with open("habitacionHostal.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulos[0], self.titulos[1], self.titulos[2]])
             for i in range(cantidad):  
                 habitacionHostal = self.getRandomHabitacionHostal()
                 alojamientoDuenio[habitacionHostal[0]] = habitacionHostal[2]
@@ -462,6 +484,7 @@ class Alojamiento:
         self.estatus = ["Y", "N"]
         self.tipoAlojamiento = ["HabitacionHuesped", "ApartamentoAlquiler", "ViviendaTemporal", "HabitacionHotel", "HabitacionViviendaUniversitaria", "HabitacionHostal"]
         self.idAlojamiento = 1
+        self.titulos = ["ID", "UBICACION", "DURACIONMIN", "COSTO", "ESTATUS", "TIPOALOJAMIENTO", "IDOPERADOR"]
         
     def getCantidadRegistros(self) -> int:
         return self.cantidadRegistros
@@ -503,6 +526,7 @@ class Alojamiento:
     def generarAlojamiento(self, cantidad: int):
         with open("alojamiento.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulos[0], self.titulos[1], self.titulos[2], self.titulos[3], self.titulos[4], self.titulos[5], self.titulos[6]])
             for i in range(cantidad):  
                 alojamiento = self.getRandomAlojamiento()
                 alojamientoCosto[alojamiento[0]] = alojamiento[3]
@@ -514,6 +538,7 @@ class AlojamientoServicio:
     def __init__(self, primerAlojamiento: int, ultimoAlojamiento: int) -> None:
         self.primerAlojamiento = primerAlojamiento
         self.ultimoAlojamiento = ultimoAlojamiento
+        self.titulos = ["IDALOJAMIENTO", "IDSERVICIO", "COSTO"]
         
     def getPrimerAlojamiento(self) -> int:
         return self.primerAlojamiento
@@ -530,6 +555,7 @@ class AlojamientoServicio:
     def generarAlojamientoServicio(self, cantidad: int) -> None:
         with open("alojamientoServicio.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulos[0], self.titulos[1], self.titulos[2]])
             for i in range(cantidad):  
                 alojamientoServicio = self.getRandomAlojamientoServicio()
                 writer.writerow([alojamientoServicio[0], alojamientoServicio[1], alojamientoServicio[2]])
@@ -541,6 +567,7 @@ class Reserva:
         self.id = 1
         self.cantidadCliente = cantidadCliente
         self.cantidadAlojamientos = cantidadAlojamientos
+        self.titulo = ["ID", "FECHAINI", "FECHAFIN", "IDENTIFICACIONCLIENTE", "IDALOJAMIENTO", "ESTADO", "IDGRUPO", "GANANCIA", "NUMOCUPAMIENTO"]
         
     def getId(self) -> int:
         return self.id
@@ -581,6 +608,7 @@ class Reserva:
     def generarReserva(self, cantidad: int) -> None:
         with open("reserva.csv", "w", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow([self.titulo[0], self.titulo[1], self.titulo[2], self.titulo[3], self.titulo[4], self.titulo[5], self.titulo[6], self.titulo[7], self.titulo[8]])
             for i in range(cantidad):  
                 reserva = self.getRandomReserva()
                 writer.writerow([reserva[0], reserva[1], reserva[2], reserva[3], reserva[4], reserva[5], reserva[6], reserva[7], reserva[8]])

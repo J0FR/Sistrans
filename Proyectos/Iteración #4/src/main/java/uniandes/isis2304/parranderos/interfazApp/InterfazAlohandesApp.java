@@ -2889,9 +2889,246 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
-
-	
     }
+
+
+	/**
+	 * RFC10 - CONSULTAR CONSUMO EN ALOHANDES 
+	 */
+	 public void mostrarDarConsumoAlohandes( )
+	 {
+		 try 
+		 {
+			 JPanel myPanel = new JPanel(new GridBagLayout());
+			 
+			 JTextField fechaIni = new JTextField(7);
+			 JTextField fechaFin = new JTextField(7);
+			 String[] choicesTipoAlojamiento = {"A_CLIENTE.NOMBRE" , "A_CLIENTE.TIPOVINCULO" , "A_CLIENTE.CORREOELECTRONICO" , "A_CLIENTE.TELEFONO" , "A_RESERVA.ID" , "A_RESERVA.FECHAINI" , "A_RESERVA.FECHAFIN" , "A_RESERVA.IDALOJAMIENTO" , "A_RESERVA.ESTADO" , "A_ALOJAMIENTO.TIPOALOJAMIENTO"};
+			 final JComboBox<String> orderBy = new JComboBox<String>(choicesTipoAlojamiento);
+ 
+			 GridBagConstraints gbc = new GridBagConstraints();
+ 
+			 //Izquierda
+			 gbc.anchor = GridBagConstraints.WEST;
+			 gbc.gridx = 0;
+ 
+			 gbc.gridy = 1;
+			 myPanel.add(new JLabel("Fecha de inicio (dd/MM/yyyy) "), gbc);
+ 
+			 gbc.gridy = 2;
+			 myPanel.add(fechaIni,gbc);
+
+			 gbc.gridy = 3;
+			 myPanel.add(new JLabel("Seleccionar ordenamiento "), gbc);
+ 
+			 gbc.gridy = 4;
+			 myPanel.add(orderBy,gbc);
+ 
+			 //Centro
+			 gbc.anchor = GridBagConstraints.CENTER;
+			 gbc.gridx = 1;
+			 gbc.gridy = 0;
+			 myPanel.add(new JLabel("Escoja los servicios que desea"), gbc);
+			 
+			 //Derecha
+			 gbc.anchor = GridBagConstraints.WEST;
+			 gbc.gridx = 2;
+ 
+			 gbc.gridy = 1;
+			 myPanel.add(new JLabel("Fecha de fin (dd/MM/yyyy)"), gbc);
+ 
+			 gbc.gridy = 2;
+			 myPanel.add(fechaFin, gbc);
+			 
+ 
+			 JOptionPane.showMessageDialog(this, myPanel, "Consultar Consumo Alohandes", JOptionPane.DEFAULT_OPTION);
+ 
+			 if (fechaIni.getText() != null && fechaFin.getText() != null )
+			 {	
+				 SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+				 Timestamp fechaInicio = new Timestamp(formatoFecha.parse(fechaIni.getText()).getTime());
+				 Timestamp fechaFinal = new Timestamp(formatoFecha.parse(fechaFin.getText()).getTime());
+ 
+				 List<Object[]> alojamientosConCondicion= alohandes.darConsumoAlohandes(fechaInicio, fechaFinal, String.valueOf(orderBy.getSelectedItem()), identificadorLogin);
+				 if ( alojamientosConCondicion == null)
+				 {
+					 throw new Exception ("No se encontro ningun alojamiento con esas condciciones");
+				 }
+ 
+				 String resultado = "En mostrarDarConsumoAlohandesAdmin\n\n";
+				 resultado += "Los alojamientos con esas condiciones son:\n";
+				 
+				 for (Object[] alojamiento : alojamientosConCondicion) {
+					 resultado += "id: " + alojamiento[0] + " ubicación: " +alojamiento[1] + " costo: " + alojamiento[2] + "\n";
+				 }
+				 
+				 panelDatos.actualizarInterfaz(resultado);
+			 }
+			 else
+			 {
+				 panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			 }
+		 } 
+		 catch (Exception e) 
+		 {
+ //			e.printStackTrace();
+			 String resultado = generarMensajeError(e);
+			 panelDatos.actualizarInterfaz(resultado);
+		 }
+	 }
+
+
+	 	/**
+	 * RFC11 - CONSULTAR CONSUMO EN ALOHANDES 
+	 */
+	public void mostrarDarConsumoAlohandesV2( )
+	{
+		try 
+		{
+			JPanel myPanel = new JPanel(new GridBagLayout());
+			
+			JTextField fechaIni = new JTextField(7);
+			JTextField fechaFin = new JTextField(7);
+			String[] choicesTipoAlojamiento = {"A_CLIENTE.NOMBRE" , "A_CLIENTE.TIPOVINCULO" , "A_CLIENTE.CORREOELECTRONICO" , "A_CLIENTE.TELEFONO" , "A_RESERVA.ID" , "A_RESERVA.FECHAINI" , "A_RESERVA.FECHAFIN" , "A_RESERVA.IDALOJAMIENTO" , "A_RESERVA.ESTADO" , "A_ALOJAMIENTO.TIPOALOJAMIENTO"};
+			final JComboBox<String> orderBy = new JComboBox<String>(choicesTipoAlojamiento);
+
+			GridBagConstraints gbc = new GridBagConstraints();
+
+			//Izquierda
+			gbc.anchor = GridBagConstraints.WEST;
+			gbc.gridx = 0;
+
+			gbc.gridy = 1;
+			myPanel.add(new JLabel("Fecha de inicio (dd/MM/yyyy) "), gbc);
+
+			gbc.gridy = 2;
+			myPanel.add(fechaIni,gbc);
+
+			gbc.gridy = 3;
+			myPanel.add(new JLabel("Seleccionar ordenamiento "), gbc);
+
+			gbc.gridy = 4;
+			myPanel.add(orderBy,gbc);
+
+			//Centro
+			gbc.anchor = GridBagConstraints.CENTER;
+			gbc.gridx = 1;
+			gbc.gridy = 0;
+			myPanel.add(new JLabel("Escoja los servicios que desea"), gbc);
+			
+			//Derecha
+			gbc.anchor = GridBagConstraints.WEST;
+			gbc.gridx = 2;
+
+			gbc.gridy = 1;
+			myPanel.add(new JLabel("Fecha de fin (dd/MM/yyyy)"), gbc);
+
+			gbc.gridy = 2;
+			myPanel.add(fechaFin, gbc);
+			
+
+			JOptionPane.showMessageDialog(this, myPanel, "Consultar Consumo Alohandes V2", JOptionPane.DEFAULT_OPTION);
+
+			if (fechaIni.getText() != null && fechaFin.getText() != null )
+			{	
+				SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+				Timestamp fechaInicio = new Timestamp(formatoFecha.parse(fechaIni.getText()).getTime());
+				Timestamp fechaFinal = new Timestamp(formatoFecha.parse(fechaFin.getText()).getTime());
+
+				List<Object[]> alojamientosConCondicion= alohandes.darConsumoAlohandesV2(fechaInicio, fechaFinal, String.valueOf(orderBy.getSelectedItem()), identificadorLogin);
+				if ( alojamientosConCondicion == null)
+				{
+					throw new Exception ("No se encontro ningun alojamiento con esas condciciones");
+				}
+
+				String resultado = "En mostrarDarConsumoAlohandesAdmin\n\n";
+				resultado += "Los alojamientos con esas condiciones son:\n";
+				
+				for (Object[] alojamiento : alojamientosConCondicion) {
+					resultado += "id: " + alojamiento[0] + " ubicación: " +alojamiento[1] + " costo: " + alojamiento[2] + "\n";
+				}
+				
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+
+	/**
+	* RFC12 - CONSULTAR FUNCIONAMIENTO  
+	*/
+
+	public void mostrarConsultaFuncionamiento( )
+	{	
+		try{
+			List<Object[]> datos= alohandes.darConsultarBuenosClientes();
+			if ( datos == null)
+			{
+				throw new Exception ("No se encontraron alojamientos disponibles para consultar el indice de ocupacion");
+			}
+			String resultado = "En mostrar consulta funcionamiento\n\n";
+        	resultado += "Los buenos clientes identificados fueron:\n";
+
+			for (Object[] dato : datos) {
+				resultado += "Identificacion: " + dato[0] + " Nombre: " + dato[1] 
+									+ " Tipo Vinculo: " + dato[2] 
+									+ " Correo Electronico: " + dato[3] 
+									+ "Telefono" + dato[4] 
+									+ "Criterio" + dato[5] + "\n";
+			}
+			
+			panelDatos.actualizarInterfaz(resultado);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}	
+
+
+	/**
+	* RFC13 - CONSULTAR LOS BUENOS CLIENTES
+	*/
+
+	public void mostrarConsultarBuenosClientes( )
+	{	
+		try{
+			List<Object[]> datos= alohandes.darConsultarBuenosClientes();
+			if ( datos == null)
+			{
+				throw new Exception ("No se encontro nada");
+			}
+			String resultado = "En mostrar buenos clientes\n\n";
+        	resultado += "Los buenos clientes identificados fueron:\n";
+
+			for (Object[] dato : datos) {
+				resultado += "Identificacion: " + dato[0] + " Nombre: " + dato[1] 
+									+ " Tipo Vinculo: " + dato[2] 
+									+ " Correo Electronico: " + dato[3] 
+									+ "Telefono" + dato[4] 
+									+ "Criterio" + dato[5] + "\n";
+			}
+			
+			panelDatos.actualizarInterfaz(resultado);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}	
+
 
 
 	/**

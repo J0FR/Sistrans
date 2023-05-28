@@ -446,6 +446,66 @@ public class Alohandes {
 	}
 
 	/**
+	 * RFC10 - CONSULTAR CONSUMO EN ALOHANDES 
+	 * 
+	 * @param fechaIni - La fecha inicial 
+	 * @param fechaFin - La fecha final
+	 * @param orderBy - Columna por la cual se ordenará el resultado
+	 * @return Una lista de tuplas con los alojamientos que cumplen las condiciones
+	 */
+	public List<Object[]> darConsumoAlohandes(Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	{
+		log.info ("Listando alojamientos que cumplen las condiciones:");
+        List<Object []> tuplas = pa.darConsumoAlohandes(fechaIni, fechaFin, orderBy, idUser);
+        log.info ("Listando alojamientos que cumplen las condiciones: Listo!");
+        return tuplas;
+	}
+
+
+	/**
+	 * RFC11 - CONSULTAR CONSUMO EN ALOHANDES – RFC10-V2
+	 * 
+	 * @param fechaIni - La fecha inicial 
+	 * @param fechaFin - La fecha final
+	 * @param orderBy - Columna por la cual se ordenará el resultado
+	 * @return Una lista de tuplas con los alojamientos que cumplen las condiciones
+	 */
+	public List<Object[]> darConsumoAlohandesV2(Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	{
+		log.info ("Listando alojamientos que cumplen las condiciones:");
+        List<Object []> tuplas = pa.darConsumoAlohandesV2(fechaIni, fechaFin, orderBy, idUser);
+        log.info ("Listando alojamientos que cumplen las condiciones: Listo!");
+        return tuplas;
+	}
+
+
+	/**
+	 * 	RFC12 - CONSULTAR FUNCIONAMIENTO  
+	 * @return Una lista de tuplas con el indice de ocupacion de cada oderta de alojamiento
+	 */
+	public List<Object[]> darConsultaFuncionamiento()
+	{
+		log.info ("Listando alojamientos que cumplen las condiciones:");
+		List<Object []> tuplas = pa.darConsultaFuncionamiento();
+		log.info ("Listando alojamientos que cumplen las condiciones:");
+		return tuplas;
+	}
+
+
+	/**
+	 * 	RFC13 - CONSULTAR LOS BUENOS CLIENTES
+	 * @return Una lista de tuplas con el indice de ocupacion de cada oderta de alojamiento
+	 */
+	public List<Object[]> darConsultarBuenosClientes()
+	{
+		log.info ("Listando alojamientos que cumplen las condiciones:");
+		List<Object []> tuplas = pa.darConsultarBuenosClientes();
+		log.info ("Listando alojamientos que cumplen las condiciones:");
+		return tuplas;
+	}
+
+
+	/**
 	 * RFC4 - MOSTRAR LOS ALOJAMIENTOS DISPONIBLES EN UN RANGO DE FECHAS, 
 	 * QUE CUMPLEN CON UN CONJUNTO DE REQUERIMIENTOS DE DOTACIÓN O SERVICIOS.
 	 * 

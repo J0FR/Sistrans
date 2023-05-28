@@ -320,4 +320,106 @@ public class SQLAlojamiento {
         q.setResultClass(Alojamiento.class); 
         return q.executeList();
     }
+
+
+	/**
+	 * RFC10 - CONSULTAR CONSUMO EN ALOHANDES 
+	 * 
+	 * @param pm - El manejador de persistencia
+	 * @param fechaIni - Fecha inicial de la consulta
+	 * @param fechaFin - Fecha final de la consulta
+	 * @param orderBy - Columna por la cual se ordenará el resultado
+	 * @return Una lista de tuplas con la información de los alojamientos y su indice de ocupación
+	 */
+	public List<Object[]> darConsumoAlohandes(PersistenceManager pm, Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	{
+		String sql = "SELECT A_CLIENTE.IDENTIFICACION IDENTIFICACION, A_CLIENTE.NOMBRE NOMBRE, A_CLIENTE.TIPOVINCULO TIPOVINCULO, A_CLIENTE.CORREOELECTRONICO CORREOELECTRONICO, A_CLIENTE.TELEFONO TELEFONO, A_RESERVA.ID ID, A_RESERVA.FECHAINI FECHAINI, A_RESERVA.FECHAFIN FECHAFIN, A_RESERVA.IDALOJAMIENTO IDALOJAMIENTO, A_RESERVA.ESTADO ESTADO FROM A_CLIENTE, A_RESERVA, A_ALOJAMIENTO WHERE A_RESERVA.IDALOJAMIENTO = A_ALOJAMIENTO.ID     AND A_CLIENTE.IDENTIFICACION = A_RESERVA.IDENTIFICACIONCLIENTE      AND A_RESERVA.FECHAINI BETWEEN ? AND ?     AND A_RESERVA.FECHAFIN BETWEEN ? AND ? ";
+		if (!idUser.equals("Admin")) {
+			sql += " A_ALOJAMIENTO.IDOPERADOR = ? ";
+		}
+		sql += "GROUP BY A_CLIENTE.IDENTIFICACION , A_CLIENTE.NOMBRE , A_CLIENTE.TIPOVINCULO , A_CLIENTE.CORREOELECTRONICO , A_CLIENTE.TELEFONO , A_RESERVA.ID , A_RESERVA.FECHAINI , A_RESERVA.FECHAFIN , A_RESERVA.IDALOJAMIENTO , A_RESERVA.ESTADO , A_ALOJAMIENTO.TIPOALOJAMIENTO ORDER BY ? FETCH FIRST 100 ROWS ONLY";
+
+		Query q = pm.newQuery(SQL, sql);
+		List<Object> parameters = new ArrayList<>();
+		
+		parameters.add(fechaIni);
+		parameters.add(fechaFin);
+
+		parameters.add(fechaIni);
+		parameters.add(fechaFin);
+
+		if (!idUser.equals("Admin")){
+			parameters.add(idUser);
+		}
+
+		parameters.add(orderBy);
+		
+		q.setParameters(parameters.toArray());
+		return q.executeList();
+	}
+
+	/**
+	 * RFC11 - CONSULTAR CONSUMO EN ALOHANDES – RFC10-V2
+	 * 
+	 * @param pm - El manejador de persistencia
+	 * @param fechaIni - Fecha inicial de la consulta
+	 * @param fechaFin - Fecha final de la consulta
+	 * @param orderBy - Columna por la cual se ordenará el resultado
+	 * @return Una lista de tuplas con la información de los alojamientos y su indice de ocupación
+	 */
+	public List<Object[]> darConsumoAlohandesV2(PersistenceManager pm, Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	{
+		
+		String sql = "SELECT A_CLIENTE.IDENTIFICACION IDENTIFICACION, A_CLIENTE.NOMBRE NOMBRE, A_CLIENTE.TIPOVINCULO TIPOVINCULO, A_CLIENTE.CORREOELECTRONICO CORREOELECTRONICO, A_CLIENTE.TELEFONO TELEFONO, A_RESERVA.ID ID FROM A_CLIENTE LEFT JOIN A_RESERVA ON A_CLIENTE.IDENTIFICACION = A_RESERVA.IDENTIFICACIONCLIENTE INNER JOIN A_ALOJAMIENTO ON A_RESERVA.IDALOJAMIENTO = A_ALOJAMIENTO.ID WHERE A_RESERVA.IDENTIFICACIONCLIENTE IS NULL     AND A_RESERVA.IDALOJAMIENTO = A_ALOJAMIENTO.ID     AND A_RESERVA.FECHAINI BETWEEN ? AND ?     AND A_RESERVA.FECHAFIN BETWEEN ? AND ?  ";
+		if (!idUser.equals("Admin")) {
+			sql += " A_ALOJAMIENTO.IDOPERADOR = ? ";
+		}
+		sql += "GROUP BY A_CLIENTE.IDENTIFICACION , A_CLIENTE.NOMBRE , A_CLIENTE.TIPOVINCULO , A_CLIENTE.CORREOELECTRONICO , A_CLIENTE.TELEFONO , A_RESERVA.ID , A_RESERVA.FECHAINI , A_RESERVA.FECHAFIN , A_RESERVA.IDALOJAMIENTO , A_RESERVA.ESTADO , A_ALOJAMIENTO.TIPOALOJAMIENTO ORDER BY ? FETCH FIRST 100 ROWS ONLY";
+
+		Query q = pm.newQuery(SQL, sql);
+		List<Object> parameters = new ArrayList<>();
+		
+		parameters.add(fechaIni);
+		parameters.add(fechaFin);
+
+		parameters.add(fechaIni);
+		parameters.add(fechaFin);
+		
+		if (!idUser.equals("Admin")){
+			parameters.add(idUser);
+		}
+
+		parameters.add(orderBy);
+		
+		q.setParameters(parameters.toArray());
+		return q.executeList();
+	}
+
+	/**
+	 * RFC12 - CONSULTAR FUNCIONAMIENTO  
+	 * 
+	 * @param pm - El manejador de persistencia
+	 * @return Una lista de tuplas con la información de los alojamientos y su indice de ocupación
+	 */
+	public List<Object[]> darConsultaFuncionamiento(PersistenceManager pm)
+	{
+		String sql = "";
+		
+		Query q = pm.newQuery(SQL, sql);
+		return q.executeList();
+	}
+
+	/**
+	 * RFC13 - CONSULTAR LOS BUENOS CLIENTES
+	 * 
+	 * @param pm - El manejador de persistencia
+	 * @return Una lista de tuplas con la información de los alojamientos y su indice de ocupación
+	 */
+	public List<Object[]> darConsultarBuenosClientes(PersistenceManager pm)
+	{
+		String sql = "SELECT      a_cliente.IDENTIFICACION,      a_cliente.NOMBRE,      a_cliente.TIPOVINCULO,      a_cliente.CORREOELECTRONICO,      a_cliente.TELEFONO,      LISTAGG(criteria.CRITERIO, ', ') WITHIN GROUP (ORDER BY criteria.CRITERIO) AS CRITERIOS FROM      a_cliente     JOIN (         SELECT DISTINCT              a_cliente.IDENTIFICACION,              CASE                  WHEN COUNT(DISTINCT TRUNC(a_reserva.FECHAINI, 'MM')) >= 3 THEN 'Reserva mensual'                 WHEN AVG(a_reserva.GANANCIA) > 150 THEN 'Alojamientos costosos'                 WHEN COUNT(DISTINCT CASE WHEN a_alojamiento.TIPOALOJAMIENTO = 'HabitacionHotel' AND a_habitacionhotel.TIPOHABITACION = 'suite' THEN TRUNC(a_reserva.FECHAINI, 'MM') END) >= 1 THEN 'Reserva en suite'                 ELSE NULL             END AS CRITERIO         FROM              a_cliente             JOIN a_reserva ON a_cliente.IDENTIFICACION = a_reserva.IDENTIFICACIONCLIENTE             JOIN a_alojamiento ON a_reserva.IDALOJAMIENTO = a_alojamiento.ID             LEFT JOIN a_habitacionhotel ON a_alojamiento.ID = a_habitacionhotel.ID         WHERE             a_reserva.FECHAINI BETWEEN ADD_MONTHS(SYSDATE, -3) AND SYSDATE             OR a_reserva.FECHAFIN BETWEEN ADD_MONTHS(SYSDATE, -3) AND SYSDATE         GROUP BY              a_cliente.IDENTIFICACION     ) criteria ON a_cliente.IDENTIFICACION = criteria.IDENTIFICACION WHERE     criteria.CRITERIO IS NOT NULL GROUP BY      a_cliente.IDENTIFICACION,      a_cliente.NOMBRE,      a_cliente.TIPOVINCULO,      a_cliente.CORREOELECTRONICO,      a_cliente.TELEFONO FETCH FIRST 100 ROWS ONLY";
+		
+		Query q = pm.newQuery(SQL, sql);
+		return q.executeList();
+	}
 }

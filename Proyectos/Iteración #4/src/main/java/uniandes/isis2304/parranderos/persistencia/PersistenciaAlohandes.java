@@ -1219,6 +1219,53 @@ public class PersistenciaAlohandes {
 		return sqlAlojamiento.encontrarAlojamientosPocaDemanda(pmf.getPersistenceManager());
 	}
 
+	/**
+	 * RFC10 - CONSULTAR CONSUMO EN ALOHANDES 
+	 * 
+	 * @param fechaIni - La fecha inicial 
+	 * @param fechaFin - La fecha final
+	 * @param orderBy - Columna por la cual se ordenará el resultado
+	 * @return Una lista de tuplas con los alojamientos que cumplen las condiciones
+	 */
+	public List<Object[]> darConsumoAlohandes(Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	{
+		return sqlAlojamiento.darConsumoAlohandes(pmf.getPersistenceManager(), fechaIni, fechaFin, orderBy, idUser);
+	}
+
+
+	/**
+	 * RFC11 - CONSULTAR CONSUMO EN ALOHANDES – RFC10-V2
+	 * 
+	 * @param fechaIni - La fecha inicial 
+	 * @param fechaFin - La fecha final
+	 * @param orderBy - Columna por la cual se ordenará el resultado
+	 * @return Una lista de tuplas con los alojamientos que cumplen las condiciones
+	 */
+	public List<Object[]> darConsumoAlohandesV2(Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	{
+		return sqlAlojamiento.darConsumoAlohandesV2(pmf.getPersistenceManager(), fechaIni, fechaFin, orderBy, idUser);
+	}
+
+
+	/**
+	 * RFC12 - CONSULTAR FUNCIONAMIENTO  
+	 * @return List<Alojamiento>
+	 */
+	public List<Object[]> darConsultaFuncionamiento()
+	{
+		return sqlAlojamiento.darConsultaFuncionamiento(pmf.getPersistenceManager());
+	}
+
+
+	/**
+	 * RFC13 - CONSULTAR LOS BUENOS CLIENTES
+	 * @return List<Alojamiento>
+	 */
+	public List<Object[]> darConsultarBuenosClientes()
+	{
+		return sqlAlojamiento.darConsultarBuenosClientes(pmf.getPersistenceManager());
+	}
+
 	/* ****************************************************************
 	 * 			Métodos para manejar los HabitacionesHuesped
 	 *****************************************************************/

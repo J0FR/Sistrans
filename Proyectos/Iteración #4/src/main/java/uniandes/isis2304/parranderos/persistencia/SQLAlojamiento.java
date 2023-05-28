@@ -51,10 +51,10 @@ public class SQLAlojamiento {
 	 * @param tipoAlojamiento - El tipoAlojamiento de un alojamiento
      * @return El número de tuplas insertadas
      */
-    public long adicionarAlojamiento(PersistenceManager pm, long id, String ubicacion, int duracionMin, int costo, String estatus, String tipoAlojamiento) {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, estatus, tipoAlojamiento) values (?, ?, ?, ?, ?, ?) ");
+    public long adicionarAlojamiento(PersistenceManager pm, long id, String ubicacion, int duracionMin, int costo, String estatus, String tipoAlojamiento, String idOperador) {
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pa.darTablaAlojamiento() + "(id, ubicacion, duracionMin, costo, estatus, tipoAlojamiento, idOperador) values (?, ?, ?, ?, ?, ?, ?) ");
             
-        q.setParameters(id, ubicacion, duracionMin, costo, estatus, tipoAlojamiento);
+        q.setParameters(id, ubicacion, duracionMin, costo, estatus, tipoAlojamiento, idOperador);
         return (long) q.executeUnique();
     }
 
@@ -285,7 +285,6 @@ public class SQLAlojamiento {
 		Query q = pm.newQuery(SQL, "UPDATE " + pa.darTablaAlojamiento() + " SET ESTATUS = 'Y' WHERE ID = ? ");
 		q.setParameters(id);
 		return (long) q.executeUnique();
-
 	}
 
 

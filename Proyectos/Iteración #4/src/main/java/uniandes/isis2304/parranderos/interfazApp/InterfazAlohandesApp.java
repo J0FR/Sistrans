@@ -997,7 +997,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear habitacion huesped", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && comidas.getText() != null && dtoMesExtra.getText() != null && identificacionOperadorUsuario.getText() != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHuesped");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHuesped", identificacionOperadorUsuario.getText());
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -1061,7 +1061,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear habitacion huesped", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && comidas.getText() != null && dtoMesExtra.getText() != null && identificacionOperadorUsuario != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHuesped");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHuesped", identificacionOperadorUsuario);
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -1173,7 +1173,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear ApartamentoAlquiler", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && identificacionOperadorUsuario.getText() != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 30, Integer.valueOf(costo.getText()), "ApartamentoAlquiler");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 30, Integer.valueOf(costo.getText()), "ApartamentoAlquiler", identificacionOperadorUsuario.getText());
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -1230,7 +1230,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear ApartamentoAlquiler", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && identificacionOperadorUsuario != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 30, Integer.valueOf(costo.getText()), "ApartamentoAlquiler");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 30, Integer.valueOf(costo.getText()), "ApartamentoAlquiler", identificacionOperadorUsuario);
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -1343,7 +1343,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear ViviendaTemporal", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && numHabitaciones.getText() != null && precSegArren.getText() != null && caracSeguro.getText() != null && diasAlquilado.getText() != null && identificacionOperadorUsuario.getText() != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "ViviendaTemporal");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "ViviendaTemporal", identificacionOperadorUsuario.getText());
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -1408,7 +1408,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear ViviendaTemporal", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && numHabitaciones.getText() != null && precSegArren.getText() != null && caracSeguro.getText() != null && diasAlquilado.getText() != null && identificacionOperadorUsuario!= null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "ViviendaTemporal");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "ViviendaTemporal", identificacionOperadorUsuario);
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -2012,7 +2012,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear habitacion de hotel", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && tamanio.getText() != null && idHotel.getText() != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHotel");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHotel", String.valueOf(idHotel.getText()));
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -2075,7 +2075,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear habitacion de hotel", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && tamanio.getText() != null && idHotel != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHotel");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHotel", String.valueOf(idHotel));
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -2206,7 +2206,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear habitacion de hostal", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && aforo.getText() != null && idHostal.getText() != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHostal");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHostal", String.valueOf(idHostal.getText()));
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -2265,7 +2265,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear habitacion de hostal", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && aforo.getText() != null && idHostal != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHostal");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionHostal", String.valueOf(idHostal));
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -2481,7 +2481,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear habitacion de vivienda universitaria", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && capacidad.getText() != null && idViviendaUniversitaria.getText() != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionViviendaUniversitaria");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionViviendaUniversitaria", String.valueOf(idViviendaUniversitaria.getText()));
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());
@@ -2544,7 +2544,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
     		JOptionPane.showMessageDialog(this, myPanel, "Crear habitacion de vivienda universitaria", JOptionPane.DEFAULT_OPTION);
     		if (ubicacion.getText() != null && costo.getText() != null && capacidad.getText() != null && idViviendaUniversitaria != null)
     		{
-				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionViviendaUniversitaria");
+				VOAlojamiento alojamiento = alohandes.adicionarAlojamiento(ubicacion.getText(), 1, Integer.valueOf(costo.getText()), "HabitacionViviendaUniversitaria", String.valueOf(idViviendaUniversitaria));
         		if (alojamiento == null)
         		{
         			throw new Exception ("No se pudo crear un alojamiento con ubicacion: " + ubicacion.getText());

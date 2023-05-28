@@ -33,7 +33,11 @@ public interface VOAlojamiento {
 	 * @return El tipo del alojamiento
 	 */
 	public String getTipoAlojamiento();
-	
+
+	/**
+	 * @return El id del operador
+	 */
+	public String getIdOperador();
 
 	/** 
 	 * @return Una cadena con la información básica

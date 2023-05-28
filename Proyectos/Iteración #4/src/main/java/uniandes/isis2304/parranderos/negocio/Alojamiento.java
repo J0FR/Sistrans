@@ -34,6 +34,11 @@ public class Alojamiento implements VOAlojamiento {
 	 */
 	private String tipoAlojamiento;
 
+	/**
+	 * El tipo de un alojamiento 
+	 */
+	private String idOperador;
+
 
 	/* ****************************************************************
 	 * 			Métodos 
@@ -49,6 +54,7 @@ public class Alojamiento implements VOAlojamiento {
 		this.costo = 0;
 		this.estatus = "";
 		this.tipoAlojamiento = "";
+		this.idOperador = "";
 	}
 
 	/**
@@ -58,8 +64,9 @@ public class Alojamiento implements VOAlojamiento {
 	 * @param costo - El duracionMin de un alojamiento
 	 * @param estatus - El estado de un alojamiento
 	 * @param tipoAlojamiento - El tipoAlojamiento de un alojamiento
+	 * @param idOperador - El idOperador de un alojamiento
 	 */
-    public Alojamiento(long id, String ubicacion, int duracionMin, int costo, String estatus, String tipoAlojamiento) 
+    public Alojamiento(long id, String ubicacion, int duracionMin, int costo, String estatus, String tipoAlojamiento, String idOperador) 
     {
     	this.id = id;
 		this.ubicacion = ubicacion;
@@ -67,6 +74,7 @@ public class Alojamiento implements VOAlojamiento {
 		this.costo = costo;
 		this.estatus = estatus;
 		this.tipoAlojamiento = tipoAlojamiento;
+		this.idOperador = "";
 	}
 
     /**
@@ -164,6 +172,22 @@ public class Alojamiento implements VOAlojamiento {
 	{
 		this.tipoAlojamiento = tipoAlojamiento;
 	}
+
+	/**
+	 * @param idOperador - El nuevo idOperador del alojamiento
+	 */
+	public void setIdOperador(String idOperador)
+	{
+		this.idOperador = idOperador;
+	}
+
+	/**
+	 * @return El idOperador del alojamiento
+	 */
+	public String getIdOperador()
+	{
+		return idOperador;
+	}
 	
 	@Override
 	/**
@@ -171,6 +195,6 @@ public class Alojamiento implements VOAlojamiento {
 	 */
 	public String toString() 
 	{
-		return "Alojamiento [id=" + id + ", ubicacion=" + ubicacion + ", duracionMin=" + duracionMin  + ", costo=" + costo  + ", estatus=" + estatus + "]";
+		return "Alojamiento [id=" + id + ", ubicacion=" + ubicacion + ", duracionMin=" + duracionMin  + ", costo=" + costo  + ", estatus=" + estatus + ", tipoAlojamiento=" + tipoAlojamiento + ", idOperador=" + idOperador + "]";
 	}
 }

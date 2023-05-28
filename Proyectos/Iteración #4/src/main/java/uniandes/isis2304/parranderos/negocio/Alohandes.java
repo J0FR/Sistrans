@@ -412,9 +412,9 @@ public class Alohandes {
 	 * @param costo       - El costo de un alojamiento
 	 * @return El objeto Alojamiento adicionado. null si ocurre alguna Excepción
 	 */
-	public Alojamiento adicionarAlojamiento(String ubicacion, int duracionMin, int costo, String tipoAlojamiento) {
+	public Alojamiento adicionarAlojamiento(String ubicacion, int duracionMin, int costo, String tipoAlojamiento, String idOperador) {
 		log.info("Adicionando alojamiento: " + ubicacion);
-		Alojamiento alojamiento = pa.adicionarAlojamiento(ubicacion, duracionMin, costo, tipoAlojamiento);
+		Alojamiento alojamiento = pa.adicionarAlojamiento(ubicacion, duracionMin, costo, tipoAlojamiento, idOperador);
 		log.info("Adicionando alojamiento: " + alojamiento);
 		return alojamiento;
 	}

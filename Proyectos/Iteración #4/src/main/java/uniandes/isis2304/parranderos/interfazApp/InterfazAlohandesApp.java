@@ -3071,7 +3071,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 	public void mostrarConsultaFuncionamiento( )
 	{	
 		try{
-			List<Object[]> datos= alohandes.darConsultarBuenosClientes();
+			List<Object[]> datos= alohandes.darConsultaFuncionamiento();
 			if ( datos == null)
 			{
 				throw new Exception ("No se encontraron alojamientos disponibles para consultar el indice de ocupacion");
@@ -3080,11 +3080,15 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
         	resultado += "Los buenos clientes identificados fueron:\n";
 
 			for (Object[] dato : datos) {
-				resultado += "Identificacion: " + dato[0] + " Nombre: " + dato[1] 
-									+ " Tipo Vinculo: " + dato[2] 
-									+ " Correo Electronico: " + dato[3] 
-									+ "Telefono" + dato[4] 
-									+ "Criterio" + dato[5] + "\n";
+				resultado += "Semana: " + dato[0] + " Cantidad Reservas: " + dato[1] 
+									+ " Ocupacion Alojamiento Mas Ocupado: " + dato[2] 
+									+ " Id Alojamiento Alojamiento Mas Ocupado: " + dato[3] 
+									+ " Ocupacion Alojamiento Mas Menos: " + dato[4] 
+									+ " Id Alojamiento Alojamiento Menos Ocupado: " + dato[5] 
+									+ " Numero Solicitudes Operador Menos Solicitado: " + dato[6] 
+									+ " Operador Menos Solicitado: " + dato[7] 
+									+ " Numero Solicitudes Operador Mas Solicitado: " + dato[8] 
+									+ " Operador Mas Solicitado: " + dato[9] + "\n";
 			}
 			
 			panelDatos.actualizarInterfaz(resultado);

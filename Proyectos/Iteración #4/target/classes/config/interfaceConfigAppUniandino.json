@@ -75,6 +75,20 @@
 				}
 			]
 		},
+		{
+			"menuTitle": "Consultas",
+	    	"options":
+			[
+				{
+                    "label": "RFC10 - CONSULTAR CONSUMO EN ALOHANDES ",
+                    "event": "mostrarDarConsumoAlohandes"
+                },
+				{
+                    "label": "RFC11 - CONSULTAR CONSUMO EN ALOHANDES – RFC10-V2",
+                    "event": "mostrarDarConsumoAlohandesV2"
+                }
+			]
+		},
 		{ "menuTitle": "Operacion Cuenta",
 		  "options":
 			[

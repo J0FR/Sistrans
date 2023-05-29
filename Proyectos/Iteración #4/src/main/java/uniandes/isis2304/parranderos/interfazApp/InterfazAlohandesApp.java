@@ -2989,7 +2989,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			
 			JTextField fechaIni = new JTextField(7);
 			JTextField fechaFin = new JTextField(7);
-			String[] choicesTipoAlojamiento = {"A_CLIENTE.NOMBRE" , "A_CLIENTE.TIPOVINCULO" , "A_CLIENTE.CORREOELECTRONICO" , "A_CLIENTE.TELEFONO" , "A_RESERVA.ID" , "A_RESERVA.FECHAINI" , "A_RESERVA.FECHAFIN" , "A_RESERVA.IDALOJAMIENTO" , "A_RESERVA.ESTADO" , "A_ALOJAMIENTO.TIPOALOJAMIENTO"};
+			String[] choicesTipoAlojamiento = {"A_CLIENTE.IDENTIFICACION" ,"A_CLIENTE.NOMBRE" ,"A_CLIENTE.TIPOVINCULO" ,"A_CLIENTE.CORREOELECTRONICO" ,"A_CLIENTE.TELEFONO" ,"A_RESERVA.ID"};
 			final JComboBox<String> orderBy = new JComboBox<String>(choicesTipoAlojamiento);
 
 			GridBagConstraints gbc = new GridBagConstraints();
@@ -3035,8 +3035,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				Timestamp fechaInicio = new Timestamp(formatoFecha.parse(fechaIni.getText()).getTime());
 				Timestamp fechaFinal = new Timestamp(formatoFecha.parse(fechaFin.getText()).getTime());
 
-				List<Object[]> alojamientosConCondicion= alohandes.darConsumoAlohandesV2(fechaInicio, fechaFinal, String.valueOf(orderBy.getSelectedItem()), identificadorLogin);
-				if ( alojamientosConCondicion == null)
+				List<Object[]> datos= alohandes.darConsumoAlohandesV2(fechaInicio, fechaFinal, String.valueOf(orderBy.getSelectedItem()), identificadorLogin);
+				if ( datos == null)
 				{
 					throw new Exception ("No se encontro ningun alojamiento con esas condciciones");
 				}
@@ -3044,8 +3044,8 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				String resultado = "En mostrarDarConsumoAlohandesAdmin\n\n";
 				resultado += "Los alojamientos con esas condiciones son:\n";
 				
-				for (Object[] alojamiento : alojamientosConCondicion) {
-					resultado += "id: " + alojamiento[0] + " ubicación: " +alojamiento[1] + " costo: " + alojamiento[2] + "\n";
+				for (Object[] dato : datos) {
+					resultado += "Identificacion: " + dato[0] + " Nombre: " +dato[1] + " TipoVinculo: " + dato[2] + " Correo Electronico: " + dato[3] + "Telefono" + dato[4] +  "\n";
 				}
 				
 				panelDatos.actualizarInterfaz(resultado);

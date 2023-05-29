@@ -367,7 +367,7 @@ public class SQLAlojamiento {
 	 * @param orderBy - Columna por la cual se ordenará el resultado
 	 * @return Una lista de tuplas con la información de los alojamientos y su indice de ocupación
 	 */
-	public List<Object[]> darConsumoAlohandesV2(PersistenceManager pm, Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	public List<Object[]> darConsumoAlohandesV2(PersistenceManager pm, String orderBy, String idUser)
 	{
 		
 		String sql = "SELECT A_CLIENTE.IDENTIFICACION IDENTIFICACION, A_CLIENTE.NOMBRE NOMBRE, A_CLIENTE.TIPOVINCULO TIPOVINCULO, A_CLIENTE.CORREOELECTRONICO CORREOELECTRONICO, A_CLIENTE.TELEFONO TELEFONO, A_RESERVA.ID ID FROM A_CLIENTE LEFT JOIN A_RESERVA ON A_CLIENTE.IDENTIFICACION = A_RESERVA.IDENTIFICACIONCLIENTE WHERE A_RESERVA.IDENTIFICACIONCLIENTE IS NULL   ";

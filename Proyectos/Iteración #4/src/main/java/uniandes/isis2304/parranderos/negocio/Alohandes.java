@@ -465,15 +465,13 @@ public class Alohandes {
 	/**
 	 * RFC11 - CONSULTAR CONSUMO EN ALOHANDES – RFC10-V2
 	 * 
-	 * @param fechaIni - La fecha inicial 
-	 * @param fechaFin - La fecha final
 	 * @param orderBy - Columna por la cual se ordenará el resultado
 	 * @return Una lista de tuplas con los alojamientos que cumplen las condiciones
 	 */
-	public List<Object[]> darConsumoAlohandesV2(Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	public List<Object[]> darConsumoAlohandesV2(String orderBy, String idUser)
 	{
 		log.info ("Listando alojamientos que cumplen las condiciones:");
-        List<Object []> tuplas = pa.darConsumoAlohandesV2(fechaIni, fechaFin, orderBy, idUser);
+        List<Object []> tuplas = pa.darConsumoAlohandesV2(orderBy, idUser);
         log.info ("Listando alojamientos que cumplen las condiciones: Listo!");
         return tuplas;
 	}

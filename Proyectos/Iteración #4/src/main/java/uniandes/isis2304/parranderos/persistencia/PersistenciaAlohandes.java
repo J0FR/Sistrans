@@ -1241,9 +1241,9 @@ public class PersistenciaAlohandes {
 	 * @param orderBy - Columna por la cual se ordenará el resultado
 	 * @return Una lista de tuplas con los alojamientos que cumplen las condiciones
 	 */
-	public List<Object[]> darConsumoAlohandesV2(Timestamp fechaIni, Timestamp fechaFin, String orderBy, String idUser)
+	public List<Object[]> darConsumoAlohandesV2(String orderBy, String idUser)
 	{
-		return sqlAlojamiento.darConsumoAlohandesV2(pmf.getPersistenceManager(), fechaIni, fechaFin, orderBy, idUser);
+		return sqlAlojamiento.darConsumoAlohandesV2(pmf.getPersistenceManager(), orderBy, idUser);
 	}
 
 

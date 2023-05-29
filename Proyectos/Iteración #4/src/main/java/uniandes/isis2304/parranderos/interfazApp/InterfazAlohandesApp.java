@@ -2999,10 +2999,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			gbc.gridx = 0;
 
 			gbc.gridy = 1;
-			myPanel.add(new JLabel("Fecha de inicio (dd/MM/yyyy) "), gbc);
-
-			gbc.gridy = 2;
-			myPanel.add(fechaIni,gbc);
+			myPanel.add(new JLabel("Escoja los servicios que desea"), gbc);
 
 			gbc.gridy = 3;
 			myPanel.add(new JLabel("Seleccionar ordenamiento "), gbc);
@@ -3014,28 +3011,17 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 			gbc.anchor = GridBagConstraints.CENTER;
 			gbc.gridx = 1;
 			gbc.gridy = 0;
-			myPanel.add(new JLabel("Escoja los servicios que desea"), gbc);
+			
 			
 			//Derecha
 			gbc.anchor = GridBagConstraints.WEST;
 			gbc.gridx = 2;
 
-			gbc.gridy = 1;
-			myPanel.add(new JLabel("Fecha de fin (dd/MM/yyyy)"), gbc);
-
-			gbc.gridy = 2;
-			myPanel.add(fechaFin, gbc);
-			
-
 			JOptionPane.showMessageDialog(this, myPanel, "Consultar Consumo Alohandes V2", JOptionPane.DEFAULT_OPTION);
 
-			if (fechaIni.getText() != null && fechaFin.getText() != null )
-			{	
-				SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-				Timestamp fechaInicio = new Timestamp(formatoFecha.parse(fechaIni.getText()).getTime());
-				Timestamp fechaFinal = new Timestamp(formatoFecha.parse(fechaFin.getText()).getTime());
-
-				List<Object[]> datos= alohandes.darConsumoAlohandesV2(fechaInicio, fechaFinal, String.valueOf(orderBy.getSelectedItem()), identificadorLogin);
+			
+				
+				List<Object[]> datos= alohandes.darConsumoAlohandesV2(String.valueOf(orderBy.getSelectedItem()), identificadorLogin);
 				if ( datos == null)
 				{
 					throw new Exception ("No se encontro ningun alojamiento con esas condciciones");
@@ -3049,11 +3035,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener {
 				}
 				
 				panelDatos.actualizarInterfaz(resultado);
-			}
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
+			
 		} 
 		catch (Exception e) 
 		{

@@ -36,3 +36,5 @@ GROUP BY
     a_cliente.CORREOELECTRONICO, 
     a_cliente.TELEFONO
 FETCH FIRST 100 ROWS ONLY    ;
+
+

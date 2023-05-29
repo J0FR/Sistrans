@@ -182,6 +182,22 @@
                 {
                     "label": "RFC9 - ENCONTRAR LAS OFERTAS DE ALOJAMIENTO QUE NO TIENEN MUCHA DEMANDA",
                     "event": "encontrarAlojamientosPocaDemanda"
+                },
+				{
+                    "label": "RFC10 - CONSULTAR CONSUMO EN ALOHANDES ",
+                    "event": "mostrarDarConsumoAlohandes"
+                },
+				{
+                    "label": "RFC11 - CONSULTAR CONSUMO EN ALOHANDES – RFC10-V2",
+                    "event": "mostrarDarConsumoAlohandesV2"
+                },
+				{
+                    "label": "RFC12 - CONSULTAR FUNCIONAMIENTO",
+                    "event": "mostrarConsultaFuncionamiento"
+                },
+				{
+                    "label": "RFC13 - CONSULTAR LOS BUENOS CLIENTES",
+                    "event": "mostrarConsultarBuenosClientes"
                 }
 			]
 		},
